@@ -1,0 +1,11 @@
+/* Remover o contador de paginas do primeiro slide */
+.title-slide .remark-slide-number {
+  display: none;
+}
+/* Figura de plano de fundo  */
+.title-slide {
+  background-image: url(figuras/fundo3.png);
+  text-align: center;
+  background-size: 100% 100%;
+  background-color: white;
+}
