@@ -127,6 +127,35 @@ output: ioslides_presentation
 
 ---
 
+Sintaxes que podem ser utilizadas
+
+.pull-left[
+**Sintaxe**
+
+```markdown
+ *itálico* 
+```
+]
+
+.pull-right[
+**Resultado**
+
+*itálico*
+]
+
+
+.pull-left[
+```markdown
+ **negrito** 
+```
+]
+
+.pull-right[
+**negrito**
+]
+
+---
+
 Para fazer o download do arquivo em html, faça o seguinte:
 
 - do lado direito do Rstudio, selecione o arquivo em html marcando o quadrado branco.
@@ -137,7 +166,7 @@ Para fazer o download do arquivo em html, faça o seguinte:
 
 - selecione o diretório
 
-- clieque em salvar.
+- clique em salvar.
 
 <br>
 
@@ -147,9 +176,24 @@ Depois de finalizado, anexar o arquivo em html na **Atividade 1** no **bloco Con
 
 # Relatório
 
-Tente reproduzir o texto dd disponível no moodle
+
+
+.pull-left[
+Reproduzir um trecho do livro
+```{r,echo=FALSE, fig.align='center', out.width='70%'}
+knitr::include_graphics('figuras/mont7.png')
+```
+]
+
+.pull-right[
+Sub-capítulo 1.1 e 1.1.1
+]
 
 <br>
+
+O livro pode ser obtido pela biblioteca virtual [http://portal.utfpr.edu.br/biblioteca/bibliotec](http://portal.utfpr.edu.br/biblioteca/bibliotec)
+
+---
 
 .pull-left[
 Passos para criar o arquivo Rmd
@@ -172,6 +216,28 @@ knitr::include_graphics('figuras/rmd_file.jpg')
 - Clicar em ok
 ]
 
+<br>
+
+**Observação**: não há necessidade de figuras.
+
+---
+
+Para fazer o download do arquivo em html, faça o seguinte:
+
+- do lado direito do Rstudio, selecione o arquivo em html marcando o quadrado branco.
+
+- clique na engrenagem azul (pelo menos parece azul) da aba file do lado direito
+
+- selecione Copy to...
+
+- selecione o diretório
+
+- clique em salvar.
+
+<br>
+
+Depois de finalizado, anexar o arquivo em html na **Atividade 2** no **bloco Conceitos básicos de estatística**.
+
 ---
 
 # Próxima aula
@@ -183,21 +249,3 @@ knitr::include_graphics('figuras/vis.png')
 ```
 
 [Fundamentals of Data Visualization](https://clauswilke.com/dataviz/)
-
----
-
-# Exercício
-
-.pull-left[
-```{r,echo=FALSE, fig.align='center', out.width='60%'}
-knitr::include_graphics('https://media.giphy.com/media/heIX5HfWgEYlW/giphy.gif')
-```
-]
-
-.pull-right[
-Reproduzir a análise de um delineamento inteiramente casualizado em pdf ou html
-]
-
-<br>
-
-O arquivo da análise está disponível no [google drive](https://drive.google.com/drive/folders/1HIPgbLBXJ00ZTQdZ_ZbIM_4nCtd3Mvym?usp=sharing)
