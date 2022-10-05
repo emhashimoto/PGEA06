@@ -1,0 +1,97 @@
+---
+title: "PGEA06 - Estatística Aplicada"
+subtitle: "Relatórios e apresentações - Rmarkdown" 
+author: "Elizabeth Mie Hashimoto <br> DAMAT-LD"
+output:
+  xaringan::moon_reader:
+    css: [metropolis, metropolis-fonts, tema_pgea06.css]
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: false
+      countIncrementalSlides: false
+      slideNumberFormat: "%current%"
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(echo = FALSE, 
+                      comment = '',
+                      message = FALSE,
+                      warning = FALSE)
+```
+<style> 
+#caixa {
+  border: 1px solid;
+  padding: 10px;
+  box-shadow: 5px 10px blue;
+}
+div {
+  text-align: justify;
+  text-justify: inter-word;
+}
+</style>
+
+# Recurso computacional
+
+- *Software* `R`
+
+```{r , eval = TRUE, echo=FALSE, fig.align = 'center', out.width = '25%'}
+knitr::include_graphics('figuras/logo_r.jpg')
+```
+
+---
+
+# RMarkdown
+
+.pull-left[
+Códigos e saídas `R`
+
+```{r,echo=FALSE, fig.align='center', out.width='15%'}
+knitr::include_graphics('figuras/logo_r.jpg')
+```
+]
+
+.pull-right[
+`Markdown` (Gruber e Swartz, 2004) 
+
+```{r,echo=FALSE, fig.align='center', out.width='15%'}
+knitr::include_graphics('figuras/mark.png')
+```
+]
+
+<br>
+
+--
+
+```{r,echo=FALSE, fig.align='center', out.width='15%'}
+knitr::include_graphics('figuras/rmarkdown.png')
+```
+
+---
+
+# Tentativa e erro
+
+```{r,echo=FALSE, fig.align='center', out.width='50%'}
+knitr::include_graphics('figuras/tentativa.jpg')
+```
+
+Primeiros arquivos `R Markdown`
+
+---
+
+# Exercício
+
+.pull-left[
+```{r,echo=FALSE, fig.align='center', out.width='60%'}
+knitr::include_graphics('https://media.giphy.com/media/heIX5HfWgEYlW/giphy.gif')
+```
+]
+
+.pull-right[
+Reproduzir a análise de um delineamento inteiramente casualizado em pdf ou html
+]
+
+<br>
+
+O arquivo da análise está disponível no [google drive](https://drive.google.com/drive/folders/1HIPgbLBXJ00ZTQdZ_ZbIM_4nCtd3Mvym?usp=sharing)
