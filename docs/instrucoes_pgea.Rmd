@@ -1,0 +1,110 @@
+---
+title: "Instruções do Trabalho &#128221;"
+author: ""
+date: ""
+output: 
+  html_document:
+    number_sections: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE,
+                      comment = '',
+                      message = FALSE)
+```
+
+```{css, echo=FALSE}
+h1.title {
+  color: rgb(47, 169, 133);
+  text-align: center;
+}
+```
+
+# Objetivo do trabalho
+
+- Fazer uma análise estatística de um conjunto de dados, de preferência da sua área de pesquisa.
+
+- A análise deve ser feita utilizando o *software* `R`.
+
+<!--
+utilizando o *software* R ou outro recurso computacional. Outros pacotes também podem ser utilizados.
+-->
+
+<br>
+
+# Prazo de entrega
+
+- Três semanas (24/03 a 14/04) para escolher o conjunto de dados.
+
+- Quatro semanas (15/04 a 15/05) para fazer o relatório.
+
+- Prazo final de entrega: às 23:59 do dia 15/05.
+
+<br>
+
+# Conjunto de dados
+
+Para selecionar um conjunto de dados:
+
+- Escolher um assunto.
+
+- Procurar um conjunto de dados, em que possa ser escolhido **três variáveis** para estudo (pelo menos uma variável deve ser quantitativa). Opções de *site* com base dados estão disponíveis no moodle.
+
+<br>
+
+# Trabalho
+
+Roteiro:
+
+- Título.
+
+- Autor.
+
+- Descrição do conjunto de dados, bem como das variáveis (classificar as variáveis).
+
+- Estatística descritiva:
+
+  <!-- * tabelas de distribuição de frequência. -->
+  
+  * gráficos.
+  
+  * medidas resumo (média, mediana, desvio padrão, mínimo, máximo).
+  
+- Interpretação dos resultados: informações que pode-se extrair da análise exploratória sobre o assunto do conjunto de dados.
+
+- Referências bibliográficas (incluindo a fonte dos dados).
+
+- Apêndice com as expressões matemáticas utilizadas.
+
+<br>
+**Observação**: não há necessidade de uma capa.
+
+<br>
+
+# Avaliação
+
+A nota do relatório corresponde a **5 pontos**.
+
+A avaliação da análise exploratória será de acordo com os seguintes itens:
+
+- Apresentação do relatório (organizado, bem escrito, figuras e tabelas ajustadas de acordo com o texto).
+
+- Estatística descritiva.
+
+- Intepretação dos resultados.
+
+
+<br>
+**Observações**: 
+
+- **Cópias de análise exploratória** da *internet* serão avaliadas como zero. 
+- **Trabalhos mal feitos** serão avaliados como zero. 
+
+<br>
+
+# Considerações finais
+
+- Utilizar códigos para reproduzir uma análise exploratória será permitido. Entretanto, a escrita da análise deve ser de autoria do próprio aluno e citar a referência sempre que necessário.
+
+- Discutir com o colega sobre a forma de fazer uma análise exploratória será permitido. Entretanto, a escrita da análise deve ser de autoria do próprio aluno.
+

@@ -95,3 +95,15 @@ Reproduzir a análise de um delineamento inteiramente casualizado em pdf ou html
 <br>
 
 O arquivo da análise está disponível no [google drive](https://drive.google.com/drive/folders/1HIPgbLBXJ00ZTQdZ_ZbIM_4nCtd3Mvym?usp=sharing)
+
+---
+
+# Próxima aula
+
+&#10004; Leitura dos Capítulos 1 a 5 
+
+```{r,echo=FALSE, fig.align='center', out.width='35%'}
+knitr::include_graphics('figuras/vis.png')
+```
+
+[Fundamentals of Data Visualization](https://clauswilke.com/dataviz/)
