@@ -1,6 +1,6 @@
 ---
 title: "PGEA06 - Estatística Aplicada"
-subtitle: "Relatórios e apresentações - Rmarkdown" 
+subtitle: "Aula 03 - Visualização de dados" 
 author: "Elizabeth Mie Hashimoto <br> DAMAT-LD"
 output:
   xaringan::moon_reader:
