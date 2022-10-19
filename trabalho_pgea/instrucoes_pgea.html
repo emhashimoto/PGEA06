@@ -254,6 +254,7 @@ if (window.hljs) {
 
 
 
+
 <style type="text/css">
 .main-container {
   max-width: 940px;
@@ -275,6 +276,9 @@ button.code-folding-btn:focus {
 summary {
   display: list-item;
 }
+details > summary > p:only-child {
+  display: inline;
+}
 pre code {
   padding: 0;
 }
@@ -294,8 +298,8 @@ pre code {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -303,16 +307,9 @@ pre code {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
+  content: "\e258";
   font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  border: none;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -377,6 +374,9 @@ trabalho</h1>
 preferência da sua área de pesquisa.</p></li>
 <li><p>A análise deve ser feita utilizando o <em>software</em>
 <code>R</code>.</p></li>
+<li><p>Utilizar o modelo do trabalho disponível na pasta do
+moodle.</p></li>
+<li><p>Não há necessidade de uma capa.</p></li>
 </ul>
 <!--
 utilizando o *software* R ou outro recurso computacional. Outros pacotes também podem ser utilizados.
@@ -386,10 +386,11 @@ utilizando o *software* R ou outro recurso computacional. Outros pacotes também
 <div id="prazo-de-entrega" class="section level1" number="2">
 <h1><span class="header-section-number">2</span> Prazo de entrega</h1>
 <ul>
-<li><p>Três semanas (24/03 a 14/04) para escolher o conjunto de
+<li><p>Três semanas (19/10 a 08/11) para escolher o conjunto de
 dados.</p></li>
-<li><p>Quatro semanas (15/04 a 15/05) para fazer o relatório.</p></li>
-<li><p>Prazo final de entrega: às 23:59 do dia 15/05.</p></li>
+<li><p>Quatro semanas (09/11 a 06/12) para fazer o resumo.</p></li>
+<li><p>Uma semana (07/12 a 14/12) para finalizar o resumo.</p></li>
+<li><p>Prazo final de entrega: às 18:20 do dia 14/12.</p></li>
 </ul>
 <p><br></p>
 </div>
@@ -397,48 +398,19 @@ dados.</p></li>
 <h1><span class="header-section-number">3</span> Conjunto de dados</h1>
 <p>Para selecionar um conjunto de dados:</p>
 <ul>
-<li><p>Escolher um assunto.</p></li>
-<li><p>Procurar um conjunto de dados, em que possa ser escolhido
-<strong>três variáveis</strong> para estudo (pelo menos uma variável
-deve ser quantitativa). Opções de <em>site</em> com base dados estão
-disponíveis no moodle.</p></li>
+<li><p>Escolher um assunto, de preferência da sua área de
+pesquisa.</p></li>
+<li><p>Caso não tenha um conjunto de dados, opções de <em>site</em> com
+base dados estão disponíveis no moodle.</p></li>
 </ul>
 <p><br></p>
 </div>
-<div id="trabalho" class="section level1" number="4">
-<h1><span class="header-section-number">4</span> Trabalho</h1>
-<p>Roteiro:</p>
+<div id="avaliação" class="section level1" number="4">
+<h1><span class="header-section-number">4</span> Avaliação</h1>
+<p>A nota do trabalho corresponde a <strong>10 pontos</strong>.</p>
+<p>A avaliação será de acordo com os seguintes itens:</p>
 <ul>
-<li><p>Título.</p></li>
-<li><p>Autor.</p></li>
-<li><p>Descrição do conjunto de dados, bem como das variáveis
-(classificar as variáveis).</p></li>
-<li><p>Estatística descritiva:</p>
-<!-- * tabelas de distribuição de frequência. -->
-<ul>
-<li><p>gráficos.</p></li>
-<li><p>medidas resumo (média, mediana, desvio padrão, mínimo,
-máximo).</p></li>
-</ul></li>
-<li><p>Interpretação dos resultados: informações que pode-se extrair da
-análise exploratória sobre o assunto do conjunto de dados.</p></li>
-<li><p>Referências bibliográficas (incluindo a fonte dos
-dados).</p></li>
-<li><p>Apêndice com as expressões matemáticas utilizadas.</p></li>
-</ul>
-<p><br> <strong>Observação</strong>: não há necessidade de uma capa.</p>
-<p><br></p>
-</div>
-<div id="avaliação" class="section level1" number="5">
-<h1><span class="header-section-number">5</span> Avaliação</h1>
-<p>A nota do relatório corresponde a <strong>5 pontos</strong>.</p>
-<p>A avaliação da análise exploratória será de acordo com os seguintes
-itens:</p>
-<ul>
-<li><p>Apresentação do relatório (organizado, bem escrito, figuras e
-tabelas ajustadas de acordo com o texto).</p></li>
-<li><p>Estatística descritiva.</p></li>
-<li><p>Intepretação dos resultados.</p></li>
+<li>em construção…</li>
 </ul>
 <p><br> <strong>Observações</strong>:</p>
 <ul>
@@ -449,8 +421,8 @@ zero.</li>
 </ul>
 <p><br></p>
 </div>
-<div id="considerações-finais" class="section level1" number="6">
-<h1><span class="header-section-number">6</span> Considerações
+<div id="considerações-finais" class="section level1" number="5">
+<h1><span class="header-section-number">5</span> Considerações
 finais</h1>
 <ul>
 <li><p>Utilizar códigos para reproduzir uma análise exploratória será
