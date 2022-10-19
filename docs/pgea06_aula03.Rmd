@@ -41,7 +41,7 @@ knitr::include_graphics('figuras/vis.png')
 ]
 .right-column[
 
-+ Visualização de dados é uma parte arte e uma ciência
++ Visualização de dados é uma parte arte e uma parte ciência.
 {{content}}
 
 ]
@@ -164,8 +164,6 @@ library(ggplot2)
 
 - Gráfico de dispersão (de pontos)
 
-- Gráfico de linhas
-
 - Gráfico de barras
 
 - Histograma
@@ -189,16 +187,11 @@ pinguins |>
   ggplot() +
   aes(x = massa_corporal,
     y = comprimento_bico,
-    color = especie,
-    shape = especie
+    color = especie
   ) +
-  geom_point(alpha = 0.8) +
+  geom_point() +
   theme_minimal() +
-  scale_colour_brewer(
-    type = "qual",
-    palette = 2
-  ) +
-  labs(title = 'Características de pinguins são positivamente correlacionadas',
+  labs(title = 'Gráfico de dispersão por espécie de pinguins',
        colour = 'Espécie',
        shape = 'Espécie',
        x= 'Massa corporal',
@@ -208,9 +201,7 @@ pinguins |>
 ]
 
 .pull-right[
-- adicione o tema `theme_minimal` usando o pacote ggthemes
-- adicione a escala de cor brewer aos pontos, com a escala
-do tipo qualitativa, e a paleta n.2 
+- adicione o tema `theme_minimal` 
 - adicione um título informativo com a função labs().
 ]
 
