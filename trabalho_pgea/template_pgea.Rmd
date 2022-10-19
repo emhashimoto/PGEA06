@@ -1,30 +1,98 @@
 ---
-title: "Untitled"
-author: "Autor"
-date: '2022-10-18'
-output: pdf_document
+title: '**O título deve ser em caixa baixa e conter até duas linhas sem ponto final**'
+author: "Nome Nome-meio Sobrenome^[Instituição, e-mail]"
+date: ''
+fontsize: 12pt
+geometry: left=2cm,right=2cm,top=2cm,bottom=2cm
+output:
+  pdf_document:
+    extra_dependencies: float
+indent: true
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE, 
+                      comment = '',
+                      fig.pos = "H")
 ```
 
-## R Markdown
+<!-- Renomear funcoes latex -->
+\renewcommand{\tablename}{{\bf Tabela}} 
+\renewcommand{\figurename}{{\bf Figura}} 
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+\begin{minipage}{16cm}
+  \begin{center}
+    {\bf Resumo}
+  \end{center}
+ 
+  Você deve estruturar o resumo de modo a descrever o seu trabalho com simplicidade e objetividade. O resumo deve ter entre 150 e 200 palavras. Na medida do possível, evite usar fórmulas, símbolos matemáticos e referências bibliográficas em seu resumo. Preferencialmente, procure apresentar o objetivo, o método de pesquisa, os principais resultados e as conclusões possíveis a partir do seu trabalho.\\
+{\bf Palavras-chave}: palavra um; palavra dois; palavra três. (em ordem alfabética)
+\end{minipage}
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+# Título
 
-```{r cars}
-summary(cars)
+A estrutura do trabalho pode ser dividida em: Introdução, Materiais e Métodos, Resultados e Discussões, Conclusão e Referências.
+Os títulos das seções devem ser posicionados à esquerda e sem ponto final.
+
+# Título
+
+O texto completo deve ser redigido em português e conter entre oito e dez páginas, incluindo nesta contagem as páginas com título, autores, resumo, abstract e referências. Não serão aceitos para avaliação trabalhos em outro formato que não seja em formato PDF.
+
+As citações devem obedecer ao sistema autor-data e estar de acordo com a norma NBR 10520 da Associação Brasileira de Normas Técnicas (ABNT). 
+As referências utilizadas ao longo do trabalho devem ser listadas no final do trabalho de acordo com as instruções na seção Referências. 
+
+Qualquer que seja o tipo de ilustração inserida no trabalho (fluxograma, gráfico, figura ou imagem), sua identificação deve aparecer na parte inferior.
+Após a ilustração, na parte inferior, indicar a fonte consultada (mesmo sendo produção do próprio autor), legenda, notas e outras informações necessárias à sua compreensão (se houver).
+A ilustração deve ser citada no texto e inserida o mais próximo possível do trecho a que se refere. Ver, por exemplo, a Figura 1 e Figura 2.
+
+```{r, echo = FALSE, fig.cap = "Título", fig.align='center', out.height='30%'}
+plot(cars)
 ```
 
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
+```{r, echo = FALSE, fig.cap = "Título", fig.align='center', out.height='5%'}
+knitr::include_graphics('exemplo_fig.png')
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+Tabelas devem estar centralizados e conter apenas dados imprescindíveis, evitando-se que sejam muito extensos, não repetindo dados já inseridos no texto, ou vice-versa. Sua identificação deve aparecer na parte superior.
+O formato pode ser observado na Tabela 1.
+
+```{r, echo = FALSE}
+library(agricolae)
+
+data(sweetpotato)
+out1 <- bartlett.test(yield ~ virus, data = sweetpotato)
+
+df1 <- data.frame(estat=out1[[1]][[1]], df=out1[[2]][[1]], pvalor=out1[[3]])
+
+knitr::kable(df1, digits = 4,
+      caption = 'Teste de Bartlett',
+      col.names=c('Estatística','Grau de liberdade','p-valor'),
+      align='ccc')
+```
+
+As expressões matemáticas, quando houver, devem ser centralizadas. Números arábicos devem ser usados para indicar as expressões matemáticas, inseridos entre parênteses, como ilustrado na expressão em (1).
+
+\begin{equation}
+  x=\sum_{i=1}^{n}x_i
+\end{equation}
+
+# Título
+
+# Título
+
+# Referências
+
+Esta seção é obrigatória. Todas as obras citadas no texto devem ser apresentadas no final do documento. As referências devem ser baseadas na norma NBR 6023/2002, norma da ABNT atualmente em vigor. 
+
+Exemplo ilustrativo abaixo, utilizando nome por extenso dos autores: 
+
+\begin{minipage}{17cm}
+
+INSTITUTO BRASILEIRO DE GEOGRAFIA E ESTATÍSTICA - IBGE. {\bf Agropecuário 2017}. Rio de Janeiro: IBGE, 2019. Disponível em: \url{https://sidra.ibge.gov.br/pesquisa/censo-agropecuario/censo-agropecuario-2017}. Acesso em: 13 jun. 2022.\\
+
+MEDEIROS, João Bosco; TOMASI, Carolina. {\bf Redação de Artigos Científicos}: métodos de realização, seleção de periódicos, publicação. 2.ed. Atlas: São Paulo, 2021.\\
+
+SCHNEIDER, Sergio {\it et al}. Os efeitos da pandemia da Covid-19 sobre o agronegócio e a alimentação. {\bf Estudos Avançados} (online), São Paulo, v.34, p.167-188, 2020.\\
+
+VOLPATO, Gilson Luiz. Autoria científica: por que tanta polêmica. {\bf Revista de Gestão e Secretariado}, São Paulo, v.7, p.213-228, 2016.
+\end{minipage}
