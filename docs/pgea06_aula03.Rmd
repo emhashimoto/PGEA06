@@ -32,10 +32,91 @@ div {
 }
 </style>
 
----
-
 # Fundamentos básicos
 
+.left-column[
+```{r,echo=FALSE, fig.align='center', out.width='95%'}
+knitr::include_graphics('figuras/vis.png')
+```
+]
+.right-column[
+
++ Visualização de dados é uma parte arte e uma ciência
+{{content}}
+
+]
+
+--
+
++ Uma visulização de dados precisa transmitir os dados com precisão e deve ser esteticamente agradável.
+
+---
+
+- Valores de dados convertidos de forma sistemática e lógica nos elementos visuais.
+
+```{r,echo=FALSE, fig.align='center', out.height='30%'}
+plot(mtcars$mpg, mtcars$disp)
+```
+---
+
+- Para visualização 2D de dados, precisamos de duas escalas de posição.
+
+```{r,echo=FALSE, fig.align='center', out.width='50%'}
+library(tidyverse)
+
+mtcars |> 
+  ggplot() +
+  labs(x='Eixo x', y='Eixo y') +
+  theme(axis.title=element_text(size=14))
+```
+
+---
+
+Existem três casos de uso fundamentais para cores:
+
+--
+
+- distinguir grupos de dados.
+
+--
+
+- representar valores de dados.
+
+--
+
+- destacar informações.
+
+---
+
+# Tipos de gráficos
+
+- Valores para algum conjunto de categorias
+
+  + gráficos de barras
+  
+--
+
+- Distribuições
+
+  + Histograma, box-plot
+  
+--
+
+- Pares ordenados
+
+  + Gráfico de dispersão, correlograma, gráfico de linhas
+
+--
+
+- Dados geoespaciais
+  + mapas
+
+--
+
+- Incertezas
+
+  + Gráficos de barras com barras de erros
+  
 ---
 
 # Pacote ggplot2
@@ -68,26 +149,30 @@ knitr::include_graphics('figuras/ggplot.png')
 
 ---
 
-# Gráfico de dispersão (de pontos)
+.pull-left[
+```{r,echo=FALSE, fig.align='center', out.width='60%'}
+knitr::include_graphics('https://media.giphy.com/media/heIX5HfWgEYlW/giphy.gif')
+```
+]
 
----
+.pull-right[
+```{r, eval=FALSE, echo=TRUE}
+library(ggplot2)
+```
 
-# Gráfico de linhas
+]
 
+- Gráfico de dispersão (de pontos)
 
----
+- Gráfico de linhas
 
+- Gráfico de barras
 
-# Gráfico de barras
+- Histograma
 
----
+- Boxplot
 
-# Histograma
-
----
-
-# Boxplot
-
+- Gráfico de linhas
 
 ---
 
@@ -96,9 +181,7 @@ knitr::include_graphics('figuras/ggplot.png')
 .pull-left[
 ```{r,echo=FALSE, fig.align='center', out.extra='5%'}
 library(tidyverse)
-library(forcats)
 library(dados)
-library(lubridate)
 library(ggthemes)
 
 pinguins |>
@@ -110,65 +193,25 @@ pinguins |>
     shape = especie
   ) +
   geom_point(alpha = 0.8) +
-  theme_fivethirtyeight() +
+  theme_minimal() +
   scale_colour_brewer(
     type = "qual",
-    palette = 2,
-    na.value = '#000000'
+    palette = 2
   ) +
   labs(title = 'Características de pinguins são positivamente correlacionadas',
        colour = 'Espécie',
-       shape = 'Espécie') +
+       shape = 'Espécie',
+       x= 'Massa corporal',
+       y='Comprimento do bico') +
   theme(plot.title=element_text(hjust = 0.5))
 ```
 ]
 
 .pull-right[
-- adicione o tema `theme_fivethirtyeight` usando o pacote ggthemes
+- adicione o tema `theme_minimal` usando o pacote ggthemes
 - adicione a escala de cor brewer aos pontos, com a escala
 do tipo qualitativa, e a paleta n.2 
 - adicione um título informativo com a função labs().
-]
-
----
-
-# Atividade 3
-
-.pull-left[
-```{r,echo=FALSE, fig.align='center', out.extra='5%'}
-pixar_avalicao_publico |>
-  #drop_na(nota_rotten_tomatoes) |>
-  mutate(filme = forcats::fct_reorder(filme, nota_rotten_tomatoes)) |>
-  ggplot() +
-  aes(x = nota_rotten_tomatoes, 
-      y = filme, color = nota_rotten_tomatoes) +
-  geom_point(size = 5,
-    show.legend = FALSE
-  ) +
-  theme_solarized() +
-  scale_colour_viridis_c(na.value = 'red') +
-  #xlim(0,100) +
-  #coord_cartesian(xlim=c(0,100)) +
-  scale_x_continuous(limits=c(0,100)) +
-  labs(x = 'Nota', y = 'Filme', 
-       caption = "Fonte: Rotten tomatoes - https://www.rottentomatoes.com/") +
-  theme(axis.text.x = element_text(size=8),
-        axis.text.y = element_text(size=8),
-        text = element_text(size=15),
-        plot.caption = element_text(hjust = 0.5))
-```
-]
-
-.pull-right[
-- adicione o tema `theme_solarized` usando o pacote ggthemes
-
-- adicione uma escala de cor viridis aos pontos
-
-- adicione um limite no eixo x: as notas podem ser de 0 a 100
-
-- adicione as legendas corretas com a função labs() .
-
-- usando a função theme(), deixe o tamanho dos valores dos eixos x e y com o tamanho 8, e o tamanho do texto dos títulos dos eixos com tamanho 15.
 ]
 
 ---

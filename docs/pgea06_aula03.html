@@ -33,10 +33,80 @@ div {
 }
 &lt;/style&gt;
 
----
-
 # Fundamentos básicos
 
+.left-column[
+&lt;img src="figuras/vis.png" width="95%" style="display: block; margin: auto;" /&gt;
+]
+.right-column[
+
++ Visualização de dados é uma parte arte e uma ciência
+{{content}}
+
+]
+
+--
+
++ Uma visulização de dados precisa transmitir os dados com precisão e deve ser esteticamente agradável.
+
+---
+
+- Valores de dados convertidos de forma sistemática e lógica nos elementos visuais.
+
+&lt;img src="pgea06_aula03_files/figure-html/unnamed-chunk-2-1.png" height="30%" style="display: block; margin: auto;" /&gt;
+---
+
+- Para visualização 2D de dados, precisamos de duas escalas de posição.
+
+&lt;img src="pgea06_aula03_files/figure-html/unnamed-chunk-3-1.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+---
+
+Existem três casos de uso fundamentais para cores:
+
+--
+
+- distinguir grupos de dados.
+
+--
+
+- representar valores de dados.
+
+--
+
+- destacar informações.
+
+---
+
+# Tipos de gráficos
+
+- Valores para algum conjunto de categorias
+
+  + gráficos de barras
+  
+--
+
+- Distribuições
+
+  + Histograma, box-plot
+  
+--
+
+- Pares ordenados
+
+  + Gráfico de dispersão, correlograma, gráfico de linhas
+
+--
+
+- Dados geoespaciais
+  + mapas
+
+--
+
+- Incertezas
+
+  + Gráficos de barras com barras de erros
+  
 ---
 
 # Pacote ggplot2
@@ -67,60 +137,43 @@ div {
 
 ---
 
-# Gráfico de dispersão (de pontos)
+.pull-left[
+&lt;img src="https://media.giphy.com/media/heIX5HfWgEYlW/giphy.gif" width="60%" style="display: block; margin: auto;" /&gt;
+]
 
----
+.pull-right[
 
-# Gráfico de linhas
+```r
+library(ggplot2)
+```
 
+]
 
----
+- Gráfico de dispersão (de pontos)
 
+- Gráfico de linhas
 
-# Gráfico de barras
+- Gráfico de barras
 
----
+- Histograma
 
-# Histograma
+- Boxplot
 
----
-
-# Boxplot
-
+- Gráfico de linhas
 
 ---
 
 # Atividade 3
 
 .pull-left[
-&lt;img src="pgea06_aula03_files/figure-html/unnamed-chunk-2-1.png" 5% style="display: block; margin: auto;" /&gt;
+&lt;img src="pgea06_aula03_files/figure-html/unnamed-chunk-7-1.png" 5% style="display: block; margin: auto;" /&gt;
 ]
 
 .pull-right[
-- adicione o tema `theme_fivethirtyeight` usando o pacote ggthemes
+- adicione o tema `theme_minimal` usando o pacote ggthemes
 - adicione a escala de cor brewer aos pontos, com a escala
 do tipo qualitativa, e a paleta n.2 
 - adicione um título informativo com a função labs().
-]
-
----
-
-# Atividade 3
-
-.pull-left[
-&lt;img src="pgea06_aula03_files/figure-html/unnamed-chunk-3-1.png" 5% style="display: block; margin: auto;" /&gt;
-]
-
-.pull-right[
-- adicione o tema `theme_solarized` usando o pacote ggthemes
-
-- adicione uma escala de cor viridis aos pontos
-
-- adicione um limite no eixo x: as notas podem ser de 0 a 100
-
-- adicione as legendas corretas com a função labs() .
-
-- usando a função theme(), deixe o tamanho dos valores dos eixos x e y com o tamanho 8, e o tamanho do texto dos títulos dos eixos com tamanho 15.
 ]
 
 ---
