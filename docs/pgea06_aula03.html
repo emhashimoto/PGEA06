@@ -33,67 +33,149 @@ div {
 }
 &lt;/style&gt;
 
-# Recurso computacional
-
-- *Software* `R`
-
-&lt;img src="figuras/logo_r.jpg" width="25%" style="display: block; margin: auto;" /&gt;
-
 ---
 
-# RMarkdown
+# Pacote ggplot
 
-.pull-left[
-Códigos e saídas `R`
-
-&lt;img src="figuras/logo_r.jpg" width="15%" style="display: block; margin: auto;" /&gt;
+.left-column[
+&lt;img src="figuras/ggplot.png" width="75%" style="display: block; margin: auto;" /&gt;
 ]
+.right-column[
 
-.pull-right[
-`Markdown` (Gruber e Swartz, 2004) 
++ Creado por **Hadle Wickham**, em 2005
+{{content}}
 
-&lt;img src="figuras/mark.png" width="15%" style="display: block; margin: auto;" /&gt;
 ]
-
-&lt;br&gt;
 
 --
 
-&lt;img src="figuras/rmarkdown.png" width="15%" style="display: block; margin: auto;" /&gt;
++ Baseado no livro [The Grammar of Graphics ](https://link.springer.com/book/10.1007/0-387-28695-0) de **Leland Wilkinson**
+{{content}}
+
+--
+
++ O gráfico representa o mapeamento dos dados em:
+
+  - atributos estéticos (posição, cor, forma, tamanho) 
+  
+  - de formas geométricas (pontos, linhas, barras, caixas)
+{{content}}
 
 ---
 
-# Tentativa e erro
-
-&lt;img src="figuras/tentativa.jpg" width="50%" style="display: block; margin: auto;" /&gt;
-
-Primeiros arquivos `R Markdown`
+# Gráfico de dispersão (de pontos)
 
 ---
 
-# Exercício
+# Gráfico de linhas
+
+
+---
+
+
+# Gráfico de barras
+
+---
+
+# Histograma
+
+---
+
+# Boxplot
+
+
+---
+
+# Atividade 3
 
 .pull-left[
-&lt;img src="https://media.giphy.com/media/heIX5HfWgEYlW/giphy.gif" width="60%" style="display: block; margin: auto;" /&gt;
+&lt;img src="pgea06_aula03_files/figure-html/unnamed-chunk-2-1.png" 5% style="display: block; margin: auto;" /&gt;
 ]
 
 .pull-right[
-Reproduzir a análise de um delineamento inteiramente casualizado em pdf ou html
+- adicione o tema `theme_fivethirtyeight` usando o pacote ggthemes
+- adicione a escala de cor brewer aos pontos, com a escala
+do tipo qualitativa, e a paleta n.2 
+- adicione um título informativo com a função labs().
 ]
 
-&lt;br&gt;
+---
 
-O arquivo da análise está disponível no [google drive](https://drive.google.com/drive/folders/1HIPgbLBXJ00ZTQdZ_ZbIM_4nCtd3Mvym?usp=sharing)
+# Atividade 3
+
+.pull-left[
+&lt;img src="pgea06_aula03_files/figure-html/unnamed-chunk-3-1.png" 5% style="display: block; margin: auto;" /&gt;
+]
+
+.pull-right[
+- adicione o tema `theme_solarized` usando o pacote ggthemes
+
+- adicione uma escala de cor viridis aos pontos
+
+- adicione um limite no eixo x: as notas podem ser de 0 a 100
+
+- adicione as legendas corretas com a função labs() .
+
+- usando a função theme(), deixe o tamanho dos valores dos eixos x e y com o tamanho 8, e o tamanho do texto dos títulos dos eixos com tamanho 15.
+]
 
 ---
 
 # Próxima aula
 
-&amp;#10004; Leitura dos Capítulos 1 a 5 
+.pull-left[
 
-&lt;img src="figuras/vis.png" width="35%" style="display: block; margin: auto;" /&gt;
+&amp;#10004; Leitura Capítulo 7
 
-[Fundamentals of Data Visualization](https://clauswilke.com/dataviz/)
+- Estimativa pontual
+
+- Distribuições amostrais e Teorema central do limite
+
+- Erro padrão: reportando uma estimativa pontual
+
+&amp;#10004; Leitura Capítulo 8
+
+- Introdução
+
+- Intervalo de confiança para a média de uma distribuição normal, variância desconhecida
+]
+
+.pull-right[
+&lt;img src="figuras/mont7.png" width="65%" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+# Próxima aula
+
+.pull-left[
+
+&amp;#10004; Leitura Capítulo 9
+
+- Testes de hipóteses
+
+- Hipóteses estatísticas
+
+- Testes de hipóteses estatísticas
+
+- Hipóteses unilaterais e bilaterais
+
+- Valores *p* nos testes de hipóteses
+
+&amp;#10004; Leitura Capítulo 10
+
+- Testes de hipóteses para a diferença de médias, variâncias desconhecidas
+
+- Um teste não paramétrico para a diferença entre duas médias
+
+- Teste *t* pareado
+
+]
+
+.pull-right[
+&lt;img src="figuras/mont7.png" width="65%" style="display: block; margin: auto;" /&gt;
+]
+
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
