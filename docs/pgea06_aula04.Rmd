@@ -1,0 +1,226 @@
+---
+title: "PGEA06 - Estatística Aplicada"
+subtitle: "Aula 04 - Intervalos de confiança" 
+author: "Elizabeth Mie Hashimoto <br> DAMAT-LD"
+output:
+  xaringan::moon_reader:
+    css: [metropolis, metropolis-fonts, tema_pgea06.css]
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: false
+      countIncrementalSlides: false
+      slideNumberFormat: "%current%"
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(echo = FALSE, 
+                      comment = '',
+                      message = FALSE,
+                      warning = FALSE)
+```
+<style> 
+#caixa {
+  border: 1px solid;
+  padding: 10px;
+  box-shadow: 5px 10px blue;
+}
+div {
+  text-align: justify;
+  text-justify: inter-word;
+}
+</style>
+
+# Motivação - inferência estatística
+
+**Distribuições de probabilidade**:
+
+--
+
++ Distribuição binomial
+
+--
+
++ Distribuição Poisson
+
+--
+
++ Distribuição normal (Gaussiana)
+
+--
+
++ Distribuição exponencial
+
+--
+
+<div class="warning" style='padding:0.1em; background-color:#E9D8FD; color:#69337A'>
+<span>
+<p style='margin-top:1em; text-align:center'>
+<b>Na prática</b></p>
+<p style='margin-left:1em;'>
+O pesquisador não tem informações sobre o valor exato do
+parâmetro.
+</p>
+</span>
+</div>
+
+---
+
+<div class="warning" style='padding:0.1em; background-color:#E9D8FD; color:#69337A'>
+<span>
+<p style='margin-top:1em; text-align:center'>
+<b>Inferência estatística</b></p>
+<p style='margin-left:1em;'>
+Consiste em especificar um ou mais valores para o parâmetro da distribuição de probabilidade, baseado em um
+conjunto de dados.
+</p>
+</span>
+</div>
+
+<br>
+
+--
+
+- Estimação de parâmetros
+
+--
+
+- Teste de hipóteses
+
+---
+
+# Conceitos básicos
+
+**Amostra aleatória**
+
+--
+
+É uma sequência $X_1,\ldots, X_n$ de variáveis aleatórias que são:
+
+--
+
+- independentes
+
+--
+
+- identicamente distribuídas com função de probabilidade ou função densidade $f(.)$
+
+<br>
+
+--
+
+**Estatística**
+
+--
+
+É qualquer função, denotada por $T(\mathbf{X})$, da amostra aleatória $X_1, \ldots, X_n$ que não depende de parâmetros desconhecidos.
+
+<br>
+
+--
+
+**Estimador**
+
+--
+
+É qualquer estatística $T(\mathbf{X})$ que assume valores no conjunto numérico do parâmetro.
+
+---
+
+**Distribuição amostral**
+
+--
+
+É a distribuição de probabilidade de uma estatística $T(\mathbf{X})$.
+
+<br>
+
+--
+
+**Erro padrão**
+
+--
+
+É o desvio padrão do estimador.
+
+<br>
+
+--
+
+**Teorema central do limite**
+
+--
+
+Se $X_1,\ldots, X_n$ for uma amostra aleatória de tamanho $n$, retirada de uma população com média $\mu$ e variância $\sigma^2$ e se $\bar{X}$ for a média da amostra, então
+$$Z=\frac{\sqrt{n}(\bar{X}-\mu)}{\sigma}$$
+quando $n\rightarrow\infty$ será uma distribuição normal padrão.
+
+---
+
+# Intervalos de confiança para média
+
+Seja $X_1,\ldots, X_n$ é uma amostra aleatória de tamanho $n$ de uma variável aleatória $X\sim N(\mu,\sigma^2)$. Sejam $L$ e $U$ duas estatísticas tal que $L<U$. Logo, dizemos que o intervalo $[L, U]$ é um intervalo de confiança para $\mu$ com coeficiente de confiança $\gamma$ se
+		$$P(L\leq\mu\leq U)=\gamma,$$
+em que $0<\gamma<1$ é um valor conhecido.
+
+--
+
+Logo,
+	$$IC(\mu)=\bar{X}\pm t_{n-1}(1-\gamma)\frac{s}{\sqrt{n}},$$
+	em que $t_{n-1}(1-\gamma)\frac{s}{\sqrt{n}}$ é conhecida como margem de erro.
+
+---
+
+# Intervalo de confiança para proporção
+
+Seja $X_1,\ldots, X_n$ é uma amostra aleatória de tamanho $n$ de uma variável aleatória $X$ com função de probabilidade
+$$f(x)=p^x(1-p)^{1-x}, \quad x=0,1$$
+
+Sejam $L$ e $U$ duas estatísticas tal que $L<U$. Logo, dizemos que o intervalo $[L, U]$ é um intervalo de confiança para $p$ com coeficiente de confiança $\gamma$ se
+		$$P(L\leq p\leq U)=\gamma,$$
+em que $0<\gamma<1$ é um valor conhecido.
+
+--
+
+Logo, 
+$$IC(p)=\hat{p}\pm z_{\left(\frac{1+\gamma}{2}\right)}\sqrt{\frac{\hat{p}(1-\hat{p})}{n}},$$
+	em que $z_{\left(\frac{1+\gamma}{2}\right)}$ é um valor obtido da tabela distribuição normal padrão.
+
+---
+
+# Atividade 4
+
+- Utilizar o conjunto de iris.
+
+- Escolher qualquer uma das variáveis quantitativas.
+
+- Determinar os intervalos de confiança para média com coeficiente de confiança $\gamma$. 
+
+---
+
+# Próxima aula
+
+.pull-left[
+
+&#10004; Leitura Capítulo 9
+
+- Subcapítulos 9.1 até 9.1.4
+
+- Subcapítulo 9.1.6
+
+&#10004; Leitura Capítulo 10
+
+- Subcapítulo 10.2.1
+
+- Subcapítulos 10.3 até 10.3.2
+
+- Subcapítulo 10.4
+]
+
+.pull-right[
+```{r,echo=FALSE, fig.align='center', out.width='65%'}
+knitr::include_graphics('figuras/mont7.png')
+```
+]
+
