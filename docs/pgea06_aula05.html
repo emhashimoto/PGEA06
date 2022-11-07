@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>PGEA06 - Estatística Aplicada</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Elizabeth Mie Hashimoto   DAMAT-LD" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
+    <link href="libs/remark-css/metropolis-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="tema_pgea06.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# PGEA06 - Estatística Aplicada
+## Aula 05 - Teste de hipóteses
+### Elizabeth Mie Hashimoto <br> DAMAT-LD
+
+---
+
+
+
+&lt;style&gt; 
+#caixa {
+  border: 1px solid;
+  padding: 10px;
+  box-shadow: 5px 10px blue;
+}
+div {
+  text-align: justify;
+  text-justify: inter-word;
+}
+&lt;/style&gt;
+
+# Motivação - inferência estatística
+
+**Distribuições de probabilidade**:
+
+--
+
++ Distribuição binomial
+
+--
+
++ Distribuição Poisson
+
+--
+
++ Distribuição normal (Gaussiana)
+
+--
+
++ Distribuição exponencial
+
+--
+
+&lt;div class="warning" style='padding:0.1em; background-color:#E9D8FD; color:#69337A'&gt;
+&lt;span&gt;
+&lt;p style='margin-top:1em; text-align:center'&gt;
+&lt;b&gt;Na prática&lt;/b&gt;&lt;/p&gt;
+&lt;p style='margin-left:1em;'&gt;
+O pesquisador não tem informações sobre o valor exato do
+parâmetro.
+&lt;/p&gt;
+&lt;/span&gt;
+&lt;/div&gt;
+
+---
+
+&lt;div class="warning" style='padding:0.1em; background-color:#E9D8FD; color:#69337A'&gt;
+&lt;span&gt;
+&lt;p style='margin-top:1em; text-align:center'&gt;
+&lt;b&gt;Inferência estatística&lt;/b&gt;&lt;/p&gt;
+&lt;p style='margin-left:1em;'&gt;
+Consiste em especificar um ou mais valores para o parâmetro da distribuição de probabilidade, baseado em um
+conjunto de dados.
+&lt;/p&gt;
+&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;br&gt;
+
+--
+
+- Estimação de parâmetros
+
+--
+
+- Teste de hipóteses
+
+---
+
+# Conceitos básicos
+
+**Amostra aleatória**
+
+--
+
+É uma sequência `\(X_1,\ldots, X_n\)` de variáveis aleatórias que são:
+
+--
+
+- independentes
+
+--
+
+- identicamente distribuídas com função de probabilidade ou função densidade `\(f(.)\)`
+
+&lt;br&gt;
+
+--
+
+**Estatística**
+
+--
+
+É qualquer função, denotada por `\(T(\mathbf{X})\)`, da amostra aleatória `\(X_1, \ldots, X_n\)` que não depende de parâmetros desconhecidos.
+
+&lt;br&gt;
+
+--
+
+**Estimador**
+
+--
+
+É qualquer estatística `\(T(\mathbf{X})\)` que assume valores no conjunto numérico do parâmetro.
+
+---
+
+**Distribuição amostral**
+
+--
+
+É a distribuição de probabilidade de uma estatística `\(T(\mathbf{X})\)`.
+
+&lt;br&gt;
+
+--
+
+**Erro padrão**
+
+--
+
+É o desvio padrão do estimador.
+
+&lt;br&gt;
+
+--
+
+**Teorema central do limite**
+
+--
+
+Se `\(X_1,\ldots, X_n\)` for uma amostra aleatória de tamanho `\(n\)`, retirada de uma população com média `\(\mu\)` e variância `\(\sigma^2\)` e se `\(\bar{X}\)` for a média da amostra, então
+`$$Z=\frac{\sqrt{n}(\bar{X}-\mu)}{\sigma}$$`
+quando `\(n\rightarrow\infty\)` será uma distribuição normal padrão.
+
+---
+
+# Intervalos de confiança para média
+
+Seja `\(X_1,\ldots, X_n\)` é uma amostra aleatória de tamanho `\(n\)` de uma variável aleatória `\(X\sim N(\mu,\sigma^2)\)`. Sejam `\(L\)` e `\(U\)` duas estatísticas tal que `\(L&lt;U\)`. Logo, dizemos que o intervalo `\([L, U]\)` é um intervalo de confiança para `\(\mu\)` com coeficiente de confiança `\(\gamma\)` se
+		`$$P(L\leq\mu\leq U)=\gamma,$$`
+em que `\(0&lt;\gamma&lt;1\)` é um valor conhecido.
+
+--
+
+Logo,
+	`$$IC(\mu)=\bar{X}\pm t_{n-1}(1-\gamma)\frac{s}{\sqrt{n}},$$`
+	em que `\(t_{n-1}(1-\gamma)\frac{s}{\sqrt{n}}\)` é conhecida como margem de erro.
+
+---
+
+# Intervalo de confiança para proporção
+
+Seja `\(X_1,\ldots, X_n\)` é uma amostra aleatória de tamanho `\(n\)` de uma variável aleatória `\(X\)` com função de probabilidade
+`$$f(x)=p^x(1-p)^{1-x}, \quad x=0,1$$`
+
+Sejam `\(L\)` e `\(U\)` duas estatísticas tal que `\(L&lt;U\)`. Logo, dizemos que o intervalo `\([L, U]\)` é um intervalo de confiança para `\(p\)` com coeficiente de confiança `\(\gamma\)` se
+		`$$P(L\leq p\leq U)=\gamma,$$`
+em que `\(0&lt;\gamma&lt;1\)` é um valor conhecido.
+
+--
+
+Logo, 
+`$$IC(p)=\hat{p}\pm z_{\left(\frac{1+\gamma}{2}\right)}\sqrt{\frac{\hat{p}(1-\hat{p})}{n}},$$`
+	em que `\(z_{\left(\frac{1+\gamma}{2}\right)}\)` é um valor obtido da tabela distribuição normal padrão.
+
+---
+
+# Atividade 4
+
+- Utilizar o conjunto de iris.
+
+- Escolher qualquer uma das variáveis quantitativas.
+
+- Determinar os intervalos de confiança para média com coeficiente de confiança `\(\gamma\)`. 
+
+---
+
+# Próxima aula
+
+.pull-left[
+
+&amp;#10004; Leitura Capítulo 9
+
+- Subcapítulos 9.1 até 9.1.4
+
+- Subcapítulo 9.1.6
+
+&amp;#10004; Leitura Capítulo 10
+
+- Subcapítulo 10.2.1
+
+- Subcapítulos 10.3 até 10.3.2
+
+- Subcapítulo 10.4
+]
+
+.pull-right[
+&lt;img src="figuras/mont7.png" width="65%" style="display: block; margin: auto;" /&gt;
+]
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": false,
+"countIncrementalSlides": false,
+"slideNumberFormat": "%current%"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
