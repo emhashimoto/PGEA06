@@ -32,170 +32,135 @@ div {
 }
 </style>
 
-# Motivação - inferência estatística
-
-**Distribuições de probabilidade**:
-
---
-
-+ Distribuição binomial
-
---
-
-+ Distribuição Poisson
-
---
-
-+ Distribuição normal (Gaussiana)
-
---
-
-+ Distribuição exponencial
-
---
-
-<div class="warning" style='padding:0.1em; background-color:#E9D8FD; color:#69337A'>
-<span>
-<p style='margin-top:1em; text-align:center'>
-<b>Na prática</b></p>
-<p style='margin-left:1em;'>
-O pesquisador não tem informações sobre o valor exato do
-parâmetro.
-</p>
-</span>
-</div>
-
----
-
-<div class="warning" style='padding:0.1em; background-color:#E9D8FD; color:#69337A'>
-<span>
-<p style='margin-top:1em; text-align:center'>
-<b>Inferência estatística</b></p>
-<p style='margin-left:1em;'>
-Consiste em especificar um ou mais valores para o parâmetro da distribuição de probabilidade, baseado em um
-conjunto de dados.
-</p>
-</span>
-</div>
-
-<br>
-
---
-
-- Estimação de parâmetros
-
---
-
-- Teste de hipóteses
-
----
 
 # Conceitos básicos
 
-**Amostra aleatória**
+**Hipótese estatística**
 
 --
 
-É uma sequência $X_1,\ldots, X_n$ de variáveis aleatórias que são:
-
---
-
-- independentes
-
---
-
-- identicamente distribuídas com função de probabilidade ou função densidade $f(.)$
++ Afirmação sobre os parâmetros de uma distribuição de probabilidade.
 
 <br>
 
 --
 
-**Estatística**
+**Hipótese nula**
 
 --
 
-É qualquer função, denotada por $T(\mathbf{X})$, da amostra aleatória $X_1, \ldots, X_n$ que não depende de parâmetros desconhecidos.
++ Hipótese que estamos colocando à prova.
 
 <br>
 
 --
 
-**Estimador**
+**Hipótese alternativa**
 
 --
 
-É qualquer estatística $T(\mathbf{X})$ que assume valores no conjunto numérico do parâmetro.
+Hipótese que será considerada aceitável, caso $H_0$ seja rejeitada como verdadeira.
+
+<br>
 
 ---
 
-**Distribuição amostral**
+**Erro tipo I**
 
 --
 
-É a distribuição de probabilidade de uma estatística $T(\mathbf{X})$.
++ rejeitar a $H_0$ quando a hipótese é verdadeira.
 
 <br>
 
 --
 
-**Erro padrão**
+**Erro tipo II**
 
 --
 
-É o desvio padrão do estimador.
++ não rejeitar a $H_0$ quando a hipótese é falsa.
 
 <br>
 
 --
 
-**Teorema central do limite**
+**Nível de significância**
 
 --
 
-Se $X_1,\ldots, X_n$ for uma amostra aleatória de tamanho $n$, retirada de uma população com média $\mu$ e variância $\sigma^2$ e se $\bar{X}$ for a média da amostra, então
-$$Z=\frac{\sqrt{n}(\bar{X}-\mu)}{\sigma}$$
-quando $n\rightarrow\infty$ será uma distribuição normal padrão.
++ probabilidade de cometer o erro tipo I.
+
 
 ---
 
-# Intervalos de confiança para média
-
-Seja $X_1,\ldots, X_n$ é uma amostra aleatória de tamanho $n$ de uma variável aleatória $X\sim N(\mu,\sigma^2)$. Sejam $L$ e $U$ duas estatísticas tal que $L<U$. Logo, dizemos que o intervalo $[L, U]$ é um intervalo de confiança para $\mu$ com coeficiente de confiança $\gamma$ se
-		$$P(L\leq\mu\leq U)=\gamma,$$
-em que $0<\gamma<1$ é um valor conhecido.
+** *p*-valor**
 
 --
 
-Logo,
-	$$IC(\mu)=\bar{X}\pm t_{n-1}(1-\gamma)\frac{s}{\sqrt{n}},$$
-	em que $t_{n-1}(1-\gamma)\frac{s}{\sqrt{n}}$ é conhecida como margem de erro.
++ menor nível de significância que conduz à rejeição da $H_0$, com os dados fornecidos.
 
----
-
-# Intervalo de confiança para proporção
-
-Seja $X_1,\ldots, X_n$ é uma amostra aleatória de tamanho $n$ de uma variável aleatória $X$ com função de probabilidade
-$$f(x)=p^x(1-p)^{1-x}, \quad x=0,1$$
-
-Sejam $L$ e $U$ duas estatísticas tal que $L<U$. Logo, dizemos que o intervalo $[L, U]$ é um intervalo de confiança para $p$ com coeficiente de confiança $\gamma$ se
-		$$P(L\leq p\leq U)=\gamma,$$
-em que $0<\gamma<1$ é um valor conhecido.
+<br>
 
 --
 
-Logo, 
-$$IC(p)=\hat{p}\pm z_{\left(\frac{1+\gamma}{2}\right)}\sqrt{\frac{\hat{p}(1-\hat{p})}{n}},$$
-	em que $z_{\left(\frac{1+\gamma}{2}\right)}$ é um valor obtido da tabela distribuição normal padrão.
+**Estatística do teste**
+
+--
+
++ quantidade baseada na amostra para tomar uma decisão a respeito da $H_0$. 
+
+<br>
+
+-- 
+
+**Critério de rejeição**
+
+--
+
++ regra utilizada para rejeitar a $H_0$.
 
 ---
 
-# Atividade 4
+# Teste de hipótese - procedimentos
 
-- Utilizar o conjunto de iris.
++ definir as hipóteses estatísticas
 
-- Escolher qualquer uma das variáveis quantitativas.
+--
 
-- Determinar os intervalos de confiança para média com coeficiente de confiança $\gamma$. 
++ calcular a estatística do teste
+
+--
+
++ obter o $p$-valor
+
+--
+
++ conclusão
+
+---
+
+# Teste de hipótese - abordagem
+
++ **Paramétrica**
+
+--
+
++ **Não paramétrica**
+
+---
+
+# Atividade 5
+
+Um artigo publicado em *Nature* descreveu um experimento em que indivíduos consumiram diferentes tipos de chocolate para determinar o efeito de comer chocolate sobre uma medida de saúde cardiovascular. Consideraremos os resultados para somente chocolate amargo e chocolate ao leite. No experimento, 12 indivíduos comeram 100 gramas de chocolate amargo e 200 gramas de chocolate ao leite, um tipo de chocolate por dia, e, depois de uma hora, a capacidade antioxidante total de seus plasmas sanguíneos foi medida em um ensaio. Os indivíduos consistiram em sete mulheres e cinco homens, com uma faixa média de idades de $32,2 \pm1$ anos, um peso médio de $65,8 \pm3,1$ kg e índice médio de massa corpórea de $21,9 \pm 0,4$ kg/m2. A seguir, dados similares aos reportados no artigo.
+
+- **Chocolate Amargo**: 118,8; 122,6; 115,6; 113,6;
+119,5; 115,9; 115,8; 115,1;
+116,9; 115,4; 115,6 e 107,9
+
+- **Chocolate ao Leite**: 102,1; 105,8; 99,6; 102,7; 98,8; 100,9; 102,8; 98,7; 94,7; 97,8; 99,7 e 98,6
+
+Há evidência para sustentar a hipótese de que consumir chocolate amargo produz um nível médio diferente de capacidade antioxidante total do plasma sanguíneo quando comparado ao chocolate ao leite? Considere um nível de significância de 5%.
 
 ---
 
@@ -203,19 +168,14 @@ $$IC(p)=\hat{p}\pm z_{\left(\frac{1+\gamma}{2}\right)}\sqrt{\frac{\hat{p}(1-\hat
 
 .pull-left[
 
-&#10004; Leitura Capítulo 9
+&#10004; Leitura Capítulo 11
 
-- Subcapítulos 9.1 até 9.1.4
+- Subcapítulos 11.1, 11.2, 11.4.1, 11.7, 11.8
 
-- Subcapítulo 9.1.6
+&#10004; Leitura Capítulo 12
 
-&#10004; Leitura Capítulo 10
+- Subcapítulo 12.1
 
-- Subcapítulo 10.2.1
-
-- Subcapítulos 10.3 até 10.3.2
-
-- Subcapítulo 10.4
 ]
 
 .pull-right[
