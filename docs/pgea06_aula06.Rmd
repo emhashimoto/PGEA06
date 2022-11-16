@@ -36,7 +36,7 @@ div {
 
 --
 
-* técnica estatística para modelar e investigar a relação entre duas ou mais variáveis.
+* coleção de ferramentas estatísticas para modelar e explorar a relação entre duas ou mais variáveis.
 
 --
 
@@ -71,7 +71,7 @@ library(tidyverse)
 dados |> 
   ggplot() +
   aes(x=tempo, y=dbo) +
-  geom_point() +
+  geom_point(size=3.5) +
   labs(x='Tempo (dias)', y='Demanda bioquímia de oxigêngio (mg/litro)')
 ```
 
@@ -81,6 +81,10 @@ dados |>
 # Coeficiente de correlação
 
 * medida de associação **linear** entre duas variáveis.
+
+--
+
+* os valores pertencem ao intervalo $[-1,1]$.
 
 ---
 
@@ -98,7 +102,7 @@ model <- lm(dbo~tempo, data = dados)
 dados |> 
   ggplot() +
   aes(x=tempo, y=dbo) +
-  geom_point() +
+  geom_point(size=3.5) +
   labs(x='Tempo (dias)', y='Demanda bioquímia de oxigêngio (mg/litro)') +
   stat_smooth(method = lm, se = FALSE) +
   geom_segment(aes(xend = tempo, yend = fitted(model)), color = "red", size = 0.3)
@@ -122,16 +126,8 @@ $$y_i=\beta_0+\beta_1x_{1i}+\ldots+\beta_px_{pi}+e_i$$
 
 --
 
-  - **Stepwise**: método de seleção de variáveis
-
---
-
-  - **VIF**: detectar multicolinearidade
+  - **Observação**: método de *stepwise* para seleção de variáveis
   
----
-
-# Modelo de regressão linear múltipla
-
 ---
 
 # Adequação do modelo
@@ -164,15 +160,30 @@ $$y_i=\beta_0+\beta_1x_{1i}+\ldots+\beta_px_{pi}+e_i$$
 
 # Atividade 6
 
-Um artigo publicado em *Nature* descreveu um experimento em que indivíduos consumiram diferentes tipos de chocolate para determinar o efeito de comer chocolate sobre uma medida de saúde cardiovascular. Consideraremos os resultados para somente chocolate amargo e chocolate ao leite. No experimento, 12 indivíduos comeram 100 gramas de chocolate amargo e 200 gramas de chocolate ao leite, um tipo de chocolate por dia, e, depois de uma hora, a capacidade antioxidante total de seus plasmas sanguíneos foi medida em um ensaio. Os indivíduos consistiram em sete mulheres e cinco homens, com uma faixa média de idades de $32,2 \pm1$ anos, um peso médio de $65,8 \pm3,1$ kg e índice médio de massa corpórea de $21,9 \pm 0,4$ kg/m2. A seguir, dados similares aos reportados no artigo.
+A energia elétrica consumida mensalmente por uma indústria química está relacionada com a temperatura média ambiente, o número de dia no mês, a pureza média do produto e as toneladas do produto produzido. Os dados históricos do ano passado estão disponíveis na planilha eletrônica energia_eletrica.xlsx.
 
-- **Chocolate Amargo**: 118,8; 122,6; 115,6; 113,6;
-119,5; 115,9; 115,8; 115,1;
-116,9; 115,4; 115,6 e 107,9
+```{r, echo=TRUE, eval=FALSE}
+dados <- readxl::read_excel('energia_eletrica.xlsx')
+plot(dados)
+```
 
-- **Chocolate ao Leite**: 102,1; 105,8; 99,6; 102,7; 98,8; 100,9; 102,8; 98,7; 94,7; 97,8; 99,7 e 98,6
+---
 
-Há evidência para sustentar a hipótese de que consumir chocolate amargo produz um nível médio diferente de capacidade antioxidante total do plasma sanguíneo quando comparado ao chocolate ao leite? Considere um nível de significância de 5%.
+```{r, fig.align='center'}
+library(readxl)
+dados <- read_excel('energia_eletrica.xlsx')
+plot(dados)
+```
+
+
+---
+
+# Exercício
+
+Faça uma análise de regressão considerando os dados de adesão de fio que são referentes resistência à tração (variável resposta) de um fio colado, em um processo de fabricação de semicondutores. As variáveis explicativas são: comprimento do fio e altura da garra. 
+
+Os dados estão disponíveis na planilha eletrônica adesao_fio.xlsx
+
 
 ---
 
@@ -180,13 +191,7 @@ Há evidência para sustentar a hipótese de que consumir chocolate amargo produ
 
 .pull-left[
 
-&#10004; Leitura Capítulo 11
-
-- Subcapítulos 11.1, 11.2, 11.4.1, 11.7, 11.8
-
-&#10004; Leitura Capítulo 12
-
-- Subcapítulo 12.1
+&#10004; Leitura Capítulo 13
 
 ]
 
