@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>PGEA06 - Estatística Aplicada</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Elizabeth Mie Hashimoto   DAMAT-LD" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
+    <link href="libs/remark-css/metropolis-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="tema_pgea06.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# PGEA06 - Estatística Aplicada
+## Aula 06 - Modelo de regressão linear
+### Elizabeth Mie Hashimoto <br> DAMAT-LD
+
+---
+
+
+
+&lt;style&gt; 
+#caixa {
+  border: 1px solid;
+  padding: 10px;
+  box-shadow: 5px 10px blue;
+}
+div {
+  text-align: justify;
+  text-justify: inter-word;
+}
+&lt;/style&gt;
+
+# Análise de regressão
+
+--
+
+* técnica estatística para modelar e investigar a relação entre duas ou mais variáveis.
+
+--
+
+  - Relação de **causa e efeito**: planejamento de experimentos
+
+&lt;br&gt;
+--
+
+&lt;div class="warning" style='padding:0.1em; background-color:#E9D8FD; color:#69337A'&gt;
+&lt;span&gt;
+&lt;p style='margin-top:1em; text-align:center'&gt;
+&lt;b&gt;Exemplo&lt;/b&gt;&lt;/p&gt;
+&lt;p style='margin-left:1em;'&gt;
+&lt;/p&gt;
+&lt;/span&gt;
+&lt;/div&gt;
+Um artigo no *Journal of Environmental Engineering Division* tomou uma amostra do rio Holson abaixo de Kingport, Tennessee, durante o mês de agosto de 1977. O  teste de demanda bioquímica de oxigênio (DBO) é conduzido durante um período de tempo dado em dias. Os dados resultantes são mostrados a seguir:
+
+- **Tempo (dias):** 1, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20
+
+- **DBO (mg/litro):** 0,6; 0,7; 1,5; 1,9; 2,1; 2,6; 2,9; 3,7; 3,5; 3,7; 3,8
+
+---
+
+&lt;img src="pgea06_aula06_files/figure-html/unnamed-chunk-1-1.png" style="display: block; margin: auto;" /&gt;
+
+
+---
+
+# Coeficiente de correlação
+
+* medida de associação **linear** entre duas variáveis.
+
+---
+
+# Modelo de regressão linear
+
+&lt;img src="pgea06_aula06_files/figure-html/unnamed-chunk-2-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+* **Simples**: apenas uma variável explicativa.
+
+`$$y_i=\beta_0+\beta_1x_i+e_i$$`
+
+&lt;br&gt;
+
+--
+
+* **Múltipla**: mais de uma variável explicativa.
+
+`$$y_i=\beta_0+\beta_1x_{1i}+\ldots+\beta_px_{pi}+e_i$$`
+
+&lt;br&gt;
+
+--
+
+  - **Stepwise**: método de seleção de variáveis
+
+--
+
+  - **VIF**: detectar multicolinearidade
+  
+---
+
+# Modelo de regressão linear múltipla
+
+---
+
+# Adequação do modelo
+
+* Um modelo de regressão linear faz várias suposições sobre os dados, como:
+
+--
+
+  - **Linearidade dos dados**. 
+  
+--
+  
+  - **Normalidade dos resíduos**. 
+  
+--
+  
+  - **Homogeneidade da variância dos resíduos**. 
+  
+--
+  
+  - **Independência** dos termos de erro dos resíduos.
+  
+--
+
+&lt;br&gt;
+
+**Checar** todas as essas suposições garantem a adequação do modelo a um conjunto de dados.
+
+---
+
+# Atividade 6
+
+Um artigo publicado em *Nature* descreveu um experimento em que indivíduos consumiram diferentes tipos de chocolate para determinar o efeito de comer chocolate sobre uma medida de saúde cardiovascular. Consideraremos os resultados para somente chocolate amargo e chocolate ao leite. No experimento, 12 indivíduos comeram 100 gramas de chocolate amargo e 200 gramas de chocolate ao leite, um tipo de chocolate por dia, e, depois de uma hora, a capacidade antioxidante total de seus plasmas sanguíneos foi medida em um ensaio. Os indivíduos consistiram em sete mulheres e cinco homens, com uma faixa média de idades de `\(32,2 \pm1\)` anos, um peso médio de `\(65,8 \pm3,1\)` kg e índice médio de massa corpórea de `\(21,9 \pm 0,4\)` kg/m2. A seguir, dados similares aos reportados no artigo.
+
+- **Chocolate Amargo**: 118,8; 122,6; 115,6; 113,6;
+119,5; 115,9; 115,8; 115,1;
+116,9; 115,4; 115,6 e 107,9
+
+- **Chocolate ao Leite**: 102,1; 105,8; 99,6; 102,7; 98,8; 100,9; 102,8; 98,7; 94,7; 97,8; 99,7 e 98,6
+
+Há evidência para sustentar a hipótese de que consumir chocolate amargo produz um nível médio diferente de capacidade antioxidante total do plasma sanguíneo quando comparado ao chocolate ao leite? Considere um nível de significância de 5%.
+
+---
+
+# Próxima aula
+
+.pull-left[
+
+&amp;#10004; Leitura Capítulo 11
+
+- Subcapítulos 11.1, 11.2, 11.4.1, 11.7, 11.8
+
+&amp;#10004; Leitura Capítulo 12
+
+- Subcapítulo 12.1
+
+]
+
+.pull-right[
+&lt;img src="figuras/mont7.png" width="65%" style="display: block; margin: auto;" /&gt;
+]
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": false,
+"countIncrementalSlides": false,
+"slideNumberFormat": "%current%"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

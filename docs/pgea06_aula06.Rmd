@@ -1,0 +1,198 @@
+---
+title: "PGEA06 - Estatística Aplicada"
+subtitle: "Aula 06 - Modelo de regressão linear" 
+author: "Elizabeth Mie Hashimoto <br> DAMAT-LD"
+output:
+  xaringan::moon_reader:
+    css: [metropolis, metropolis-fonts, tema_pgea06.css]
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: false
+      countIncrementalSlides: false
+      slideNumberFormat: "%current%"
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(echo = FALSE, 
+                      comment = '',
+                      message = FALSE,
+                      warning = FALSE)
+```
+<style> 
+#caixa {
+  border: 1px solid;
+  padding: 10px;
+  box-shadow: 5px 10px blue;
+}
+div {
+  text-align: justify;
+  text-justify: inter-word;
+}
+</style>
+
+# Análise de regressão
+
+--
+
+* técnica estatística para modelar e investigar a relação entre duas ou mais variáveis.
+
+--
+
+  - Relação de **causa e efeito**: planejamento de experimentos
+
+<br>
+--
+
+<div class="warning" style='padding:0.1em; background-color:#E9D8FD; color:#69337A'>
+<span>
+<p style='margin-top:1em; text-align:center'>
+<b>Exemplo</b></p>
+<p style='margin-left:1em;'>
+</p>
+</span>
+</div>
+Um artigo no *Journal of Environmental Engineering Division* tomou uma amostra do rio Holson abaixo de Kingport, Tennessee, durante o mês de agosto de 1977. O  teste de demanda bioquímica de oxigênio (DBO) é conduzido durante um período de tempo dado em dias. Os dados resultantes são mostrados a seguir:
+
+- **Tempo (dias):** 1, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20
+
+- **DBO (mg/litro):** 0,6; 0,7; 1,5; 1,9; 2,1; 2,6; 2,9; 3,7; 3,5; 3,7; 3,8
+
+---
+
+```{r, fig.align='center'}
+x<-c(1,seq(2,20,2))
+dbo <- c(0.6,0.7,1.5,1.9,2.1,2.6,2.9,3.7,3.5,3.7,3.8)
+
+dados <- data.frame(tempo=x,dbo)
+library(tidyverse)
+
+dados |> 
+  ggplot() +
+  aes(x=tempo, y=dbo) +
+  geom_point() +
+  labs(x='Tempo (dias)', y='Demanda bioquímia de oxigêngio (mg/litro)')
+```
+
+
+---
+
+# Coeficiente de correlação
+
+* medida de associação **linear** entre duas variáveis.
+
+---
+
+# Modelo de regressão linear
+
+```{r, fig.align='center'}
+x<-c(1,seq(2,20,2))
+dbo <- c(0.6,0.7,1.5,1.9,2.1,2.6,2.9,3.7,3.5,3.7,3.8)
+
+dados <- data.frame(tempo=x,dbo)
+library(tidyverse)
+
+model <- lm(dbo~tempo, data = dados)
+
+dados |> 
+  ggplot() +
+  aes(x=tempo, y=dbo) +
+  geom_point() +
+  labs(x='Tempo (dias)', y='Demanda bioquímia de oxigêngio (mg/litro)') +
+  stat_smooth(method = lm, se = FALSE) +
+  geom_segment(aes(xend = tempo, yend = fitted(model)), color = "red", size = 0.3)
+```
+
+---
+
+* **Simples**: apenas uma variável explicativa.
+
+$$y_i=\beta_0+\beta_1x_i+e_i$$
+
+<br>
+
+--
+
+* **Múltipla**: mais de uma variável explicativa.
+
+$$y_i=\beta_0+\beta_1x_{1i}+\ldots+\beta_px_{pi}+e_i$$
+
+<br>
+
+--
+
+  - **Stepwise**: método de seleção de variáveis
+
+--
+
+  - **VIF**: detectar multicolinearidade
+  
+---
+
+# Modelo de regressão linear múltipla
+
+---
+
+# Adequação do modelo
+
+* Um modelo de regressão linear faz várias suposições sobre os dados, como:
+
+--
+
+  - **Linearidade dos dados**. 
+  
+--
+  
+  - **Normalidade dos resíduos**. 
+  
+--
+  
+  - **Homogeneidade da variância dos resíduos**. 
+  
+--
+  
+  - **Independência** dos termos de erro dos resíduos.
+  
+--
+
+<br>
+
+**Checar** todas as essas suposições garantem a adequação do modelo a um conjunto de dados.
+
+---
+
+# Atividade 6
+
+Um artigo publicado em *Nature* descreveu um experimento em que indivíduos consumiram diferentes tipos de chocolate para determinar o efeito de comer chocolate sobre uma medida de saúde cardiovascular. Consideraremos os resultados para somente chocolate amargo e chocolate ao leite. No experimento, 12 indivíduos comeram 100 gramas de chocolate amargo e 200 gramas de chocolate ao leite, um tipo de chocolate por dia, e, depois de uma hora, a capacidade antioxidante total de seus plasmas sanguíneos foi medida em um ensaio. Os indivíduos consistiram em sete mulheres e cinco homens, com uma faixa média de idades de $32,2 \pm1$ anos, um peso médio de $65,8 \pm3,1$ kg e índice médio de massa corpórea de $21,9 \pm 0,4$ kg/m2. A seguir, dados similares aos reportados no artigo.
+
+- **Chocolate Amargo**: 118,8; 122,6; 115,6; 113,6;
+119,5; 115,9; 115,8; 115,1;
+116,9; 115,4; 115,6 e 107,9
+
+- **Chocolate ao Leite**: 102,1; 105,8; 99,6; 102,7; 98,8; 100,9; 102,8; 98,7; 94,7; 97,8; 99,7 e 98,6
+
+Há evidência para sustentar a hipótese de que consumir chocolate amargo produz um nível médio diferente de capacidade antioxidante total do plasma sanguíneo quando comparado ao chocolate ao leite? Considere um nível de significância de 5%.
+
+---
+
+# Próxima aula
+
+.pull-left[
+
+&#10004; Leitura Capítulo 11
+
+- Subcapítulos 11.1, 11.2, 11.4.1, 11.7, 11.8
+
+&#10004; Leitura Capítulo 12
+
+- Subcapítulo 12.1
+
+]
+
+.pull-right[
+```{r,echo=FALSE, fig.align='center', out.width='65%'}
+knitr::include_graphics('figuras/mont7.png')
+```
+]
+
