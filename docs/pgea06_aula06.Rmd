@@ -163,7 +163,8 @@ $$y_i=\beta_0+\beta_1x_{1i}+\ldots+\beta_px_{pi}+e_i$$
 A energia elétrica consumida mensalmente por uma indústria química está relacionada com a temperatura média ambiente, o número de dia no mês, a pureza média do produto e as toneladas do produto produzido. Os dados históricos do ano passado estão disponíveis na planilha eletrônica energia_eletrica.xlsx.
 
 ```{r, echo=TRUE, eval=FALSE}
-dados <- readxl::read_excel('energia_eletrica.xlsx')
+library(readxl)
+dados <- read_excel('energia_eletrica.xlsx')
 plot(dados)
 ```
 

@@ -137,7 +137,8 @@ A energia elétrica consumida mensalmente por uma indústria química está rela
 
 
 ```r
-dados &lt;- readxl::read_excel('energia_eletrica.xlsx')
+library(readxl)
+dados &lt;- read_excel('energia_eletrica.xlsx')
 plot(dados)
 ```
 
