@@ -17,7 +17,7 @@
 class: center, middle, inverse, title-slide
 
 # PGEA06 - Estatística Aplicada
-## Aula 07 - Análise de variância (DIC e DBC)
+## Aula 08 - Análise de variância (DBC e fatoriais)
 ### Elizabeth Mie Hashimoto <br> DAMAT-LD
 
 ---
@@ -36,172 +36,9 @@ div {
 }
 &lt;/style&gt;
 
-# Motivação
+# Delineamento em blocos casualizados
 
-&lt;br&gt;
-&lt;br&gt;
-
-&lt;fieldset class="fldsetblock-class"&gt;
-  &lt;legend class="legendblock-class"&gt;
-    Dados experimentais
-  &lt;/legend&gt;
- Vamos pensar em uma área de aplicação
-&lt;/fieldset&gt;
-
----
-
-# Conceitos básicos
-
-&lt;fieldset class="fldsetalert-class"&gt;
-  &lt;legend class="legendalert-class"&gt;
-    Erro experimental
-  &lt;/legend&gt;
-  é a variação ao acaso entre observações.
-&lt;/fieldset&gt;
-
-&lt;br&gt;
-
---
-
-&lt;fieldset class="fldsetalert-class"&gt;
-  &lt;legend class="legendalert-class"&gt;
-    Fator
-  &lt;/legend&gt;
-  é a variável independente controlada.
-&lt;/fieldset&gt;
-
-&lt;br&gt;
-
---
-
-&lt;fieldset class="fldsetalert-class"&gt;
-  &lt;legend class="legendalert-class"&gt;
-    Níveis
-  &lt;/legend&gt;
-  são as categorias ou valores no domínio de um fator.
-&lt;/fieldset&gt;
-
----
-
-&lt;fieldset class="fldsetalert-class"&gt;
-  &lt;legend class="legendalert-class"&gt;
-    Unidade experimental
-  &lt;/legend&gt;
-  é o objeto que recebe os níveis.
-&lt;/fieldset&gt;
-
-&lt;br&gt;
-
---
-
-&lt;fieldset class="fldsetalert-class"&gt;
-  &lt;legend class="legendalert-class"&gt;
-    Variável resposta
-  &lt;/legend&gt;
-  é a variável de dependente.
-&lt;/fieldset&gt;
-
-&lt;br&gt;
-
---
-
-&lt;fieldset class="fldsetalert-class"&gt;
-  &lt;legend class="legendalert-class"&gt;
-    Delineamento experimental
-  &lt;/legend&gt;
-  é a forma como os níveis são designados a unidade experimental.
-&lt;/fieldset&gt;
-
----
-
-&lt;fieldset class="fldsetexample-class"&gt;
-  &lt;legend class="legendexample-class"&gt;
-    Exercício
-  &lt;/legend&gt;
-  Um fabricante de papel está interessado em melhorar a resistência do produto à tração.
-
-	A engenharia de produto presume que a resistência à tração seja uma função da concentração da madeira de lei na polpa.&lt;br/&gt; 
-	
-	Um grupo de engenheiros responsáveis pelo estudo decide investigar quatro níveis de concentração de madeira de lei: 5%, 10%, 15% e 20%. &lt;br/&gt; 
-	
-	Eles decidem fabricar seis corpos de prova, para cada nível de concentração, usando uma planta piloto. Todos os 24 corpos de prova são testados, em uma ordem aleatória, em um equipamento de teste de laboratório.
-&lt;/fieldset&gt;
-
-&lt;br&gt;
-	De acordo com o enunciado, identifique os seguintes itens:
-	
-.pull-left[
-- Fator e classifique;
-
-- Nível;
-
-- Unidade experimental;
-]
-
-.pull-right[
-- Variável resposta;
-
-- Delineamento experimental.
-]
-	
----
-
-# Princípios básicos da experimentação
-
-&lt;fieldset class="fldsetalert-class"&gt;
-  &lt;legend class="legendalert-class"&gt;
-    Repetição
-  &lt;/legend&gt;
-  é o número de vezes que os níveis aparecem no experimento
-&lt;/fieldset&gt;
-
-&lt;br&gt;
-
---
-
-&lt;fieldset class="fldsetalert-class"&gt;
-  &lt;legend class="legendalert-class"&gt;
-    Aleatorização
-  &lt;/legend&gt;
-  é o princípio de distribuir aleatoriamente os níveis nas unidades experimentais.
-&lt;/fieldset&gt;
-
-&lt;br&gt;
-
---
-
-&lt;fieldset class="fldsetalert-class"&gt;
-  &lt;legend class="legendalert-class"&gt;
-    Controle local
-  &lt;/legend&gt;
-  é uma forma de controlar o fator de ruído.
-&lt;/fieldset&gt;
-
----
-
-# Análise de variância (ANOVA)
-
-- é uma análise baseado na decomposição da variabilidade total do experimento.
-
-&lt;br&gt;
-
-&lt;img src="figuras/comparacao1.jpg" width="75%" style="display: block; margin: auto;" /&gt;
-
----
-
-# Análise de variância (ANOVA)
-
-- é uma análise baseado na decomposição da variabilidade total do experimento.
-
-&lt;br&gt;
-
-&lt;img src="figuras/comparacao5.jpg" width="75%" style="display: block; margin: auto;" /&gt;
-
----
-
-# Delineamento inteiramente casualizado
-
-- **Não há** a presença de fatores de ruído
+- **Há** a presença de um fator de ruído
 
 &lt;br&gt;
 
@@ -209,8 +46,8 @@ div {
 
 - O modelo é dado por
 
-`$$y_{ij}=\mu+\tau_i+e_{ij}$$`
-com `\(i=1,\ldots,a\)` e `\(j=1,\ldots,r\)`.
+`$$y_{ij}=\mu+\beta_j+\tau_i+e_{ij}$$`
+com `\(i=1,\ldots,a\)` e `\(j=1,\ldots,b\)`.
 
 --
 
@@ -222,7 +59,7 @@ com `\(i=1,\ldots,a\)` e `\(j=1,\ldots,r\)`.
 
 ---
 
-- A estatística do teste é dada por
+A estatística do teste é dada por
 
 &lt;table class=" lightable-classic lightable-striped lightable-hover" style='font-family: "Arial Narrow", "Source Sans Pro", sans-serif; margin-left: auto; margin-right: auto;'&gt;
 &lt;caption&gt;Esquema da tabela da ANOVA&lt;/caption&gt;
@@ -237,6 +74,13 @@ com `\(i=1,\ldots,a\)` e `\(j=1,\ldots,r\)`.
  &lt;/thead&gt;
 &lt;tbody&gt;
   &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Bloco &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; b-1 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; SQBloco &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; QMBloco &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; QMBloco/QMRes &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Fator &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; a-1 &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; SQFator &lt;/td&gt;
@@ -245,14 +89,14 @@ com `\(i=1,\ldots,a\)` e `\(j=1,\ldots,r\)`.
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Resíduo &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; a(r-1) &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; (a-1)(b-1) &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; SQRes &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; QMRes &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; --- &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Total &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; ar-1 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; ab-1 &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; SQTotal &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; --- &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; --- &lt;/td&gt;
@@ -262,65 +106,51 @@ com `\(i=1,\ldots,a\)` e `\(j=1,\ldots,r\)`.
 
 ---
 
-# Verificação dos pressupostos
-
-&lt;fieldset class="fldsetalert-class"&gt;
-  &lt;legend class="legendalert-class"&gt;
-    Anova - pressupostos
-  &lt;/legend&gt;
-  - normalidade dos resíduos &lt;br/&gt;
-  
-  - homogeneidade de variâncias
-&lt;/fieldset&gt;
-
----
-
 &lt;fieldset class="fldsetexample-class"&gt;
   &lt;legend class="legendexample-class"&gt;
     Exercício
   &lt;/legend&gt;
-  Um fabricante de papel está interessado em melhorar a resistência do produto à tração.
-
-	A engenharia de produto presume que a resistência à tração seja uma função da concentração da madeira de lei na polpa.&lt;br/&gt; 
-	
-	Um grupo de engenheiros responsáveis pelo estudo decide investigar quatro níveis de concentração de madeira de lei: 5%, 10%, 15% e 20%. &lt;br/&gt; 
-	
-	Eles decidem fabricar seis corpos de prova, para cada nível de concentração, usando uma planta piloto. Todos os 24 corpos de prova são testados, em uma ordem aleatória, em um equipamento de teste de laboratório.
+  Um experimento foi feito para determinar o efeito de quatro produtos químicos diferentes sobre a resistência de um tecido. Esses produtos químicos são usados como parte do processo de acabamento, sob prensagem permanente. Cinco amostras de tecido foram selecionadas e um PBCA foi corrido, testando cada tipo de produto químico uma vez, em uma ordem aleatória, em cada amostra de tecido. Os dados são mostrados na seguinte tabela. Teste o efeito do produto química sobre a resistência do tecido, considerando um nível de significância de 5%.
 &lt;/fieldset&gt;
 
-&lt;img src="figuras/papel.jpg" width="55%" style="display: block; margin: auto;" /&gt;
-
-Considerando um nível de significância de 5%, verifique se existe efeito da concentração de madeira sobre a resistência.
+&lt;img src="figuras/tecido.jpg" width="70%" style="display: block; margin: auto;" /&gt;
 
 ---
 
-# Teste de Tukey
-
-- Teste de comparação múltipla, cujo objetivo é **identificar** quais médias são diferentes.
-
-&lt;br&gt;
-
---
-
-- As hipóteses estatísticas são:
-
-`\(H_0\)`:
-
-`\(H_1\)`:
+# Experimentos fatoriais
 
 ---
 
-# Próxima aula
+# Atividade 8
 
-.pull-left[
+A demanda química de oxigênio foi usada como resposta e três valores diferentes para o tempo de eletrólise foram considerados. Os seguintes dados foram obtidos de experimento conduzido de acordo com o delineamento em blocos casualizados, sendo os valores iniciais de pH os blocos.
 
-&amp;#10004; Leitura Capítulo 14
+- pH inicial 3:
 
-]
+  - 15 min de eletrólise: 77,1 
+  
+  - 30 min de eletrólise: 80,1
+  
+  - 45 min de eletrólise: 82,8 
+  
+- pH inicial 7:
 
-.pull-right[
-&lt;img src="figuras/mont7.png" width="65%" style="display: block; margin: auto;" /&gt;
-]
+  - 15 min de eletrólise: 75,2 
+  
+  - 30 min de eletrólise: 76,8
+  
+  - 45 min de eletrólise: 75,2
+  
+---
+  
+- pH inicial 11:
+
+  - 15 min de eletrólise: 42,2 
+  
+  - 30 min de eletrólise: 45,0
+  
+  - 45 min de eletrólise: 46,8
+
 
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>

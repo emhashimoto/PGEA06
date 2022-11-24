@@ -275,18 +275,11 @@ Considerando um nível de significância de 5%, verifique se existe efeito da co
 
 ---
 
-# Delineamento em blocos casualizados
+# Teste de Tukey
 
-- **Há** a presença de um fator de ruído
+- Teste de comparação múltipla, cujo objetivo é **identificar** quais médias são diferentes.
 
 <br>
-
---
-
-- O modelo é dado por
-
-$$y_{ij}=\mu+\beta_j+\tau_i+e_{ij}$$
-com $i=1,\ldots,a$ e $j=1,\ldots,b$.
 
 --
 
@@ -295,48 +288,6 @@ com $i=1,\ldots,a$ e $j=1,\ldots,b$.
 $H_0$:
 
 $H_1$:
-
----
-
-A estatística do teste é dada por
-
-```{r}
-causa <- c('Bloco','Fator','Resíduo','Total')
-gl <- c('b-1','a-1','(a-1)(b-1)','ab-1')
-sq <- c('SQBloco','SQFator','SQRes','SQTotal')
-qm <- c('QMBloco','QMFator','QMRes','---')
-f0 <- c('QMBloco/QMRes','QMFator/QMRes','---','---')
-dat <- data.frame(causa,gl,sq,qm,f0)
-
-dat |> 
-  kbl(caption = 'Esquema da tabela da ANOVA',
-      col.names = c('Causa de variação','Grau de liberdade','Soma de quadrados','Quadrado médio','f0')) |> 
-  kable_classic(c("striped", "hover"))
-```
-
----
-
-<fieldset class="fldsetexample-class">
-  <legend class="legendexample-class">
-    Exercício
-  </legend>
-  xxx
-</fieldset>
-
----
-
-# Atividade 7
-
-A energia elétrica consumida mensalmente por uma indústria química está relacionada com a temperatura média ambiente, o número de dia no mês, a pureza média do produto e as toneladas do produto produzido. Os dados históricos do ano passado estão disponíveis na planilha eletrônica energia_eletrica.xlsx.
-
-
----
-
-```{r, fig.align='center'}
-library(readxl)
-dados <- read_excel('energia_eletrica.xlsx')
-plot(dados)
-```
 
 ---
 
