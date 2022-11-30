@@ -108,50 +108,230 @@ A estatística do teste é dada por
 
 &lt;fieldset class="fldsetexample-class"&gt;
   &lt;legend class="legendexample-class"&gt;
-    Exercício
+    Exercício 1
   &lt;/legend&gt;
   Um experimento foi feito para determinar o efeito de quatro produtos químicos diferentes sobre a resistência de um tecido. Esses produtos químicos são usados como parte do processo de acabamento, sob prensagem permanente. Cinco amostras de tecido foram selecionadas e um PBCA foi corrido, testando cada tipo de produto químico uma vez, em uma ordem aleatória, em cada amostra de tecido. Os dados são mostrados na seguinte tabela. Teste o efeito do produto química sobre a resistência do tecido, considerando um nível de significância de 5%.
 &lt;/fieldset&gt;
 
-&lt;img src="figuras/tecido.jpg" width="70%" style="display: block; margin: auto;" /&gt;
+&lt;br&gt;
+
+&lt;table frame="hsides" rules="rows" width="500" align="center"&gt;
+    &lt;tbody&gt;
+        &lt;tr style="text-align: center;"&gt;
+            &lt;th colspan="1"&gt;&lt;/th&gt;
+            &lt;th colspan="5"&gt;Amostra de tecido (bloco)&lt;/th&gt;
+        &lt;/tr&gt;
+        &lt;tr style="text-align: center;"&gt;
+            &lt;td style="border-top-style: hidden;"&gt; &lt;b&gt;Tipo de produto químico&lt;/b&gt;&lt;/td&gt;
+            &lt;td&gt;1&lt;/td&gt;
+            &lt;td&gt;2&lt;/td&gt;
+            &lt;td&gt;3&lt;/td&gt;
+            &lt;td&gt;4&lt;/td&gt;
+            &lt;td&gt;5&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr style="text-align: center;"&gt;
+            &lt;td&gt;1&lt;/td&gt;
+            &lt;td&gt;1,3&lt;/td&gt;
+            &lt;td&gt;1,6&lt;/td&gt;
+            &lt;td&gt;0,5&lt;/td&gt;
+            &lt;td&gt;1,2&lt;/td&gt;
+            &lt;td&gt;1,1&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr style="text-align: center;"&gt;
+            &lt;td &gt;2&lt;/td&gt;
+            &lt;td&gt;2,2&lt;/td&gt;
+            &lt;td&gt;2,4&lt;/td&gt;
+            &lt;td&gt;0,4&lt;/td&gt;
+            &lt;td&gt;2,0&lt;/td&gt;
+            &lt;td&gt;1,8&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr style="text-align: center;"&gt;
+            &lt;td&gt;3&lt;/td&gt;
+            &lt;td&gt;1,8&lt;/td&gt;
+            &lt;td&gt;1,7&lt;/td&gt;
+            &lt;td&gt;0,6&lt;/td&gt;
+            &lt;td&gt;1,5&lt;/td&gt;
+            &lt;td&gt;1,3&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr style="text-align: center;"&gt;
+            &lt;td&gt;4&lt;/td&gt;
+            &lt;td&gt;3,9&lt;/td&gt;
+            &lt;td&gt;4,4&lt;/td&gt;
+            &lt;td&gt;2,0&lt;/td&gt;
+            &lt;td&gt;4,1&lt;/td&gt;
+            &lt;td&gt;3,4&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
 
 ---
 
 # Experimentos fatoriais
 
+- **Há** mais de um fator no experimento.
+
+--
+
+- Considerar experimentos com **dois** fatores. 
+
+&lt;br&gt;
+
+--
+
+- O modelo é dado por
+
+`$$y_{ijk}=\mu+\tau_i+\alpha_j+e_{ijk}$$`
+com `\(i=1,\ldots,a\)`, `\(j=1,\ldots,b\)` e `\(k=1,\ldots,r\)`.
+
+--
+
+- As hipóteses estatísticas são:
+
+`\(H_0\)`:
+
+`\(H_1\)`:
+
+---
+
+- Se **há** efeito de interação entre os fatores:
+
+  - desdobramento dos níveis
+
+--
+  
+- Se **não há** efeito de interação entre os fatores:
+
+  - os efeitos principais são **estudados separadamente**.
+  
+--
+
+A estatística do teste é dada por
+
+&lt;table class=" lightable-classic lightable-striped lightable-hover" style='font-family: "Arial Narrow", "Source Sans Pro", sans-serif; margin-left: auto; margin-right: auto;'&gt;
+&lt;caption&gt;Esquema da tabela da ANOVA&lt;/caption&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Causa de variação &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Grau de liberdade &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Soma de quadrados &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Quadrado médio &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; f0 &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; FatorA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; b-1 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; SQA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; QMA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; QMA/QMRes &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; FatorB &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; a-1 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; SQB &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; QMB &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; QMB/QMRes &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Interação &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; (a-1)(b-1) &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; SQInt &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; QMInt &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; QMInt/QMRes &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Resíduo &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; ab(r-1) &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; SQRes &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; QMRes &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; --- &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Total &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; abr-1 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; SQTotal &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; --- &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; --- &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+---
+
+&lt;fieldset class="fldsetexample-class"&gt;
+  &lt;legend class="legendexample-class"&gt;
+    Exercício 2
+  &lt;/legend&gt;
+  Considere as combinações de dois fatores na remoção de sujeira em roupas típicas de lavanderia. O primeiro fator é a marca do sabão em pó (X, Y e Z). O segundo fator é a temperatura da água, quente ou morna. Cada combinação de nível foi repetido três vezes e a variável resposta é a porcentagem de sujeira removida. Os dados são mostrados a seguir
+  
+&lt;/fieldset&gt;
+
+&lt;table frame="hsides" rules="rows" width="400" align="center"&gt;
+    &lt;tbody&gt;
+        &lt;tr style="text-align: center;"&gt;
+            &lt;th colspan="1"&gt;Marca&lt;/th&gt;
+            &lt;th colspan="1"&gt;Temperatura&lt;/th&gt;
+            &lt;th colspan="3"&gt;Repetição&lt;/th&gt;
+        &lt;/tr&gt;
+        &lt;tr style="text-align: center;"&gt;
+            &lt;td&gt;X&lt;/td&gt;
+            &lt;td&gt;Quente&lt;/td&gt;
+            &lt;td&gt;85&lt;/td&gt;
+            &lt;td&gt;88&lt;/td&gt;
+            &lt;td&gt;80&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr style="text-align: center;"&gt;
+            &lt;td style="border-top-style: hidden;"&gt; &lt;/td&gt;
+            &lt;td&gt;Morna&lt;/td&gt;
+            &lt;td&gt;82&lt;/td&gt;
+            &lt;td&gt;83&lt;/td&gt;
+            &lt;td&gt;85&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr style="text-align: center;"&gt;
+            &lt;td&gt;Y&lt;/td&gt;
+            &lt;td&gt;Quente&lt;/td&gt;
+            &lt;td&gt;90&lt;/td&gt;
+            &lt;td&gt;92&lt;/td&gt;
+            &lt;td&gt;92&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr style="text-align: center;"&gt;
+            &lt;td style="border-top-style: hidden;"&gt; &lt;/td&gt;
+            &lt;td&gt;Morna&lt;/td&gt;
+            &lt;td&gt;88&lt;/td&gt;
+            &lt;td&gt;86&lt;/td&gt;
+            &lt;td&gt;88&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr style="text-align: center;"&gt;
+            &lt;td&gt;Z&lt;/td&gt;
+            &lt;td&gt;Quente&lt;/td&gt;
+            &lt;td&gt;85&lt;/td&gt;
+            &lt;td&gt;87&lt;/td&gt;
+            &lt;td&gt;88&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr style="text-align: center;"&gt;
+            &lt;td style="border-top-style: hidden;"&gt;&lt;/td&gt;
+            &lt;td&gt;Morna&lt;/td&gt;
+            &lt;td&gt;76&lt;/td&gt;
+            &lt;td&gt;74&lt;/td&gt;
+            &lt;td&gt;78&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
+
+Teste os efeitos sobre a porcentagem de sujeira removida, considerando um nível de significância de 5%.
+
 ---
 
 # Atividade 8
 
-A demanda química de oxigênio foi usada como resposta e três valores diferentes para o tempo de eletrólise foram considerados. Os seguintes dados foram obtidos de experimento conduzido de acordo com o delineamento em blocos casualizados, sendo os valores iniciais de pH os blocos.
+O rendimento de um processo químico está sendo estudado. o
+dois fatores de interesse são temperatura e pressão. Três níveis de cada fator são selecionados; no entanto, apenas nove execuções podem ser
+feito em um dia. O experimentador executa uma réplica completa
+do desenho em cada dia. Os dados são mostrados a seguir
+tabela. Analise os dados, assumindo que os dias são blocos e considerando um nível de significância de 5%.
 
-- pH inicial 3:
-
-  - 15 min de eletrólise: 77,1 
-  
-  - 30 min de eletrólise: 80,1
-  
-  - 45 min de eletrólise: 82,8 
-  
-- pH inicial 7:
-
-  - 15 min de eletrólise: 75,2 
-  
-  - 30 min de eletrólise: 76,8
-  
-  - 45 min de eletrólise: 75,2
-  
----
-  
-- pH inicial 11:
-
-  - 15 min de eletrólise: 42,2 
-  
-  - 30 min de eletrólise: 45,0
-  
-  - 45 min de eletrólise: 46,8
-
-
+&lt;img src="figuras/pressao.jpg" width="50%" style="display: block; margin: auto;" /&gt;
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
