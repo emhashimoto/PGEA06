@@ -64,8 +64,19 @@ A nota do trabalho corresponde a **10 pontos**.
 
 A avaliação será de acordo com os seguintes itens:
 
-- em construção...
+- (0,5) Obedecer a estrutura do trabalho apresentada no template.
 
+- (1,0) Apresentação do relatório (organizado, bem escrito, figuras e tabelas ajustadas de acordo com o texto).
+
+- (1,0) Introdução. 
+
+- (0,5) Descrição do conjunto de dados.
+
+- (4,0) Descrição e aplicação correta do método estatístico.
+
+- (2,0) Intepretação dos resultados obtidos da análise.
+
+- (1,0) Conclusão.
 
 <br>
 **Observações**: 
