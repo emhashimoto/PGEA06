@@ -32,19 +32,54 @@ div {
 }
 </style>
 
+<!--
 # Porque estudar Estatística &#128526;
+
+```{r , echo=FALSE, fig.align = 'right', out.width = '40%'}
+knitr::include_graphics('https://media.giphy.com/media/1oBwBVLGoLteCP2kyD/giphy.gif')
+```
+-->
 
 <!--acrescentar embed no link dos videos-->
 
+<!--
 <center>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/wV0Ks7aS7YI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </center>
+-->
+
+# Porque estudar Estatística &#128526;
+
+.pull-left[
+- Utilizadas para resolver problemas.
+
+<br>
+
+- Aplicadas em diversas áreas
+
+<br>
+
+- Está entre as profissões mais valorizadas ([Reportagem](https://g1.globo.com/jornal-nacional/noticia/2023/09/18/pesquisa-revela-quais-profissoes-passaram-a-pagar-mais-na-ultima-decada.ghtml))
+
+<br>
+
+- Mais informações disponível em: [Why You Need to Study Statistics](https://www.youtube.com/watch?v=wV0Ks7aS7YI)
+]
+.pull-right[
+```{r , echo=FALSE, fig.align = 'center', out.width = '65%'}
+knitr::include_graphics('https://media.giphy.com/media/1oBwBVLGoLteCP2kyD/giphy.gif')
+```
+]
 
 ---
 
 # Objetivo da disciplina &#127919;
 
 Proporcionar o aluno de pós-graduação o desenvolvimento da capacidade de interpretar os resultados e avaliar criticamente os métodos estatísticos utilizados. 
+
+```{r , echo=FALSE, fig.align = 'center', out.width = '60%'}
+knitr::include_graphics('https://media.giphy.com/media/ne0ozzSO13QhNZDSRo/giphy.gif')
+```
 
 ---
 
@@ -69,6 +104,10 @@ Proporcionar o aluno de pós-graduação o desenvolvimento da capacidade de inte
 - **08/12**: Modelos de classificação $^{\ast}$
 
 - **15/12**: Prova de recuperação e entrega do resumo expandido.
+
+```{r , echo=FALSE, fig.align = 'right', out.width = '10%'}
+knitr::include_graphics('https://media.giphy.com/media/H8mFOgIyWfFpWmJl9U/giphy.gif')
+```
 
 ---
 
@@ -104,6 +143,10 @@ knitr::include_graphics('figuras/fig8.jpg')
 
 &#128214; HAIR, Joseph F et al. **Análise Multivariada de Dados**. 6ed. Porto Alegre: Bookman, 2009.
 
+```{r , echo=FALSE, fig.align = 'right', out.width = '30%'}
+knitr::include_graphics('https://media.giphy.com/media/Y2bM68y94nxSXYkCaI/giphy.gif')
+```
+
 ---
 
 # Critério de avaliação &#128220;
@@ -130,9 +173,14 @@ em que $NRec$ é a nota da prova de recuperação. Será aprovado com $MF_r\geq6
 
 # Sala de aula &#127979;
 
-&#10004; Três primeiras aulas.
+.pull-left[
+&#10004; Três primeiras aulas.]
 
-<br>
+.pull-right[
+```{r , echo=FALSE, fig.align = 'center', out.width = '65%'}
+knitr::include_graphics('https://media.giphy.com/media/pqjqN4SOFkTK6xt2cL/giphy.gif')
+```
+]
 
 --
 
@@ -191,6 +239,10 @@ em que $NRec$ é a nota da prova de recuperação. Será aprovado com $MF_r\geq6
 <br>
 
 &#10004; Senha: PPGEA2023
+
+```{r , echo=FALSE, fig.align = 'right', out.width = '30%'}
+knitr::include_graphics('https://media.giphy.com/media/IoP0PvbbSWGAM/giphy.gif')
+```
 
 <!--
 # Questionário &#128221;
