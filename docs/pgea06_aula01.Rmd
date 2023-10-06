@@ -48,27 +48,33 @@ Proporcionar o aluno de pós-graduação o desenvolvimento da capacidade de inte
 
 ---
 
-# Conteúdo programático
+# Previsão dos conteúdos
 
-- Apresentação da disciplina e revisão de conceitos básicos
+- **06/10**: Apresentação da disciplina e revisão de conceitos básicos
 
-- Visualização de dados
+- **20/10**: Variáveis aleatórias, distribuição de probabilidade e intervalo de confiança.
 
-- Intervalos de confiança
+- **27/10**: Teste de hipótese para uma e duas amostras
 
-- Teste de hipóteses: paramétrico e não paramétrico
+- **10/11**: Modelo de regressão linear simples e múltiplo
 
-- Análise de variância: DIC e DBC
+- **11/11**: Avaliação teórica e sem consulta das 8:20~12:00
 
-- Análise de variância: esquema fatorial e parcela subdividida
+- **17/11**: Análise de variância: DIC e DBC
 
-- Modelos de regressão
+- **24/11**: Análise de variância: esquema fatorial e parcela subdividida
+
+- **01/12**: Análise de agrupamento
+
+- **08/12**: Modelos de classificação $^{\ast}$
+
+- **15/12**: Prova de recuperação e entrega do resumo expandido.
 
 ---
 
 # Referências &#128218;
 
-&#10004; MONTGOMERY, Douglas C.; Runger, George G. **Estatística Aplicada e Probabilidade para Engenharias**. 6ed. John Wiley \& Sons, 2016.
+&#128214; MONTGOMERY, Douglas C.; Runger, George G. **Estatística Aplicada e Probabilidade para Engenharias**. 6ed. Rio de Janeiro: LTC, 2016.
 
 ```{r , eval = TRUE, echo=FALSE, fig.align = 'center', out.width = '35%'}
 knitr::include_graphics('figuras/fig9.jpg')
@@ -76,7 +82,9 @@ knitr::include_graphics('figuras/fig9.jpg')
 
 ---
 
-&#10004; BUSSAB, Wilton de Oliveira; MORETTIN, Pedro Alberto. **Estatística básica**. 5ed. São Paulo: Saraiva, 2004. 526 p.
+# Referências &#128218;
+
+&#128214; BUSSAB, Wilton de Oliveira; MORETTIN, Pedro Alberto. **Estatística básica**. 5ed. São Paulo: Saraiva, 2004. 
 
 ```{r , eval = TRUE, echo=FALSE, fig.align = 'center', out.width = '35%'}
 knitr::include_graphics('figuras/fig8.jpg')
@@ -84,11 +92,87 @@ knitr::include_graphics('figuras/fig8.jpg')
 
 ---
 
+# Referências &#128218;
+
+&#128214; BRUCE, Peter; BRUCE, Andrew. **Estatística Prática para Cientistas de Dados**. 1ed. Rio de Janeiro: Alta Books, 2019. 
+
+<br>
+
+&#128214; TOLEDO, Geraldo L.; OVALLE, Ivo I. **Estatística Básica**. 2ed. São Paulo: Atlas, 2008.
+
+<br>
+
+&#128214; HAIR, Joseph F et al. **Análise Multivariada de Dados**. 6ed. Porto Alegre: Bookman, 2009.
+
+---
+
 # Critério de avaliação &#128220;
 
 &#10004; Será aprovado o aluno que obtiver média final maior ou igual a 6 $(MF\geq6)$, em que
-		$$MF=0,6NR+0,2NA+0,2NQ,$$
-em que $NR$ é a nota de um resumo expandido, $NA$ é a nota média de atividades e $NR$ é a nota média de quizes. 
+		$$MF=0,4NR+0,4NP+0,2NQ,$$
+em que $NR$ é a nota de um resumo expandido, $NP$ é a nota de uma prova escrita e $NQ$ é a nota média de quizes. 
+
+<br>
+
+--
+
+&#10004; Se $MF<6$, uma prova de recuperação (com todo o conteúdo) será aplicada no dia 15-12. A $MF_r$ será dada por
+$$MF_r=\frac{MF+NRec}{2},$$
+em que $NRec$ é a nota da prova de recuperação. Será aprovado com $MF_r\geq6$.
+
+<br>
+
+--
+
+&#128680; Em caso de cópia comprovada, as notas serão **zeradas**.
+
+---
+
+# Sala de aula &#127979;
+
+&#10004; Três primeiras aulas.
+
+<br>
+
+--
+
+&#10004; Não usar o celular, a não ser que seja pedido. Em caso de urgência, pode retirar-se da sala para fazer ou atender a chamada 
+
+<br>
+
+--
+
+&#10004; Não há necessidade de $notebook$.
+
+<br>
+--
+&#10004; Se precisar faltar por motivo de força maior, estudar o conteúdo até antes da próxima aula.
+
+<br>
+--
+&#128680; Em caso de desrespeito, **penalidades** serão aplicadas.
+
+---
+
+#Laboratório de informática &#128187;
+
+&#10004; Duas últimas aulas.
+
+<br>
+--
+&#10004; Não usar o celular. Em caso de urgência, pode retirar-se da sala para fazer atender a ligação. 
+
+<br>
+--
+&#10004; Não acessar $sites$ que não estejam relacionados a disciplina.
+
+<br>
+--
+&#10004; *Software* livre Jamovi.
+
+<br>
+--
+&#128680; Em caso de desrespeito, **penalidades** serão aplicadas.
 
 ---
 
@@ -102,14 +186,13 @@ em que $NR$ é a nota de um resumo expandido, $NA$ é a nota média de atividade
 
 <br>
 
-&#10004; Disciplina: 2022 - S2 - Estatística Aplicada
+&#10004; Disciplina: 2023 - S2 - Estatística Aplicada
 
 <br>
 
-&#10004; Senha: PPGEA2022
+&#10004; Senha: PPGEA2023
 
----
-
+<!--
 # Questionário &#128221;
 
 - Acessar o moodle e responder um questionário.
@@ -119,6 +202,4 @@ countdown::countdown(minutes = 15, seconds = 0,
           top = 0, right = 0,
           font_size = "3em")
 ```
-
-
-
+-->
