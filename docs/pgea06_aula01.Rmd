@@ -87,17 +87,17 @@ knitr::include_graphics('https://media.giphy.com/media/ne0ozzSO13QhNZDSRo/giphy.
 
 - **06/10**: Apresentação da disciplina e revisão de conceitos básicos
 
-- **20/10**: Variáveis aleatórias, distribuição de probabilidade e intervalo de confiança.
+- ~~**20/10**~~ **17/10**: Variáveis aleatórias, distribuição de probabilidade e intervalo de confiança.
 
 - **27/10**: Teste de hipótese para uma e duas amostras
 
 - **10/11**: Modelo de regressão linear simples e múltiplo
 
-- **11/11**: Avaliação teórica e sem consulta das 8:20~12:00
+- ~~**11/11**~~ **08/11**: Avaliação teórica e sem consulta das 8:20~12:00
 
 - **17/11**: Análise de variância: DIC e DBC
 
-- **24/11**: Análise de variância: esquema fatorial e parcela subdividida
+- <span style="color:red">**24/11**</span>: Análise de variância: esquema fatorial e parcela subdividida
 
 - **01/12**: Análise de agrupamento
 
