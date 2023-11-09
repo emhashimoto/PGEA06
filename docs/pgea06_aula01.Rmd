@@ -93,7 +93,7 @@ knitr::include_graphics('https://media.giphy.com/media/ne0ozzSO13QhNZDSRo/giphy.
 
 - **10/11**: Modelo de regressão linear simples e múltiplo
 
-- ~~**11/11**~~ **08/11**: Avaliação teórica e sem consulta das 8:20~12:00
+- **11/11**: Avaliação teórica e ~~sem~~ com consulta das 8:00~00:59
 
 - **17/11**: Análise de variância: DIC e DBC
 
