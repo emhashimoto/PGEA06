@@ -178,7 +178,7 @@ $$y=\beta_0+\beta_1x_1+\ldots\beta_kx_k+\varepsilon$$
 
 # Modelo de regressão linear simples
 
-```{r, out.width="70%",fig.align='center'}
+```{r, out.width="60%",fig.align='center'}
 df <- mtcars
 m <- lm(mpg~wt, data=df)
 yhat <- m$coefficients[[1]]+(m$coefficients[[2]]*df$wt)
@@ -223,6 +223,12 @@ p <- plot_ly(
 
 htmltools::tagList(p)
 ```
+
+---
+
+# Adequação do modelo
+
+- Contexto: realizar **inferências**
 
 ---
 
