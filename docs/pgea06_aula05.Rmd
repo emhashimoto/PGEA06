@@ -1,6 +1,6 @@
 ---
 title: "PGEA06 - Estatística Aplicada"
-subtitle: "Aula 05 - Teste de hipóteses" 
+subtitle: "Teste de hipóteses para duas amostras e <br>modelo de regressão linear"
 author: "Elizabeth Mie Hashimoto <br> DAMAT-LD"
 output:
   xaringan::moon_reader:
@@ -32,121 +32,197 @@ div {
 }
 </style>
 
+<style type="text/css">
+.remark-slide-content {
+    font-size: 30px;
+}
+</style>
 
-# Conceitos básicos
 
-**Hipótese estatística**
+# Aula passada
 
---
-
-+ Afirmação sobre os parâmetros de uma distribuição de probabilidade.
-
-<br>
-
---
-
-**Hipótese nula**
+- Definir as hipóteses
 
 --
 
-+ Hipótese que estamos colocando à prova.
-
-<br>
+- Fixar o nível de significância
 
 --
 
-**Hipótese alternativa**
+- Definir o critério de rejeição
 
 --
 
-Hipótese que será considerada aceitável, caso $H_0$ seja rejeitada como verdadeira.
+- Calcular a estatística do teste
 
-<br>
+--
+
+- Conclusão
+
+```{r , echo=FALSE, fig.align = 'right', out.width = '15%'}
+knitr::include_graphics('https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNGtnMWU3MWZzaXJ0bHk0d2RjcHBkM2ZzN2U2N251eXNwdzU5OHZoMCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/QrpVwPDGmJEIvHwKEc/giphy.gif')
+```
 
 ---
 
-**Erro tipo I**
+# Teste de hipótese - duas amostras
 
 --
 
-+ rejeitar a $H_0$ quando a hipótese é verdadeira.
+&#127919; Fazer **Comparações** entre os grupos
 
-<br>
-
---
-
-**Erro tipo II**
-
---
-
-+ não rejeitar a $H_0$ quando a hipótese é falsa.
-
-<br>
-
---
-
-**Nível de significância**
-
---
-
-+ probabilidade de cometer o erro tipo I.
-
+```{r , echo=FALSE, fig.align = 'center', out.width = '40%'}
+knitr::include_graphics('https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExeG9wa2p5emoxZm1kYW5kajBqNDc2eTQ2Znk3MWozemZ3cmF0ejk0dCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Lk5BzpifzeI3KYm7n0/giphy.gif')
+```
 
 ---
 
-** *p*-valor**
+# Teste de hipótese - duas amostras
+
+- **Independentes**
 
 --
 
-+ menor nível de significância que conduz à rejeição da $H_0$, com os dados fornecidos.
+.pull-left[
+- Grupo $A$
 
-<br>
+```{r , echo=FALSE, fig.align = 'center', out.width = '80%'}
+knitr::include_graphics('https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExd3kyaDV4emNka2d4aHBncjRoODU2aGtpM2JrbjlkMnYzM3hicXBmeCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/IUy76glp8Bnu1MFMZs/giphy.gif')
+```
+]
 
---
+.pull-right[
+- Grupo $B$
 
-**Estatística do teste**
-
---
-
-+ quantidade baseada na amostra para tomar uma decisão a respeito da $H_0$. 
-
-<br>
-
--- 
-
-**Critério de rejeição**
-
---
-
-+ regra utilizada para rejeitar a $H_0$.
+```{r , echo=FALSE, fig.align = 'center', out.width = '90%'}
+knitr::include_graphics('https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExd21icjI0dnNkN3Njd2VuaGZ5NmRncXR3bTNpMmJxajN1c2VwbjI2dCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/pwZCIhxJpVyicimiol/giphy.gif')
+```
+]
 
 ---
 
-# Teste de hipótese - procedimentos
+# Teste de hipótese - duas amostras
 
-+ definir as hipóteses estatísticas
-
---
-
-+ calcular a estatística do teste
+- **Dependentes**
 
 --
 
-+ obter o $p$-valor
+.pull-left[
+- Primeiro momento
+
+```{r , echo=FALSE, fig.align = 'center', out.width = '80%'}
+knitr::include_graphics('https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExd21icjI0dnNkN3Njd2VuaGZ5NmRncXR3bTNpMmJxajN1c2VwbjI2dCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/pwZCIhxJpVyicimiol/giphy.gif')
+```
+]
 
 --
 
-+ conclusão
+.pull-right[
+
+```{r , echo=FALSE, fig.align = 'center', out.width = '90%'}
+knitr::include_graphics('https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExb3hhcHltczh6d3AyeTV2aDBtcGY4ZTk5YnFuZWwzNnppcjY2andqciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3ogwFLfszugeOnEXja/giphy.gif')
+```
+]
 
 ---
 
-# Teste de hipótese - abordagem
+# Teste de hipótese - duas amostras
 
-+ **Paramétrica**
+- **Dependentes**
+
+
+.pull-left[
+- Primeiro momento
+
+```{r , echo=FALSE, fig.align = 'center', out.width = '80%'}
+knitr::include_graphics('https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExd21icjI0dnNkN3Njd2VuaGZ5NmRncXR3bTNpMmJxajN1c2VwbjI2dCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/pwZCIhxJpVyicimiol/giphy.gif')
+```
+]
+
+.pull-right[
+- Segundo momento
+
+```{r , echo=FALSE, fig.align = 'center', out.width = '90%'}
+knitr::include_graphics('https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExd21icjI0dnNkN3Njd2VuaGZ5NmRncXR3bTNpMmJxajN1c2VwbjI2dCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/pwZCIhxJpVyicimiol/giphy.gif')
+```
+]
+
+---
+
+# Modelo de regressão linear
 
 --
 
-+ **Não paramétrica**
+&#127919; Estudar a **associação** entre duas ou mais variáveis.
+
+```{r , echo=FALSE, fig.align = 'center', out.width = '65%'}
+knitr::include_graphics('https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExeHdpYWU1dnhyemc4aXJ1M25jZDhsMjFkZ3VhYzdqYnlmeHpyajliZSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/eNov6Bx3fZSUKBP0Sh/giphy.gif')
+```
+
+---
+
+# Modelo de regressão linear
+
+- **Simples** 
+
+$$y=\beta_0+\beta_1x+\varepsilon$$
+
+<br>
+<br>
+
+- **Múltipla**
+
+$$y=\beta_0+\beta_1x_1+\ldots\beta_kx_k+\varepsilon$$
+
+---
+
+# Modelo de regressão linear simples
+
+```{r, out.width="70%",fig.align='center'}
+df <- mtcars
+m <- lm(mpg~wt, data=df)
+yhat <- m$coefficients[[1]]+(m$coefficients[[2]]*df$wt)
+
+library(ggplot2)
+df |> 
+  dplyr::mutate(yhat) |> 
+  ggplot() +
+  aes(x = wt, y = mpg) +
+  geom_point(size = 8) +
+  labs(x = 'Valores de x', 
+       y = 'Valores y') +
+  theme(axis.title = element_text(size=30),
+        axis.text = element_text(size=30))
+```
+
+---
+
+# Modelo de regressão linear múltipa
+
+$$y=\beta_0+\beta_1x_1+\beta_2x_2+\varepsilon$$
+
+```{r}
+mm <- lm(mpg~+disp+wt, data=df)
+ymhat <- mm$coefficients[[1]]+
+  (mm$coefficients[[2]]*df$disp)+
+  (mm$coefficients[[3]]*df$wt)
+
+library(plotly)
+df_novo <- df |> 
+  dplyr::mutate(ymhat)
+
+p <- plot_ly(
+  df_novo, 
+  x = ~wt, y = ~mpg, z = ~disp) |> 
+  add_markers() |> 
+  layout(
+    scene = list(xaxis = list(title = 'Valores de x1'),
+        yaxis = list(title = 'Valores de y'),
+        zaxis = list(title = 'Valores de x2'))
+        )
+
+htmltools::tagList(p)
+```
 
 ---
 
