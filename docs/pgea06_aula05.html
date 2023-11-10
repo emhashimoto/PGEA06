@@ -148,13 +148,86 @@ div {
 
 ---
 
-# Modelo de regressão linear
+# Exemplo
+
+Um artigo publicado em *Nature* descreveu um experimento em que indivíduos consumiram diferentes tipos de chocolate para determinar o efeito de comer chocolate sobre uma medida de saúde cardiovascular. Consideraremos os resultados para somente chocolate amargo e chocolate ao leite. No experimento, 12 indivíduos comeram 100 gramas de chocolate amargo e 200 gramas de chocolate ao leite, um tipo de chocolate por dia, e, depois de uma hora, a capacidade antioxidante total de seus plasmas sanguíneos foi medida em um ensaio. 
+
+---
+
+Os indivíduos consistiram em sete mulheres e cinco homens, com uma faixa média de idades de `\(32,2 \pm1\)` anos, um peso médio de `\(65,8 \pm3,1\)` kg e índice médio de massa corpórea de `\(21,9 \pm 0,4\)` kg/m2. A seguir, dados similares aos reportados no artigo.
+
+- **Chocolate Amargo**: 118,8; 122,6; 115,6; 113,6;
+119,5; 115,9; 115,8; 115,1;
+116,9; 115,4; 115,6 e 107,9
+
+- **Chocolate ao Leite**: 102,1; 105,8; 99,6; 102,7; 98,8; 100,9; 102,8; 98,7; 94,7; 97,8; 99,7 e 98,6
+
+---
+
+Ao nível de significância de 5%, temos os seguintes resultados.
+
+
+```
+
+	Welch Two Sample t-test
+
+data:  amargo and leite
+t = 12.048, df = 21.167, p-value = 6.106e-11
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ 13.13607 18.61393
+sample estimates:
+mean of x mean of y 
+ 116.0583  100.1833 
+```
+
+---
+
+# Exemplo
+
+Vamos supor os 12 indivíduos foram avaliados antes de receber o tratamento e depois de receber o chocolate amargo, foram avaliados um período depois.
+
+Ao nível de significância de 5%, temos os seguites resultados
+
+---
+
+
+```
+
+	Paired t-test
+
+data:  amargo and leite
+t = 15.141, df = 11, p-value = 1.033e-08
+alternative hypothesis: true mean difference is not equal to 0
+95 percent confidence interval:
+ 13.56736 18.18264
+sample estimates:
+mean difference 
+         15.875 
+```
+
+---
+
+# Modelo de regressão
+
+&lt;img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNmlqY3J1bTc0Nnc3ZmRsdWQxNTdoejluMWp1b2Y0dXIwYnUwM2UxYyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/RCtKcMeeIlIFskmH7C/giphy.gif" width="80%" style="display: block; margin: auto;" /&gt;
 
 --
 
+- **Variáveis** associada à um fenômeno
+
+--
+
+- Fazer uma **representação matemática**
+
+---
+
+# Modelo de regressão
+
 &amp;#127919; Estudar a **associação** entre duas ou mais variáveis.
 
-&lt;img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExeHdpYWU1dnhyemc4aXJ1M25jZDhsMjFkZ3VhYzdqYnlmeHpyajliZSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/eNov6Bx3fZSUKBP0Sh/giphy.gif" width="65%" style="display: block; margin: auto;" /&gt;
+
+&lt;img src="pgea06_aula05_files/figure-html/unnamed-chunk-12-1.png" width="50%" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -167,6 +240,8 @@ div {
 &lt;br&gt;
 &lt;br&gt;
 
+--
+
 - **Múltipla**
 
 `$$y=\beta_0+\beta_1x_1+\ldots\beta_kx_k+\varepsilon$$`
@@ -175,16 +250,72 @@ div {
 
 # Modelo de regressão linear simples
 
-&lt;img src="pgea06_aula05_files/figure-html/unnamed-chunk-10-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+- **Uma** variável explicativa
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="pgea06_aula05_files/figure-html/unnamed-chunk-13-1.png" alt="Gráfico de dispersão" width="50%" /&gt;
+&lt;p class="caption"&gt;Gráfico de dispersão&lt;/p&gt;
+&lt;/div&gt;
 
 ---
 
 # Modelo de regressão linear múltipa
 
-`$$y=\beta_0+\beta_1x_1+\beta_2x_2+\varepsilon$$`
+- **Duas** variáveis explicativas
 
-<div class="plotly html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-48310b826f7136aab8ed" style="width:100%;height:400px;"></div>
-<script type="application/json" data-for="htmlwidget-48310b826f7136aab8ed">{"x":{"visdat":{"373c1c3565e8":["function () ","plotlyVisDat"]},"cur_data":"373c1c3565e8","attrs":{"373c1c3565e8":{"x":{},"y":{},"z":{},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter3d","mode":"markers","inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"scene":{"xaxis":{"title":"Valores de x1"},"yaxis":{"title":"Valores de y"},"zaxis":{"title":"Valores de x2"}},"hovermode":"closest","showlegend":false},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"x":[2.62,2.875,2.32,3.215,3.44,3.46,3.57,3.19,3.15,3.44,3.44,4.07,3.73,3.78,5.25,5.424,5.345,2.2,1.615,1.835,2.465,3.52,3.435,3.84,3.845,1.935,2.14,1.513,3.17,2.77,3.57,2.78],"y":[21,21,22.8,21.4,18.7,18.1,14.3,24.4,22.8,19.2,17.8,16.4,17.3,15.2,10.4,10.4,14.7,32.4,30.4,33.9,21.5,15.5,15.2,13.3,19.2,27.3,26,30.4,15.8,19.7,15,21.4],"z":[160,160,108,258,360,225,360,146.7,140.8,167.6,167.6,275.8,275.8,275.8,472,460,440,78.7,75.7,71.1,120.1,318,304,350,400,79,120.3,95.1,351,145,301,121],"type":"scatter3d","mode":"markers","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"line":{"color":"rgba(31,119,180,1)"},"frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<div class="plotly html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-c53dc16fa297bb0d0a63" style="width:100%;height:400px;"></div>
+<script type="application/json" data-for="htmlwidget-c53dc16fa297bb0d0a63">{"x":{"visdat":{"3c5c1ba436aa":["function () ","plotlyVisDat"]},"cur_data":"3c5c1ba436aa","attrs":{"3c5c1ba436aa":{"x":{},"y":{},"z":{},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter3d","mode":"markers","inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"scene":{"xaxis":{"title":"Valores de x1"},"yaxis":{"title":"Valores de y"},"zaxis":{"title":"Valores de x2"}},"hovermode":"closest","showlegend":false},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"x":[2.62,2.875,2.32,3.215,3.44,3.46,3.57,3.19,3.15,3.44,3.44,4.07,3.73,3.78,5.25,5.424,5.345,2.2,1.615,1.835,2.465,3.52,3.435,3.84,3.845,1.935,2.14,1.513,3.17,2.77,3.57,2.78],"y":[21,21,22.8,21.4,18.7,18.1,14.3,24.4,22.8,19.2,17.8,16.4,17.3,15.2,10.4,10.4,14.7,32.4,30.4,33.9,21.5,15.5,15.2,13.3,19.2,27.3,26,30.4,15.8,19.7,15,21.4],"z":[160,160,108,258,360,225,360,146.7,140.8,167.6,167.6,275.8,275.8,275.8,472,460,440,78.7,75.7,71.1,120.1,318,304,350,400,79,120.3,95.1,351,145,301,121],"type":"scatter3d","mode":"markers","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"line":{"color":"rgba(31,119,180,1)"},"frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+
+---
+
+# Estimar os parâmetros do modelo
+
+--
+
+- Método de **mínimos quadrados**
+
+--
+
+- Soma de quadrados dos desvios
+
+`$$S(\mathbf{\hat{\beta}})=(y-X\hat{\mathbf{\beta}})(y-X\hat{\mathbf{\beta}})^{\top}$$`
+
+---
+
+# Exemplo
+
+Na engenharia de recursos hídricos, a estimativa dos tamanhos dos reservatórios depende de estimativas acuradas do escoamento da água no rio que está sendo confinado. Em alguns rios, registros históricos de longa duração de tais dados de escoamento são difíceis de obter. Já os dados meteorológicos sobre precipitação estão disponíveis para muitos anos do passado. Portanto, é útil determinar a relação entre escoamento e precipitação.
+
+---
+
+Essa relação pode ser usada para fazer uma estimativa do escoamento nos anos nos quais apenas medidas de precipitação foram feitas. Os seguintes dados estão disponíveis para um rio que deve ser estancado:
+
+- Precipitação:
+
+```
+[1] 117.4 123.2  94.3  91.7 111.5 112.0  94.1 110.8
+```
+
+- Escoamento:
+
+```
+[1] 19.6 18.5 17.1 12.9 18.4 18.1 15.5 18.1
+```
+
+---
+
+O modelo linear simples é dado por
+
+```
+
+Call:
+lm(formula = y ~ x)
+
+Coefficients:
+(Intercept)            x  
+     1.2856       0.1496  
+```
+
 
 ---
 
@@ -192,40 +323,9 @@ div {
 
 - Contexto: realizar **inferências**
 
----
+--
 
-# Atividade 5
-
-Um artigo publicado em *Nature* descreveu um experimento em que indivíduos consumiram diferentes tipos de chocolate para determinar o efeito de comer chocolate sobre uma medida de saúde cardiovascular. Consideraremos os resultados para somente chocolate amargo e chocolate ao leite. No experimento, 12 indivíduos comeram 100 gramas de chocolate amargo e 200 gramas de chocolate ao leite, um tipo de chocolate por dia, e, depois de uma hora, a capacidade antioxidante total de seus plasmas sanguíneos foi medida em um ensaio. Os indivíduos consistiram em sete mulheres e cinco homens, com uma faixa média de idades de `\(32,2 \pm1\)` anos, um peso médio de `\(65,8 \pm3,1\)` kg e índice médio de massa corpórea de `\(21,9 \pm 0,4\)` kg/m2. A seguir, dados similares aos reportados no artigo.
-
-- **Chocolate Amargo**: 118,8; 122,6; 115,6; 113,6;
-119,5; 115,9; 115,8; 115,1;
-116,9; 115,4; 115,6 e 107,9
-
-- **Chocolate ao Leite**: 102,1; 105,8; 99,6; 102,7; 98,8; 100,9; 102,8; 98,7; 94,7; 97,8; 99,7 e 98,6
-
-Há evidência para sustentar a hipótese de que consumir chocolate amargo produz um nível médio diferente de capacidade antioxidante total do plasma sanguíneo quando comparado ao chocolate ao leite? Considere um nível de significância de 5%.
-
----
-
-# Próxima aula
-
-.pull-left[
-
-&amp;#10004; Leitura Capítulo 11
-
-- Subcapítulos 11.1, 11.2, 11.4.1, 11.7, 11.8
-
-&amp;#10004; Leitura Capítulo 12
-
-- Subcapítulo 12.1
-
-]
-
-.pull-right[
-&lt;img src="figuras/mont7.png" width="65%" style="display: block; margin: auto;" /&gt;
-]
-
+- Avaliar o modelo
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
