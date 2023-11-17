@@ -16,9 +16,15 @@
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
+.title[
 # PGEA06 - Estatística Aplicada
-## Aula 07 - Análise de variância (DIC e DBC)
+]
+.subtitle[
+## Análise de variância
+]
+.author[
 ### Elizabeth Mie Hashimoto <br> DAMAT-LD
+]
 
 ---
 
@@ -33,6 +39,12 @@ class: center, middle, inverse, title-slide
 div {
   text-align: justify;
   text-justify: inter-word;
+}
+&lt;/style&gt;
+
+&lt;style type="text/css"&gt;
+.remark-slide-content {
+    font-size: 30px;
 }
 &lt;/style&gt;
 
@@ -72,7 +84,7 @@ div {
 
 &lt;br&gt;
 
---
+---
 
 &lt;fieldset class="fldsetalert-class"&gt;
   &lt;legend class="legendalert-class"&gt;
@@ -81,7 +93,9 @@ div {
   são as categorias ou valores no domínio de um fator.
 &lt;/fieldset&gt;
 
----
+&lt;br&gt;
+
+--
 
 &lt;fieldset class="fldsetalert-class"&gt;
   &lt;legend class="legendalert-class"&gt;
@@ -92,7 +106,7 @@ div {
 
 &lt;br&gt;
 
---
+---
 
 &lt;fieldset class="fldsetalert-class"&gt;
   &lt;legend class="legendalert-class"&gt;
@@ -116,18 +130,25 @@ div {
 
 &lt;fieldset class="fldsetexample-class"&gt;
   &lt;legend class="legendexample-class"&gt;
-    Exercício
+    Exercício 1
   &lt;/legend&gt;
   Um fabricante de papel está interessado em melhorar a resistência do produto à tração.
 
 	A engenharia de produto presume que a resistência à tração seja uma função da concentração da madeira de lei na polpa.&lt;br/&gt; 
 	
 	Um grupo de engenheiros responsáveis pelo estudo decide investigar quatro níveis de concentração de madeira de lei: 5%, 10%, 15% e 20%. &lt;br/&gt; 
-	
+&lt;/fieldset&gt;
+
+---
+
+&lt;fieldset class="fldsetexample-class"&gt;
+  &lt;legend class="legendexample-class"&gt;
+    Exercício 1 - continuação
+  &lt;/legend&gt;
 	Eles decidem fabricar seis corpos de prova, para cada nível de concentração, usando uma planta piloto. Todos os 24 corpos de prova são testados, em uma ordem aleatória, em um equipamento de teste de laboratório.
 &lt;/fieldset&gt;
 
-&lt;br&gt;
+---
 	De acordo com o enunciado, identifique os seguintes itens:
 	
 .pull-left[
@@ -168,7 +189,7 @@ div {
 
 &lt;br&gt;
 
---
+---
 
 &lt;fieldset class="fldsetalert-class"&gt;
   &lt;legend class="legendalert-class"&gt;
@@ -193,17 +214,13 @@ div {
 
 - é uma análise baseado na decomposição da variabilidade total do experimento.
 
-&lt;br&gt;
-
 &lt;img src="figuras/comparacao5.jpg" width="75%" style="display: block; margin: auto;" /&gt;
 
 ---
 
-# Delineamento inteiramente casualizado
+# DIC
 
 - **Não há** a presença de fatores de ruído
-
-&lt;br&gt;
 
 --
 
@@ -277,20 +294,31 @@ com `\(i=1,\ldots,a\)` e `\(j=1,\ldots,r\)`.
 
 &lt;fieldset class="fldsetexample-class"&gt;
   &lt;legend class="legendexample-class"&gt;
-    Exercício
+    Exercício 2
   &lt;/legend&gt;
-  Um fabricante de papel está interessado em melhorar a resistência do produto à tração.
-
-	A engenharia de produto presume que a resistência à tração seja uma função da concentração da madeira de lei na polpa.&lt;br/&gt; 
-	
-	Um grupo de engenheiros responsáveis pelo estudo decide investigar quatro níveis de concentração de madeira de lei: 5%, 10%, 15% e 20%. &lt;br/&gt; 
-	
-	Eles decidem fabricar seis corpos de prova, para cada nível de concentração, usando uma planta piloto. Todos os 24 corpos de prova são testados, em uma ordem aleatória, em um equipamento de teste de laboratório.
+  Vamos considerar novamente, o experimento com concentração de matedeira de lei sobre a resistência à tração do papel.
 &lt;/fieldset&gt;
 
-&lt;img src="figuras/papel.jpg" width="55%" style="display: block; margin: auto;" /&gt;
+&lt;img src="figuras/papel.jpg" width="70%" style="display: block; margin: auto;" /&gt;
+
+---
 
 Considerando um nível de significância de 5%, verifique se existe efeito da concentração de madeira sobre a resistência.
+
+---
+
+
+```
+Analysis of Variance Table
+
+Response: y
+          Df Sum Sq Mean Sq F value    Pr(&gt;F)    
+trat       3 382.79 127.597  19.605 3.593e-06 ***
+Residuals 20 130.17   6.508                      
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+```
+
 
 ---
 
@@ -310,17 +338,368 @@ Considerando um nível de significância de 5%, verifique se existe efeito da co
 
 ---
 
-# Próxima aula
 
-.pull-left[
+```
+  Tukey multiple comparisons of means
+    95% family-wise confidence level
+    factor levels have been ordered
 
-&amp;#10004; Leitura Capítulo 14
+Fit: aov(formula = fit)
 
-]
+$trat
+             diff         lwr       upr     p adj
+10p-5p   5.666667  1.54410408  9.789229 0.0051108
+15p-5p   7.000000  2.87743741 11.122563 0.0006501
+20p-5p  11.166667  7.04410408 15.289229 0.0000015
+15p-10p  1.333333 -2.78922925  5.455896 0.8022275
+20p-10p  5.500000  1.37743741  9.622563 0.0065966
+20p-15p  4.166667  0.04410408  8.289229 0.0470251
+```
 
-.pull-right[
-&lt;img src="figuras/mont7.png" width="65%" style="display: block; margin: auto;" /&gt;
-]
+
+---
+
+# DBC
+
+- **Há** a presença de um fator de ruído
+
+--
+
+- O modelo é dado por
+
+`$$y_{ij}=\mu+\beta_j+\tau_i+e_{ij}$$`
+com `\(i=1,\ldots,a\)` e `\(j=1,\ldots,b\)`.
+
+--
+
+- As hipóteses estatísticas são:
+
+`\(H_0\)`:
+
+`\(H_1\)`:
+
+---
+
+A estatística do teste é dada por
+
+&lt;table class=" lightable-classic lightable-striped lightable-hover" style='font-family: "Arial Narrow", "Source Sans Pro", sans-serif; margin-left: auto; margin-right: auto;'&gt;
+&lt;caption&gt;Esquema da tabela da ANOVA&lt;/caption&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Causa de variação &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Grau de liberdade &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Soma de quadrados &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Quadrado médio &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; f0 &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Bloco &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; b-1 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; SQBloco &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; QMBloco &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; QMBloco/QMRes &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Fator &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; a-1 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; SQFator &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; QMFator &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; QMFator/QMRes &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Resíduo &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; (a-1)(b-1) &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; SQRes &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; QMRes &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; --- &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Total &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; ab-1 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; SQTotal &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; --- &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; --- &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+---
+
+&lt;fieldset class="fldsetexample-class"&gt;
+  &lt;legend class="legendexample-class"&gt;
+    Exercício 3
+  &lt;/legend&gt;
+  Um experimento foi feito para determinar o efeito de quatro produtos químicos diferentes sobre a resistência de um tecido. Esses produtos químicos são usados como parte do processo de acabamento, sob prensagem permanente. Cinco amostras de tecido foram selecionadas e um PBCA foi corrido, testando cada tipo de produto químico uma vez, em uma ordem aleatória, em cada amostra de tecido. 
+&lt;/fieldset&gt;
+
+---
+
+&lt;fieldset class="fldsetexample-class"&gt;
+  &lt;legend class="legendexample-class"&gt;
+    Exercício 3 - continuação
+  &lt;/legend&gt;
+  Teste o efeito do produto química sobre a resistência do tecido, considerando um nível de significância de 5%.
+&lt;/fieldset&gt;
+
+---
+
+&lt;table frame="hsides" rules="rows" width="500" align="center"&gt;
+    &lt;tbody&gt;
+        &lt;tr style="text-align: center;"&gt;
+            &lt;th colspan="1"&gt;&lt;/th&gt;
+            &lt;th colspan="5"&gt;Amostra de tecido (bloco)&lt;/th&gt;
+        &lt;/tr&gt;
+        &lt;tr style="text-align: center;"&gt;
+            &lt;td style="border-top-style: hidden;"&gt; &lt;b&gt;Tipo de produto químico&lt;/b&gt;&lt;/td&gt;
+            &lt;td&gt;1&lt;/td&gt;
+            &lt;td&gt;2&lt;/td&gt;
+            &lt;td&gt;3&lt;/td&gt;
+            &lt;td&gt;4&lt;/td&gt;
+            &lt;td&gt;5&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr style="text-align: center;"&gt;
+            &lt;td&gt;1&lt;/td&gt;
+            &lt;td&gt;1,3&lt;/td&gt;
+            &lt;td&gt;1,6&lt;/td&gt;
+            &lt;td&gt;0,5&lt;/td&gt;
+            &lt;td&gt;1,2&lt;/td&gt;
+            &lt;td&gt;1,1&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr style="text-align: center;"&gt;
+            &lt;td &gt;2&lt;/td&gt;
+            &lt;td&gt;2,2&lt;/td&gt;
+            &lt;td&gt;2,4&lt;/td&gt;
+            &lt;td&gt;0,4&lt;/td&gt;
+            &lt;td&gt;2,0&lt;/td&gt;
+            &lt;td&gt;1,8&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr style="text-align: center;"&gt;
+            &lt;td&gt;3&lt;/td&gt;
+            &lt;td&gt;1,8&lt;/td&gt;
+            &lt;td&gt;1,7&lt;/td&gt;
+            &lt;td&gt;0,6&lt;/td&gt;
+            &lt;td&gt;1,5&lt;/td&gt;
+            &lt;td&gt;1,3&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr style="text-align: center;"&gt;
+            &lt;td&gt;4&lt;/td&gt;
+            &lt;td&gt;3,9&lt;/td&gt;
+            &lt;td&gt;4,4&lt;/td&gt;
+            &lt;td&gt;2,0&lt;/td&gt;
+            &lt;td&gt;4,1&lt;/td&gt;
+            &lt;td&gt;3,4&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
+
+---
+
+
+```
+Analysis of Variance Table
+
+Response: y3
+          Df Sum Sq Mean Sq F value    Pr(&gt;F)    
+bloco      4  6.693  1.6733  21.114 2.319e-05 ***
+trat3      3 18.044  6.0147  75.895 4.518e-08 ***
+Residuals 12  0.951  0.0793                      
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+```
+
+---
+
+
+```
+  Tukey multiple comparisons of means
+    95% family-wise confidence level
+
+Fit: aov(formula = fit3)
+
+$trat3
+       diff         lwr       upr     p adj
+T2-T1  0.62  0.09140218 1.1485978 0.0204200
+T3-T1  0.24 -0.28859782 0.7685978 0.5523215
+T4-T1  2.42  1.89140218 2.9485978 0.0000001
+T3-T2 -0.38 -0.90859782 0.1485978 0.1973362
+T4-T2  1.80  1.27140218 2.3285978 0.0000017
+T4-T3  2.18  1.65140218 2.7085978 0.0000002
+```
+
+---
+
+# Experimentos fatoriais
+
+- **Há** mais de um fator no experimento.
+
+--
+
+- Considerar experimentos com **dois** fatores. 
+
+--
+
+- O modelo é dado por
+
+`$$y_{ijk}=\mu+\tau_i+\alpha_j+(\tau\alpha)_{ij}+e_{ijk}$$`
+com `\(i=1,\ldots,a\)`, `\(j=1,\ldots,b\)` e `\(k=1,\ldots,r\)`.
+
+--
+
+- As hipóteses estatísticas são:
+
+`\(H_0\)`:
+
+`\(H_1\)`:
+
+---
+
+- Se **há** efeito de interação entre os fatores:
+
+  - desdobramento dos níveis
+
+--
+  
+- Se **não há** efeito de interação entre os fatores:
+
+  - os efeitos principais são **estudados separadamente**.
+  
+---
+
+A estatística do teste é dada por
+
+&lt;table class=" lightable-classic lightable-striped lightable-hover" style='font-family: "Arial Narrow", "Source Sans Pro", sans-serif; margin-left: auto; margin-right: auto;'&gt;
+&lt;caption&gt;Esquema da tabela da ANOVA&lt;/caption&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Causa de variação &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Grau de liberdade &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Soma de quadrados &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Quadrado médio &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; f0 &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; FatorA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; b-1 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; SQA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; QMA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; QMA/QMRes &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; FatorB &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; a-1 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; SQB &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; QMB &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; QMB/QMRes &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Interação &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; (a-1)(b-1) &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; SQInt &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; QMInt &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; QMInt/QMRes &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Resíduo &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; ab(r-1) &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; SQRes &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; QMRes &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; --- &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Total &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; abr-1 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; SQTotal &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; --- &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; --- &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+---
+
+&lt;fieldset class="fldsetexample-class"&gt;
+  &lt;legend class="legendexample-class"&gt;
+    Exercício 4
+  &lt;/legend&gt;
+  Considere as combinações de dois fatores na remoção de sujeira em roupas típicas de lavanderia. O primeiro fator é a marca do sabão em pó (X, Y e Z). O segundo fator é a temperatura da água, quente ou morna. Cada combinação de nível foi repetido três vezes e a variável resposta é a porcentagem de sujeira removida. Os dados são mostrados a seguir
+  
+---
+  
+&lt;/fieldset&gt;
+
+&lt;table frame="hsides" rules="rows" width="400" align="center"&gt;
+    &lt;tbody&gt;
+        &lt;tr style="text-align: center;"&gt;
+            &lt;th colspan="1"&gt;Marca&lt;/th&gt;
+            &lt;th colspan="1"&gt;Temperatura&lt;/th&gt;
+            &lt;th colspan="3"&gt;Repetição&lt;/th&gt;
+        &lt;/tr&gt;
+        &lt;tr style="text-align: center;"&gt;
+            &lt;td&gt;X&lt;/td&gt;
+            &lt;td&gt;Quente&lt;/td&gt;
+            &lt;td&gt;85&lt;/td&gt;
+            &lt;td&gt;88&lt;/td&gt;
+            &lt;td&gt;80&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr style="text-align: center;"&gt;
+            &lt;td style="border-top-style: hidden;"&gt; &lt;/td&gt;
+            &lt;td&gt;Morna&lt;/td&gt;
+            &lt;td&gt;82&lt;/td&gt;
+            &lt;td&gt;83&lt;/td&gt;
+            &lt;td&gt;85&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr style="text-align: center;"&gt;
+            &lt;td&gt;Y&lt;/td&gt;
+            &lt;td&gt;Quente&lt;/td&gt;
+            &lt;td&gt;90&lt;/td&gt;
+            &lt;td&gt;92&lt;/td&gt;
+            &lt;td&gt;92&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr style="text-align: center;"&gt;
+            &lt;td style="border-top-style: hidden;"&gt; &lt;/td&gt;
+            &lt;td&gt;Morna&lt;/td&gt;
+            &lt;td&gt;88&lt;/td&gt;
+            &lt;td&gt;86&lt;/td&gt;
+            &lt;td&gt;88&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr style="text-align: center;"&gt;
+            &lt;td&gt;Z&lt;/td&gt;
+            &lt;td&gt;Quente&lt;/td&gt;
+            &lt;td&gt;85&lt;/td&gt;
+            &lt;td&gt;87&lt;/td&gt;
+            &lt;td&gt;88&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr style="text-align: center;"&gt;
+            &lt;td style="border-top-style: hidden;"&gt;&lt;/td&gt;
+            &lt;td&gt;Morna&lt;/td&gt;
+            &lt;td&gt;76&lt;/td&gt;
+            &lt;td&gt;74&lt;/td&gt;
+            &lt;td&gt;78&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
+
+Teste os efeitos sobre a porcentagem de sujeira removida, considerando um nível de significância de 5%.
+
+---
+
+
+```
+Analysis of Variance Table
+
+Response: y4
+           Df  Sum Sq Mean Sq F value    Pr(&gt;F)    
+marca       2 201.000 100.500 21.7952 0.0001012 ***
+temp        1 122.722 122.722 26.6145 0.0002375 ***
+marca:temp  2  73.444  36.722  7.9639 0.0062933 ** 
+Residuals  12  55.333   4.611                      
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+```
 
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
@@ -370,6 +749,19 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     deleted = true;
   });
 })();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
 (function() {
   "use strict"
   // Replace <script> tags in slides area to make them executable
