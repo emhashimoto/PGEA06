@@ -142,7 +142,7 @@ div {
 	De acordo com o enunciado, identifique os seguintes itens:
 	
 .pull-left[
-- Fator e classifique;
+- Fator;
 
 - Nível;
 
@@ -220,7 +220,7 @@ knitr::include_graphics('figuras/comparacao5.jpg')
 
 - O modelo é dado por
 
-$$y_{ij}=\mu+\tau_i+e_{ij}$$
+$$y_{ij}=\mu+\tau_i+\varepsilon_{ij}$$
 com $i=1,\ldots,a$ e $j=1,\ldots,r$.
 
 --
@@ -313,6 +313,15 @@ $H_1$:
 
 ---
 
+<fieldset class="fldsetexample-class">
+  <legend class="legendexample-class">
+    Exercício 3
+  </legend>
+  No Exercício 2, verificamos que há efeito da concentração de madeira sobre a resistência à tração do papel. Neste contexto, ao nível de significância de 5%, faça o teste de Tukey.
+</fieldset>
+
+---
+
 ```{r}
 fit_aov <- aov(fit)
 TukeyHSD(fit_aov, "trat", ordered = TRUE)
@@ -329,7 +338,7 @@ TukeyHSD(fit_aov, "trat", ordered = TRUE)
 
 - O modelo é dado por
 
-$$y_{ij}=\mu+\beta_j+\tau_i+e_{ij}$$
+$$y_{ij}=\mu+{\color{red}\beta_j}+\tau_i+\varepsilon_{ij}$$
 com $i=1,\ldots,a$ e $j=1,\ldots,b$.
 
 --
@@ -363,7 +372,7 @@ dat |>
 
 <fieldset class="fldsetexample-class">
   <legend class="legendexample-class">
-    Exercício 3
+    Exercício 4
   </legend>
   Um experimento foi feito para determinar o efeito de quatro produtos químicos diferentes sobre a resistência de um tecido. Esses produtos químicos são usados como parte do processo de acabamento, sob prensagem permanente. Cinco amostras de tecido foram selecionadas e um PBCA foi corrido, testando cada tipo de produto químico uma vez, em uma ordem aleatória, em cada amostra de tecido. 
 </fieldset>
@@ -372,7 +381,7 @@ dat |>
 
 <fieldset class="fldsetexample-class">
   <legend class="legendexample-class">
-    Exercício 3 - continuação
+    Exercício 4 - continuação
   </legend>
   Teste o efeito do produto química sobre a resistência do tecido, considerando um nível de significância de 5%.
 </fieldset>
@@ -428,9 +437,7 @@ dat |>
     </tbody>
 </table>
 
----
-
-```{r}
+```{r, eval=FALSE}
 y3 <- c(1.3,1.6,0.5,1.2,1.1,
         2.2,2.4,0.4,2.0,1.8,
         1.8,1.7,0.6,1.5,1.3,
@@ -444,150 +451,159 @@ fit3 <- lm(y3~bloco+trat3)
 anova(fit3)
 ```
 
----
-
-```{r}
+```{r, eval=FALSE}
 fit3_aov <- aov(fit3)
 TukeyHSD(fit3_aov, "trat3")
 ```
 
 ---
 
-# Experimentos fatoriais
+# Resolução
 
-- **Há** mais de um fator no experimento.
+Sobre o experimento:
 
---
+- **Fator**: tipo de produto químico
 
-- Considerar experimentos com **dois** fatores. 
+- **Nível**: tipo 1, tipo 2, tipo 3 e tipo 4 (quatro níveis)
 
---
+- **Unidade experimental**: tecido
 
-- O modelo é dado por
+- **Variável resposta**: resistência
 
-$$y_{ijk}=\mu+\tau_i+\alpha_j+(\tau\alpha)_{ij}+e_{ijk}$$
-com $i=1,\ldots,a$, $j=1,\ldots,b$ e $k=1,\ldots,r$.
-
---
-
-- As hipóteses estatísticas são:
-
-$H_0$:
-
-$H_1$:
-
+- **Delineamento experimental**: DBC, pois cinco amostras diferentes de tecido foram utilizadas.
+	
 ---
 
-- Se **há** efeito de interação entre os fatores:
+* **Objetivo**: Identificar qual tipo de produto químico produz melhor resistência a um tecido.
 
-  - desdobramento dos níveis
+* O **modelo** é dado por
 
---
-  
-- Se **não há** efeito de interação entre os fatores:
+$$y_{ij}=\mu+\beta_j+\tau_i+\varepsilon_{ij}, \quad i=1,\ldots,a \,\, \mbox{e} \,\,  j=1,\ldots,5,$$
 
-  - os efeitos principais são **estudados separadamente**.
-  
+em que $y$ é a resistência, $\mu$ é a média, $\beta$ é o efeito do bloco, $\tau$ é o efeito do tipo de produto químico e $\varepsilon$ é o erro experimental.
+
+* **Método estatístico**: ANOVA para DBC
+
 ---
+As hipóteses são
 
-A estatística do teste é dada por
+* $H_0$: não há efeito do tipo de produto químico sobre a resistência do tecido.
+
+* $H_1$: há efeito do tipo de produto químico sobre a resistência do tecido.
+
+O nível de significância foi fixo em $\alpha=0,05$.
+
+O critério de rejeição é definido como:
+
+* rejeitar $H_0$ se $p$-valor<0,05.
+
+---
+A estatística do teste obtida com o auxílio do *software* Jamovi é dada na seguinte tabela
 
 ```{r}
+options(knitr.kable.NA = '')
 library(kableExtra)
-causa <- c('FatorA','FatorB','Interação','Resíduo','Total')
-gl <- c('b-1','a-1','(a-1)(b-1)','ab(r-1)','abr-1')
-sq <- c('SQA','SQB','SQInt','SQRes','SQTotal')
-qm <- c('QMA','QMB','QMInt','QMRes','---')
-f0 <- c('QMA/QMRes','QMB/QMRes','QMInt/QMRes','---','---')
-dat <- data.frame(causa,gl,sq,qm,f0)
+causa <- c('Bloco','Tipo','Resíduo')
+gl <- c(4,3,12)
+sq <- c(6.69, 18.04,0.95)
+qm <- c(1.67,6.01,0.08)
+f0 <- c(21.10,75.90,NA)
+pvalor <- c('<0.01','<0.01',NA)
+dat <- data.frame(causa,gl,sq,qm,f0,pvalor)
 
 dat |> 
-  kbl(caption = 'Esquema da tabela da ANOVA',
-      col.names = c('Causa de variação','Grau de liberdade','Soma de quadrados','Quadrado médio','f0')) |> 
+  kbl(caption = 'ANOVA da resistência do tecido',
+      col.names = c('Causa de variação','Grau de liberdade','Soma de quadrados','Quadrado médio','f0','p-valor')) |> 
+  kable_classic(c("striped", "hover"))
+```
+
+---
+Ao nível de significância de 5%, rejeitamos $H_0$. Portanto, temos evidências que há efeito do tipo de produto químico sobre a resistência do tecido.
+
+Para verificar os **pressupostos da ANOVA**, temos os seguintes testes:
+
+* **normalidade dos resultados**
+
+As hipóteses são
+
+* $H_0$: os resíduos seguem distribuição normal.
+
+---
+
+* $H_1$: os resíduos seguem outra distribuição.
+
+O nível de significância foi fixo em $\alpha=0,05$.
+
+O critério de rejeição é definido como:
+
+* rejeitar $H_0$ se $p$-valor<0,05.
+
+A estatística do teste é dada na seguinte tabela
+
+```{r}
+teste <- c('Shapiro-Wilk')
+estat <- c(0.98)
+pvalor <- c(0.94)
+dat <- data.frame(teste,estat,pvalor)
+
+dat |> 
+  kbl(caption = 'Teste de normalidade',
+      col.names = c('Teste','Estatística do teste','p-valor')) |> 
   kable_classic(c("striped", "hover"))
 ```
 
 ---
 
-<fieldset class="fldsetexample-class">
-  <legend class="legendexample-class">
-    Exercício 4
-  </legend>
-  Considere as combinações de dois fatores na remoção de sujeira em roupas típicas de lavanderia. O primeiro fator é a marca do sabão em pó (X, Y e Z). O segundo fator é a temperatura da água, quente ou morna. Cada combinação de nível foi repetido três vezes e a variável resposta é a porcentagem de sujeira removida. Os dados são mostrados a seguir
-  
----
-  
-</fieldset>
+Ao nível de significância de 5%, rejeitamos $H_0$. Portanto, temos evidências que há os resíduos são provenientes de uma distribuição normal.
 
-<table frame="hsides" rules="rows" width="400" align="center">
-    <tbody>
-        <tr style="text-align: center;">
-            <th colspan="1">Marca</th>
-            <th colspan="1">Temperatura</th>
-            <th colspan="3">Repetição</th>
-        </tr>
-        <tr style="text-align: center;">
-            <td>X</td>
-            <td>Quente</td>
-            <td>85</td>
-            <td>88</td>
-            <td>80</td>
-        </tr>
-        <tr style="text-align: center;">
-            <td style="border-top-style: hidden;"> </td>
-            <td>Morna</td>
-            <td>82</td>
-            <td>83</td>
-            <td>85</td>
-        </tr>
-        <tr style="text-align: center;">
-            <td>Y</td>
-            <td>Quente</td>
-            <td>90</td>
-            <td>92</td>
-            <td>92</td>
-        </tr>
-        <tr style="text-align: center;">
-            <td style="border-top-style: hidden;"> </td>
-            <td>Morna</td>
-            <td>88</td>
-            <td>86</td>
-            <td>88</td>
-        </tr>
-        <tr style="text-align: center;">
-            <td>Z</td>
-            <td>Quente</td>
-            <td>85</td>
-            <td>87</td>
-            <td>88</td>
-        </tr>
-        <tr style="text-align: center;">
-            <td style="border-top-style: hidden;"></td>
-            <td>Morna</td>
-            <td>76</td>
-            <td>74</td>
-            <td>78</td>
-        </tr>
-    </tbody>
-</table>
+* **homogeneidade de variâncias**
 
-Teste os efeitos sobre a porcentagem de sujeira removida, considerando um nível de significância de 5%.
+As hipóteses são
+
+* $H_0$: as variâncias são homogêneas.
+
+* $H_1$: as variâncias são heterôgeneas.
 
 ---
+
+O nível de significância foi fixo em $\alpha=0,05$.
+
+O critério de rejeição é definido como:
+
+* rejeitar $H_0$ se $p$-valor<0,05.
+
+A estatística do teste obtida com auxílio do *software* R é dada na seguinte tabela
 
 ```{r}
-y4 <- c(85,88,80,
-        82,83,85,
-        90,92,92,
-        88,86,88,
-        85,87,88,
-        76,74,78)
-marca <- as.factor(c(rep('x',6),rep('y',6),
-           rep('z',6)))
-temp <- as.factor(c(rep('quente',3),rep('morna',3),
-          rep('quente',3),rep('morna',3),
-          rep('quente',3),rep('morna',3)))
-fit4 <- lm(y4~marca+temp+marca*temp)
-anova(fit4)
+teste <- c('Levene')
+estat <- c(0.45)
+pvalor <- c(0.72)
+dat <- data.frame(teste,estat,pvalor)
+
+dat |> 
+  kbl(caption = 'Teste de homogeneidade de variâncias',
+      col.names = c('Teste','Estatística do teste','p-valor')) |> 
+  kable_classic(c("striped", "hover"))
 ```
 
+---
+
+Ao nível de significância de 5%, rejeitamos $H_0$. Portanto, temos evidências que há homogeneidade de variâncias.
+
+Portanto, como os pressupostos foram atendidos, observamos que o modelo é adequado aos dados experimentais.
+
+---
+
+Então, ao nível de significância de 5%, temos os seguintes resultados pelo teste de Tukey.
+
+```{r}
+tipo <- c('T4','T2','T3','T1')
+media <- c(3.56,1.76,1.38,1.14)
+grupo <- c('a','b','bc','c')
+dat <- data.frame(tipo,media,grupo)
+
+dat |> 
+  kbl(caption = 'Teste de Tukey',
+      col.names = c('Tipo','Média','Grupo')) |> 
+  kable_classic(c("striped", "hover"))
+```
