@@ -1,6 +1,6 @@
 ---
 title: "PGEA06 - Estatística Aplicada"
-subtitle: "Aula 08 - Análise de variância (DBC e fatoriais)" 
+subtitle: "Análise de variância com dois ou mais fatores" 
 author: "Elizabeth Mie Hashimoto <br> DAMAT-LD"
 output:
   xaringan::moon_reader:
@@ -32,108 +32,6 @@ div {
 }
 </style>
 
-# Delineamento em blocos casualizados
-
-- **Há** a presença de um fator de ruído
-
-<br>
-
---
-
-- O modelo é dado por
-
-$$y_{ij}=\mu+\beta_j+\tau_i+e_{ij}$$
-com $i=1,\ldots,a$ e $j=1,\ldots,b$.
-
---
-
-- As hipóteses estatísticas são:
-
-$H_0$:
-
-$H_1$:
-
----
-
-A estatística do teste é dada por
-
-```{r}
-library(kableExtra)
-causa <- c('Bloco','Fator','Resíduo','Total')
-gl <- c('b-1','a-1','(a-1)(b-1)','ab-1')
-sq <- c('SQBloco','SQFator','SQRes','SQTotal')
-qm <- c('QMBloco','QMFator','QMRes','---')
-f0 <- c('QMBloco/QMRes','QMFator/QMRes','---','---')
-dat <- data.frame(causa,gl,sq,qm,f0)
-
-dat |> 
-  kbl(caption = 'Esquema da tabela da ANOVA',
-      col.names = c('Causa de variação','Grau de liberdade','Soma de quadrados','Quadrado médio','f0')) |> 
-  kable_classic(c("striped", "hover"))
-```
-
----
-
-<fieldset class="fldsetexample-class">
-  <legend class="legendexample-class">
-    Exercício 1
-  </legend>
-  Um experimento foi feito para determinar o efeito de quatro produtos químicos diferentes sobre a resistência de um tecido. Esses produtos químicos são usados como parte do processo de acabamento, sob prensagem permanente. Cinco amostras de tecido foram selecionadas e um PBCA foi corrido, testando cada tipo de produto químico uma vez, em uma ordem aleatória, em cada amostra de tecido. Os dados são mostrados na seguinte tabela. Teste o efeito do produto química sobre a resistência do tecido, considerando um nível de significância de 5%.
-</fieldset>
-
-<br>
-
-<table frame="hsides" rules="rows" width="500" align="center">
-    <tbody>
-        <tr style="text-align: center;">
-            <th colspan="1"></th>
-            <th colspan="5">Amostra de tecido (bloco)</th>
-        </tr>
-        <tr style="text-align: center;">
-            <td style="border-top-style: hidden;"> <b>Tipo de produto químico</b></td>
-            <td>1</td>
-            <td>2</td>
-            <td>3</td>
-            <td>4</td>
-            <td>5</td>
-        </tr>
-        <tr style="text-align: center;">
-            <td>1</td>
-            <td>1,3</td>
-            <td>1,6</td>
-            <td>0,5</td>
-            <td>1,2</td>
-            <td>1,1</td>
-        </tr>
-        <tr style="text-align: center;">
-            <td >2</td>
-            <td>2,2</td>
-            <td>2,4</td>
-            <td>0,4</td>
-            <td>2,0</td>
-            <td>1,8</td>
-        </tr>
-        <tr style="text-align: center;">
-            <td>3</td>
-            <td>1,8</td>
-            <td>1,7</td>
-            <td>0,6</td>
-            <td>1,5</td>
-            <td>1,3</td>
-        </tr>
-        <tr style="text-align: center;">
-            <td>4</td>
-            <td>3,9</td>
-            <td>4,4</td>
-            <td>2,0</td>
-            <td>4,1</td>
-            <td>3,4</td>
-        </tr>
-    </tbody>
-</table>
-
----
-
 # Experimentos fatoriais
 
 - **Há** mais de um fator no experimento.
@@ -148,7 +46,7 @@ dat |>
 
 - O modelo é dado por
 
-$$y_{ijk}=\mu+\tau_i+\alpha_j+e_{ijk}$$
+$$y_{ijk}=\mu+\tau_i+\alpha_j+(\tau\alpha)_{ij}+e_{ijk}$$
 com $i=1,\ldots,a$, $j=1,\ldots,b$ e $k=1,\ldots,r$.
 
 --
@@ -256,14 +154,129 @@ Teste os efeitos sobre a porcentagem de sujeira removida, considerando um nível
 
 ---
 
-# Atividade 8
+# ANOVA
 
-O rendimento de um processo químico está sendo estudado. o
-dois fatores de interesse são temperatura e pressão. Três níveis de cada fator são selecionados; no entanto, apenas nove execuções podem ser
-feito em um dia. O experimentador executa uma réplica completa
-do desenho em cada dia. Os dados são mostrados a seguir
-tabela. Analise os dados, assumindo que os dias são blocos e considerando um nível de significância de 5%.
-
-```{r,echo=FALSE, fig.align='center', out.width='50%'}
-knitr::include_graphics('figuras/pressao.jpg')
+```{r}
+y4 <- c(85,88,80,
+        82,83,85,
+        90,92,92,
+        88,86,88,
+        85,87,88,
+        76,74,78)
+marca <- as.factor(c(rep('x',6),rep('y',6),
+           rep('z',6)))
+temp <- as.factor(c(rep('quente',3),rep('morna',3),
+          rep('quente',3),rep('morna',3),
+          rep('quente',3),rep('morna',3)))
+fit4 <- lm(y4~marca+temp+marca*temp)
+anova(fit4)
 ```
+
+---
+
+# Pressuposto da ANOVA
+
+* Teste de normalidade 
+
+```{r}
+teste <- c('Shapiro-Wilk')
+estat <- c(0.96)
+pvalor <- c(56)
+dat <- data.frame(teste,estat,pvalor)
+
+dat |> 
+  kbl(caption = 'Teste de normalidade',
+      col.names = c('Teste','Estatística do teste','p-valor')) |> 
+  kable_classic(c("striped", "hover"))
+```
+
+* Teste de homogeneidade de variâncias 
+
+
+```{r}
+teste <- c('Levene')
+estat <- c(1,63)
+pvalor <- c(0.23)
+dat <- data.frame(teste,estat,pvalor)
+
+dat |> 
+  kbl(caption = 'Teste de homogeneidade de variâncias',
+      col.names = c('Teste','Estatística do teste','p-valor')) |> 
+  kable_classic(c("striped", "hover"))
+```
+
+---
+
+# Teste de Tukey
+
+```{r}
+fit4_aov <- aov(fit4)
+TukeyHSD(fit4_aov, "marca:temp")
+```
+
+---
+
+# Experimentos em parcelas subdivididas
+
+--
+
+- O modelo é dado por
+
+$$y_{ijk}=\mu+\tau_i+\gamma_{ik}+\alpha_j+(\tau\alpha)_{ij}+e_{ijk}$$
+com $i=1,\ldots,a$, $j=1,\ldots,b$ e $k=1,\ldots,r$.
+
+--
+
+- As hipóteses estatísticas são:
+
+$H_0$:
+
+$H_1$:
+
+---
+
+- Se **há** efeito de interação entre os fatores:
+
+  - desdobramento dos níveis
+
+--
+  
+- Se **não há** efeito de interação entre os fatores:
+
+  - os efeitos principais são **estudados separadamente**.
+  
+--
+
+A estatística do teste é dada por
+
+```{r}
+library(kableExtra)
+causa <- c('FatorA','Resíduo(a)','FatorB','Interação','Resíduo(b)','Total')
+gl <- c('a-1','(a-1)(r-1)','b-1','(a-1)(b-1)','ab(r-1)','abr-1')
+sq <- c('SQA','SQRes(a)','SQB','SQInt','SQRes(b)','SQTotal')
+qm <- c('QMA','QMRes(a)','QMB','QMInt','QMRes(b)','---')
+f0 <- c('QMA/QMRes(a)','---','QMB/QMRes(b)','QMInt/QMRes(b)','---','---')
+dat <- data.frame(causa,gl,sq,qm,f0)
+
+dat |> 
+  kbl(caption = 'Esquema da tabela da ANOVA',
+      col.names = c('Causa de variação','Grau de liberdade','Soma de quadrados','Quadrado médio','f0')) |> 
+  kable_classic(c("striped", "hover"))
+```
+
+---
+
+# Exemplo 
+
+Para estudar o efeito de três níveis de adubação (A) e
+de dois espaçamentos (E) na altura (em centímetros) de certo tipo
+de plantas, planejou-se um experimento em parcelas subdivididas
+num dic com 4 repetições. Os tratamentos primários correspondem aos dois espaçamentos (E1 e E2) e
+os tratamentos secundários, aos três níveis de adubação (A0, A1 e
+A2). As alturas das plantas das 24 unidades experimentais são apresentadas na tabela a seguir.
+
+---
+```{r , echo=FALSE, fig.align = 'center', out.width = '60%'}
+knitr::include_graphics('figuras/dividida.jpg')
+```
+
