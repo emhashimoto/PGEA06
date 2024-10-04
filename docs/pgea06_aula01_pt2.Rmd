@@ -72,7 +72,7 @@ knitr::include_graphics('https://media.giphy.com/media/yv1ggi3Cbase05a8iS/giphy.
  pessoa que resolve problemas de interesse da sociedade, pela aplicação eficiente dos princípios científicos.</font>
 </fieldset>
 
-```{r , echo=FALSE, fig.align = 'center', out.width = '40%'}
+```{r , echo=FALSE, fig.align = 'center', out.width = '30%'}
 knitr::include_graphics('https://media.giphy.com/media/LaVp0AyqR5bGsC5Cbm/giphy.gif')
 ```
 
@@ -85,11 +85,9 @@ knitr::include_graphics('https://media.giphy.com/media/LaVp0AyqR5bGsC5Cbm/giphy.
    ciência que se dedica a coleta, análise e interpretação dos dados.
 </fieldset>
 
-```{r , echo=FALSE, fig.align = 'center', out.width = '40%'}
+```{r , echo=FALSE, fig.align = 'center', out.width = '30%'}
 knitr::include_graphics('https://media.giphy.com/media/LaVp0AyqR5bGsC5Cbm/giphy.gif')
 ```
-
-<br>
 --
 
 <fieldset class="fldsetalert-class">
@@ -109,12 +107,9 @@ knitr::include_graphics('https://media.giphy.com/media/LaVp0AyqR5bGsC5Cbm/giphy.
    ciência que se dedica a coleta, análise e interpretação dos dados.
 </fieldset>
 
-```{r , echo=FALSE, fig.align = 'center', out.width = '40%'}
+```{r , echo=FALSE, fig.align = 'center', out.width = '30%'}
 knitr::include_graphics('https://media.giphy.com/media/LaVp0AyqR5bGsC5Cbm/giphy.gif')
 ```
-
-<br>
-
 
 <fieldset class="fldsetalert-class">
   <legend class="legendalert-class">
@@ -132,31 +127,161 @@ O **método científico** consiste na aplicação iterativa dos seguintes passos
 
 --
 
-- Observar o **estado da natureza**;
+.pull-left[
+- **Observação**
+<!-- O processo começa com a observação de fenômenos ou a identificação de um problema. Isso envolve notar algo que desperte curiosidade ou que precise de uma explicação.-->
 
-<br>
+- **Pergunta**
+<!-- A partir da observação, formula-se uma pergunta específica. Por exemplo: "Por que a poluição do ar aumenta durante o inverno?"-->
 
---
+- **Pesquisa**
+<!-- Realiza-se uma pesquisa para entender o que já foi descoberto sobre o tema. Isso inclui revisar literatura científica, artigos e dados existentes.-->
 
-- **conjecturar** o fenômeno para o que foi observado;
+- **Hipótese**
+<!-- Com base nas informações coletadas, formula-se uma hipótese. Essa é uma explicação provisória que pode ser testada. Exemplo: "A queima de combustíveis fósseis aumenta a poluição do ar no inverno."-->
 
-<br>
+- <span style="color:red">**Dados**</span>
+<!-- Planeja-se e realiza-se um experimento para testar a hipótese. É fundamental que o experimento seja controlado, ou seja, que apenas uma variável seja alterada enquanto outras são mantidas constantes. Durante o experimento, os dados devem ser coletados de forma sistemática e organizada, utilizando ferramentas adequadas para garantir a precisão.-->
 
---
+- <span style="color:red">**Análise**</span>
+<!-- Os dados coletados são analisados, geralmente utilizando métodos estatísticos, para determinar se eles apoiam ou refutam a hipótese.-->
 
-- coletar os **dados**;
-
-<br>
-
---
-
-- **analisar** os dados para confirmar ou rejeitar a conjectura.
-
-```{r , echo=FALSE, fig.align = 'center', out.width = '30%'}
+- **Conclusão**
+<!-- Com base na análise, chega-se a uma conclusão sobre a hipótese. Esta pode ser confirmada, refutada ou reformulada.-->
+]
+.pull-right[
+```{r , echo=FALSE, fig.align = 'center', out.width = '80%'}
 knitr::include_graphics('https://media.giphy.com/media/i0GlE1yskKkus/giphy.gif')
+```
+]
+
+---
+
+# Base dos métodos estatísticos
+
+<fieldset class="fldsetalert-class">
+  <legend class="legendalert-class">
+    Variável aleatória (va)
+  </legend>
+
+ <b>Função</b> que associa a cada resultado de um experimento aleatório um número real. 
+</fieldset>
+
+<!-- forma de quantificar resultados que podem variar de maneira imprevisível. A variável aleatória pega esses resultados do experimento e os transforma em número-->
+
+--
+
+**Classificação** de va´s:
+
+--
+
+- **Discreta**
+
+--
+
+- **Contínua**
+
+---
+
+<fieldset class="fldsetalert-class">
+  <legend class="legendalert-class">
+    Distribuições de probabilidade
+  </legend>
+
+ <b>Função</b> que descreve como as probabilidades estão distribuídas entre os diferentes resultados possíveis de uma va.
+</fieldset>
+
+--
+
+- Modelos discretos:
+
+  * Distribuição **binomial**
+  
+  $$f(x)=\binom{n}{x}p^x(1-p)^{n-x}, \quad x=0,1,\ldots,n$$
+  
+--
+  
+  * Distribuição **Poisson**
+  
+  $$f(x)=\frac{e^{-\lambda}\lambda^{x}}{x!}, \quad x=0,1,2,\ldots$$
+  
+---
+
+- Modelos contínuo:
+
+  * Distribuição **normal**
+  
+  $$f(x)=\frac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac{1}{2\sigma^2}(x-\mu)^2}, \quad x\in \mathbf{R}$$
+
+```{r, fig.align='center', out.width = '40%'}
+set.seed(4102024)
+x <- rnorm(300,10,2)
+#hist(x, main='',probability = TRUE)
+x0 <- sort(x)
+plot(x0,dnorm(x0,10,2),lwd=2,col='red',
+     type='l')
 ```
 
 ---
+
+- Modelos contínuo:
+
+  * Distribuição **t-Student**
+  
+```{r, fig.align='center', out.width = '50%'}
+set.seed(4102024)
+y <- rt(300,5)
+#hist(y, main='',probability = TRUE)
+y0 <- sort(y)
+plot(y0,dt(y0,5),lwd=2,col='red',type='l')
+```
+
+---
+
+- Modelos contínuo:
+
+  * Distribuição **F**
+  
+```{r, fig.align='center', out.width = '50%'}
+set.seed(4102024)
+z <- rf(300,2,15)
+#hist(z, main='',probability = TRUE)
+z0 <- sort(z)
+plot(z0,df(z0,2,15),lwd=2,col='red',
+     type='l')
+```
+
+---
+
+# Inferência estatística
+
+<fieldset class="fldsetalert-class">
+  <legend class="legendalert-class">
+    Inferência estatística
+  </legend>
+
+ Conjunto de métodos estatísticos que permite fazer generalizações sobre uma população com base em uma amostra de dados coletados.
+</fieldset>
+
+--
+
+.pull-left[
+População: 
+
+va $X$
+]
+
+--
+
+.pull-right[
+Amostra: 
+
+sequência de $X_1,X_2,\ldots, X_n$
+]
+
+---
+
+# Origem dos dados
 
 Os dados, geralmente, são **coletados** por meio de:
 
@@ -180,8 +305,6 @@ Os dados, geralmente, são **coletados** por meio de:
 
  utilizada quando o objetivo da coleta de dados é estimar alguma propriedade de uma população finita.
 </fieldset>
-
-<br>
 
 --
 
@@ -204,8 +327,6 @@ Os dados, geralmente, são **coletados** por meio de:
 
  utilizada quando o objetivo da coleta de dados é estimar alguma propriedade de uma população finita.
 </fieldset>
-
-<br>
 
 
 <fieldset class="fldsetexample-class">
@@ -215,8 +336,6 @@ Os dados, geralmente, são **coletados** por meio de:
 
  são normalmente utilizados para determinar a relação entre duas ou mais quantidades medidas em uma população conceitual. Os dados são observados em seu <b>ambiente natural</b>.
 </fieldset>
-
-<br>
 
 --
 
@@ -240,8 +359,6 @@ Os dados, geralmente, são <b>coletados</b> por meio de:
  utilizada quando o objetivo da coleta de dados é estimar alguma propriedade de uma população finita.
 </fieldset>
 
-<br>
-
 <fieldset class="fldsetexample-class">
   <legend class="legendexample-class">
     Estudo observacional
@@ -249,9 +366,6 @@ Os dados, geralmente, são <b>coletados</b> por meio de:
 
  são normalmente utilizados para determinar a relação entre duas ou mais quantidades medidas em uma população conceitual.  Os dados são observados em seu <b>ambiente natural</b>.
 </fieldset>
-
-<br>
-
 
 <fieldset class="fldsetalert-class">
   <legend class="legendalert-class">
@@ -261,3 +375,23 @@ Os dados, geralmente, são <b>coletados</b> por meio de:
 </fieldset>
 
 ---
+
+# Estatística descritiva
+
+<fieldset class="fldsetalert-class">
+  <legend class="legendalert-class">
+    Estatística descritiva
+  </legend>
+
+ Conjunto de ferramentas utilizadas para resumir, organizar e apresentar de forma clara e informativa um conjunto de dados. 
+</fieldset>
+
+--
+
+As ferramentas são:
+
+- Medidas de posição
+
+--
+
+- Medidas de dispersão

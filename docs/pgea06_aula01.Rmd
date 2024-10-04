@@ -102,9 +102,13 @@ knitr::include_graphics('https://media.giphy.com/media/1oBwBVLGoLteCP2kyD/giphy.
 
 # Objetivo da disciplina &#127919;
 
-Proporcionar o aluno de pós-graduação o desenvolvimento da capacidade de interpretar os resultados e escolher adequadamente os métodos estatísticos. 
+A disciplina de estatística aplicada têm como objetivos:
 
-```{r , echo=FALSE, fig.align = 'center', out.width = '60%'}
+- capacitar os estudantes a **escolher os métodos estatísticos** mais apropriados para suas análises.
+
+- **fornecer as ferramentas** necessárias para que os estudantes possam iniciar e conduzir uma análise de dados. 
+
+```{r , echo=FALSE, fig.align = 'center', out.width = '40%'}
 knitr::include_graphics('https://media.giphy.com/media/ne0ozzSO13QhNZDSRo/giphy.gif')
 ```
 
