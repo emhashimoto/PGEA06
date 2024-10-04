@@ -24,27 +24,21 @@ h1.title {
 
 - Fazer uma análise estatística de um conjunto de dados, de preferência da sua área de pesquisa.
 
-- A análise deve ser feita utilizando o *software* `R`.
-
-- Utilizar o modelo do trabalho disponível na pasta do moodle.
-
-- Não há necessidade de uma capa.
-
 <!--
 utilizando o *software* R ou outro recurso computacional. Outros pacotes também podem ser utilizados.
 -->
 
 <br>
 
-# Prazo de entrega
+# Entrega do resumo expandido
 
-- Três semanas (19/10 a 08/11) para escolher o conjunto de dados.
+- Durante as primeiras semanas: escolher o tema. Elaborar as hipóteses. Planejar a coleta de dados.
 
-- Quatro semanas (09/11 a 06/12) para fazer o resumo.
+- Quatro semanas finais: desenvolvimento do trabalho.
 
-- Uma semana (07/12 a 14/12) para finalizar o resumo.
+- Utilizar o template do trabalho disponível no moodle.
 
-- Prazo final de entrega: às 23:59 do dia 16/12.
+- Prazo final de entrega: às 23:59 do dia 14/12.
 
 <br>
 
@@ -58,6 +52,15 @@ Para selecionar um conjunto de dados:
 
 <br>
 
+# Auxílio computacional
+
+- A análise pode ser feita utilizando o *software* `Jamovi`.
+
+- Outros *softwares* podem ser utilizados, caso o *software* `Jamovi` não tenha os recursos necessário para análise.
+
+
+<br>
+
 # Avaliação
 
 A nota do trabalho corresponde a **10 pontos**.
@@ -66,11 +69,11 @@ A avaliação será de acordo com os seguintes itens:
 
 - (0,5) Obedecer a estrutura do trabalho apresentada no template.
 
-- (1,0) Apresentação do relatório (organizado, bem escrito, figuras e tabelas ajustadas de acordo com o texto).
+- (1,0) Apresentação do resumo expandido (organizado, bem escrito, figuras e tabelas ajustadas de acordo com o texto).
 
 - (1,0) Introdução. 
 
-- (0,5) Descrição do conjunto de dados.
+- (0,5) Descrição da obtenção dos dados, bem como as variáveis utilizadas.
 
 - (4,0) Descrição e aplicação correta do método estatístico.
 
@@ -81,14 +84,15 @@ A avaliação será de acordo com os seguintes itens:
 <br>
 **Observações**: 
 
-- **Cópias de análise exploratória** da *internet* serão avaliadas como zero. 
-- **Trabalhos mal feitos** serão avaliados como zero. 
+- Trabalho que  seja uma **cópia de análise** da *internet* será avaliado como zero. 
+- **Trabalho mal feito** será avaliado como zero. 
+- Trabalho que **não seja do esforço** do próprio aluno será avaliado como zero.
 
 <br>
 
 # Considerações finais
 
-- Utilizar códigos para reproduzir uma análise exploratória será permitido. Entretanto, a escrita da análise deve ser de autoria do próprio aluno e citar a referência sempre que necessário.
+- Utilizar códigos disponível na *internet* será permitido. Entretanto, a escrita da análise deve ser de autoria do próprio aluno e citar a referência.
 
-- Discutir com o colega sobre a forma de fazer uma análise exploratória será permitido. Entretanto, a escrita da análise deve ser de autoria do próprio aluno.
+- Discutir com os colegas sobre a forma de fazer uma análise será permitido. Entretanto, a escrita da análise deve ser de autoria do próprio aluno.
 
