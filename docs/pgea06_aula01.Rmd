@@ -1,7 +1,7 @@
 ---
 title: "PGEA06 - Estatística Aplicada"
 subtitle: "Apresentação da disciplina" 
-author: "Elizabeth Mie Hashimoto <br> DAMAT-LD"
+author: "Elizabeth Mie Hashimoto <br> DAMAT-K101"
 output:
   xaringan::moon_reader:
     css: [metropolis, metropolis-fonts, tema_pgea06.css]
@@ -48,22 +48,49 @@ knitr::include_graphics('https://media.giphy.com/media/1oBwBVLGoLteCP2kyD/giphy.
 </center>
 -->
 
+# Formação &#127891;
+
+&#10004; Bacharel em Estatística
+
+```{r , echo=FALSE, fig.align = 'center', out.width = '35%'}
+knitr::include_graphics('figuras/fct.jpg')
+```
+
+--
+
+&#10004; Mestrado e Doutorado em Ciências
+
+```{r , echo=FALSE, fig.align = 'center', out.width = '40%'}
+knitr::include_graphics('figuras/esalq.jpg')
+```
+
+---
+
+# Apresentar-se &#128104;&#8205;&#127891;
+
+- Nome
+
+- Linha de pesquisa
+
+- Se você tivesse que descrever a disciplina (Estatística Aplicada) em uma palavra, qual seria?
+
+```{r , echo=FALSE, fig.align = 'right', out.width = '60%'}
+knitr::include_graphics('https://media.giphy.com/media/TKNGghpLhaz9XH1tSj/giphy.gif')
+```
+
+---
+
 # Porque estudar Estatística &#128526;
 
 .pull-left[
-- Utilizadas para resolver problemas.
+- Análise de Dados Ambientais.
+<!-- A estatística é fundamental para a coleta e análise de dados ambientais, permitindo que os alunos interpretem informações sobre qualidade da água, poluição do ar, biodiversidade e outros indicadores ambientais.-->
 
-<br>
+- Modelagem e Previsão.
+<!-- A estatística é crucial para a modelagem de fenômenos ambientais e a previsão de tendências, como mudanças climáticas, impacto de projetos de engenharia e comportamento de ecossistemas.-->
 
-- Aplicadas em diversas áreas
-
-<br>
-
-- Está entre as profissões mais valorizadas ([Reportagem](https://g1.globo.com/jornal-nacional/noticia/2023/09/18/pesquisa-revela-quais-profissoes-passaram-a-pagar-mais-na-ultima-decada.ghtml))
-
-<br>
-
-- Mais informações disponível em: [Why You Need to Study Statistics](https://www.youtube.com/watch?v=wV0Ks7aS7YI)
+- Pesquisa e Publicação.
+<!-- Conhecimentos em estatística são essenciais para a realização de pesquisas rigorosas e a publicação de resultados em revistas acadêmicas, aumentando a credibilidade e a relevância do trabalho dos alunos na comunidade científica.-->
 ]
 .pull-right[
 ```{r , echo=FALSE, fig.align = 'center', out.width = '65%'}
@@ -75,7 +102,7 @@ knitr::include_graphics('https://media.giphy.com/media/1oBwBVLGoLteCP2kyD/giphy.
 
 # Objetivo da disciplina &#127919;
 
-Proporcionar o aluno de pós-graduação o desenvolvimento da capacidade de interpretar os resultados e avaliar criticamente os métodos estatísticos utilizados. 
+Proporcionar o aluno de pós-graduação o desenvolvimento da capacidade de interpretar os resultados e escolher adequadamente os métodos estatísticos. 
 
 ```{r , echo=FALSE, fig.align = 'center', out.width = '60%'}
 knitr::include_graphics('https://media.giphy.com/media/ne0ozzSO13QhNZDSRo/giphy.gif')
@@ -83,29 +110,33 @@ knitr::include_graphics('https://media.giphy.com/media/ne0ozzSO13QhNZDSRo/giphy.
 
 ---
 
-# Previsão dos conteúdos
+# Previsão dos conteúdos &#128197;
 
-- **06/10**: Apresentação da disciplina e revisão de conceitos básicos
+- **04/10**: Apresentação da disciplina. Aplicação de questionário. Revisão dos conceitos básicos. 
 
-- ~~**20/10**~~ **17/10**: Variáveis aleatórias, distribuição de probabilidade e intervalo de confiança.
+- **11/10**: Intervalo de confiança. Teste de hipótese para uma e duas amostras.
 
-- **27/10**: Teste de hipótese para uma e duas amostras
+- **18/10**: Modelo de regressão linear simples e múltiplo. Modelo de classificação. 
 
-- **10/11**: Modelo de regressão linear simples e múltiplo
+- <span style="color:red">**25/10**</span>: Representação gráfica.
 
-- **11/11**: Avaliação teórica e ~~sem~~ com consulta das 8:00~00:59
+- **01/11**: Análise de variância.
 
-- **17/11**: Análise de variância: DIC e DBC
+- **08/11**: Análise de agrupamentos.
 
-- <span style="color:red">**24/11**</span>: Análise de variância: esquema fatorial e parcela subdividida
+---
 
-- **01/12**: Análise de agrupamento
+- **~~15/11~~**: Feriado.
 
-- **08/12**: Modelos de classificação $^{\ast}$
+- **22/11**: Elaboração do resumo expandido.
 
-- **15/12**: Prova de recuperação e entrega do resumo expandido.
+- **29/11**: Elaboração do resumo expandido.
 
-```{r , echo=FALSE, fig.align = 'right', out.width = '10%'}
+- **06/12**: Elaboração do resumo expandido.
+
+- **13/12**: Elaboração do resumo expandido.
+
+```{r , echo=FALSE, fig.align = 'right', out.width = '30%'}
 knitr::include_graphics('https://media.giphy.com/media/H8mFOgIyWfFpWmJl9U/giphy.gif')
 ```
 
@@ -143,25 +174,44 @@ knitr::include_graphics('figuras/fig8.jpg')
 
 &#128214; HAIR, Joseph F et al. **Análise Multivariada de Dados**. 6ed. Porto Alegre: Bookman, 2009.
 
-```{r , echo=FALSE, fig.align = 'right', out.width = '30%'}
+```{r , echo=FALSE, fig.align = 'right', out.width = '20%'}
 knitr::include_graphics('https://media.giphy.com/media/Y2bM68y94nxSXYkCaI/giphy.gif')
 ```
 
 ---
 
-# Critério de avaliação &#128220;
+# Critério de avaliação &#128221;
 
-&#10004; Será aprovado o aluno que obtiver média final maior ou igual a 6 $(MF\geq6)$, em que
-		$$MF=0,4NR+0,4NP+0,2NQ,$$
-em que $NR$ é a nota de um resumo expandido, $NP$ é a nota de uma prova escrita e $NQ$ é a nota média de quizes. 
+&#10004; A média final será calculada da seguinte forma
+		$$MF=0,60NR+0,15NL+0,25NQ,$$
+em que $NR$ é a nota do resumo expandido (10 pontos), $NL$ é a soma das atividades em laboratório (cada aula - 2 pontos) e $NQ$ é a nota média de quizes (cada quiz com 10 pontos). 
 
-<br>
+&#10004; Atribuição dos conceitos
+```{r, echo=FALSE}
+library(knitr)
+library(kableExtra)
+library(tidyverse)
 
---
+# Criando uma tabela com kable
+tabela <- data.frame(
+  MF = c("[9, 10]", "[7, 9[", "[5, 7[", "< 5"),
+  Conceito = c("A", "B", "C", "D")
+)
 
-&#10004; Se $MF<6$, uma prova de recuperação (com todo o conteúdo) será aplicada no dia 15-12. A $MF_r$ será dada por
+# Renderizando a tabela com linhas horizontais
+#kable(tabela, format = "html", table.attr = "class='table table-striped'", align = c('c'))
+
+tabela |> 
+  kbl(caption = "", align = c('c')) |> 
+  kable_classic(full_width = F) |> 
+  kable_styling(font_size = 25)
+```
+
+---
+
+&#10004; Se $MF<7$, uma prova de recuperação (com todo o conteúdo) será aplicada no dia 18-12. A média final reculada será dada por
 $$MF_r=\frac{MF+NRec}{2},$$
-em que $NRec$ é a nota da prova de recuperação. Será aprovado com $MF_r\geq6$.
+em que $NRec$ é a nota da prova de recuperação.
 
 <br>
 
@@ -171,30 +221,21 @@ em que $NRec$ é a nota da prova de recuperação. Será aprovado com $MF_r\geq6
 
 ---
 
-# Sala de aula &#127979;
+#Laboratório de informática &#128187;
 
-.pull-left[
-&#10004; Três primeiras aulas.]
-
-.pull-right[
-```{r , echo=FALSE, fig.align = 'center', out.width = '65%'}
-knitr::include_graphics('https://media.giphy.com/media/pqjqN4SOFkTK6xt2cL/giphy.gif')
-```
-]
-
---
-
-&#10004; Não usar o celular, a não ser que seja pedido. Em caso de urgência, pode retirar-se da sala para fazer ou atender a chamada 
-
-<br>
-
---
-
-&#10004; Não há necessidade de $notebook$.
+&#10004; Tolerância de 5 minutos.
 
 <br>
 --
-&#10004; Se precisar faltar por motivo de força maior, estudar o conteúdo até antes da próxima aula.
+&#10004; Não usar o celular. Em caso de urgência, pode retirar-se da sala para fazer a ligação ou atender a uma chamada. 
+
+<br>
+--
+&#10004; Não acessar *sites* que não estejam relacionados a disciplina.
+
+<br>
+--
+&#10004; Se precisar faltar por motivo de força maior, estudar o conteúdo perdido antes da próxima aula.
 
 <br>
 --
@@ -202,25 +243,7 @@ knitr::include_graphics('https://media.giphy.com/media/pqjqN4SOFkTK6xt2cL/giphy.
 
 ---
 
-#Laboratório de informática &#128187;
-
-&#10004; Duas últimas aulas.
-
-<br>
---
-&#10004; Não usar o celular. Em caso de urgência, pode retirar-se da sala para fazer atender a ligação. 
-
-<br>
---
-&#10004; Não acessar $sites$ que não estejam relacionados a disciplina.
-
-<br>
---
 &#10004; *Software* livre Jamovi.
-
-<br>
---
-&#128680; Em caso de desrespeito, **penalidades** serão aplicadas.
 
 ---
 
@@ -228,17 +251,12 @@ knitr::include_graphics('https://media.giphy.com/media/pqjqN4SOFkTK6xt2cL/giphy.
 
 &#10004; <https://moodle.utfpr.edu.br/login/index.php>
 
-<br>
+&#10004; Londrina - Pós graduação: mestrado - Mestrado em Engenharia Ambiental
 
-&#10004; Londrina - Pós graduação: especialização - Especialização em Engenharia Ambiental - 2017
 
-<br>
+&#10004; Disciplina: 2024 - Estatística Aplicada
 
-&#10004; Disciplina: 2023 - S2 - Estatística Aplicada
-
-<br>
-
-&#10004; Senha: PPGEA2023
+&#10004; Senha: PGEA06
 
 ```{r , echo=FALSE, fig.align = 'right', out.width = '30%'}
 knitr::include_graphics('https://media.giphy.com/media/IoP0PvbbSWGAM/giphy.gif')

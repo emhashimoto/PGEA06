@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>PGEA06 - Estatística Aplicada</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Elizabeth Mie Hashimoto   DAMAT-LD" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
+    <link href="libs/remark-css/metropolis-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="tema_pgea06.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# PGEA06 - Estatística Aplicada
+]
+.subtitle[
+## Conceitos básicos de Estatística
+]
+.author[
+### Elizabeth Mie Hashimoto <br> DAMAT-LD
+]
+
+---
+
+
+
+&lt;style&gt; 
+#caixa {
+  border: 1px solid;
+  padding: 10px;
+  box-shadow: 5px 10px blue;
+}
+div {
+  text-align: justify;
+  text-justify: inter-word;
+}
+&lt;/style&gt;
+
+# O papel da Estatística em Engenharia
+
+&lt;fieldset class="fldsetexample-class"&gt;
+  &lt;legend class="legendexample-class"&gt;
+    Engenheiro
+  &lt;/legend&gt;
+ &lt;font color="white"&gt; 
+ pessoa que resolve problemas de interesse da sociedade, pela aplicação eficiente dos princípios científicos.&lt;/font&gt;
+&lt;/fieldset&gt;
+
+&lt;img src="https://media.giphy.com/media/yv1ggi3Cbase05a8iS/giphy.gif" width="60%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# O papel da Estatística em Engenharia
+
+&lt;fieldset class="fldsetexample-class"&gt;
+  &lt;legend class="legendexample-class"&gt;
+    Engenheiro
+  &lt;/legend&gt;
+  
+ pessoa que resolve problemas de interesse da sociedade, pela aplicação eficiente dos princípios científicos.
+&lt;/fieldset&gt;
+
+&lt;img src="https://media.giphy.com/media/yv1ggi3Cbase05a8iS/giphy.gif" width="60%" style="display: block; margin: auto;" /&gt;
+
+---
+
+&lt;fieldset class="fldsetexample-class"&gt;
+  &lt;legend class="legendexample-class"&gt;
+    Estatística
+  &lt;/legend&gt;
+ &lt;font color="white"&gt; 
+ pessoa que resolve problemas de interesse da sociedade, pela aplicação eficiente dos princípios científicos.&lt;/font&gt;
+&lt;/fieldset&gt;
+
+&lt;img src="https://media.giphy.com/media/LaVp0AyqR5bGsC5Cbm/giphy.gif" width="40%" style="display: block; margin: auto;" /&gt;
+
+---
+
+&lt;fieldset class="fldsetexample-class"&gt;
+  &lt;legend class="legendexample-class"&gt;
+    Estatística
+  &lt;/legend&gt;
+   ciência que se dedica a coleta, análise e interpretação dos dados.
+&lt;/fieldset&gt;
+
+&lt;img src="https://media.giphy.com/media/LaVp0AyqR5bGsC5Cbm/giphy.gif" width="40%" style="display: block; margin: auto;" /&gt;
+
+&lt;br&gt;
+--
+
+&lt;fieldset class="fldsetalert-class"&gt;
+  &lt;legend class="legendalert-class"&gt;
+    Qual o papel da Estatística na Engenharia?
+  &lt;/legend&gt;
+  &lt;font color="white"&gt; 
+ pessoa que resolve problemas de interesse da sociedade, pela aplicação eficiente dos princípios científicos. pessoa que resolve problemas de interesse da sociedade, pela aplicação eficiente dos princípios científicos&lt;/font&gt;
+&lt;/fieldset&gt;
+
+---
+
+&lt;fieldset class="fldsetexample-class"&gt;
+  &lt;legend class="legendexample-class"&gt;
+    Estatística
+  &lt;/legend&gt;
+   ciência que se dedica a coleta, análise e interpretação dos dados.
+&lt;/fieldset&gt;
+
+&lt;img src="https://media.giphy.com/media/LaVp0AyqR5bGsC5Cbm/giphy.gif" width="40%" style="display: block; margin: auto;" /&gt;
+
+&lt;br&gt;
+
+
+&lt;fieldset class="fldsetalert-class"&gt;
+  &lt;legend class="legendalert-class"&gt;
+    Qual o papel da Estatística na Engenharia?
+  &lt;/legend&gt;
+
+ Fornecer &lt;b&gt;métodos estatísticos&lt;/b&gt; para engenharia tomar decisões e resolver problemas.
+&lt;/fieldset&gt;
+
+---
+
+# Pesquisa científica
+
+O **método científico** consiste na aplicação iterativa dos seguintes passos:
+
+--
+
+- Observar o **estado da natureza**;
+
+&lt;br&gt;
+
+--
+
+- **conjecturar** o fenômeno para o que foi observado;
+
+&lt;br&gt;
+
+--
+
+- coletar os **dados**;
+
+&lt;br&gt;
+
+--
+
+- **analisar** os dados para confirmar ou rejeitar a conjectura.
+
+&lt;img src="https://media.giphy.com/media/i0GlE1yskKkus/giphy.gif" width="30%" style="display: block; margin: auto;" /&gt;
+
+---
+
+Os dados, geralmente, são **coletados** por meio de:
+
+--
+
+&lt;fieldset class="fldsetexample-class"&gt;
+  &lt;legend class="legendexample-class"&gt;
+    Levantamento
+  &lt;/legend&gt;
+ &lt;font color="white"&gt; 
+ pessoa que resolve problemas de interesse da sociedade, pela aplicação eficiente dos princípios científicos. pessoa que resolve problemas de interesse da sociedade, pela aplicação eficiente dos princípios científicos&lt;/font&gt;
+&lt;/fieldset&gt;
+
+---
+Os dados, geralmente, são **coletados** por meio de:
+
+&lt;fieldset class="fldsetexample-class"&gt;
+  &lt;legend class="legendexample-class"&gt;
+    Levantamento
+  &lt;/legend&gt;
+
+ utilizada quando o objetivo da coleta de dados é estimar alguma propriedade de uma população finita.
+&lt;/fieldset&gt;
+
+&lt;br&gt;
+
+--
+
+&lt;fieldset class="fldsetexample-class"&gt;
+  &lt;legend class="legendexample-class"&gt;
+    Estudo observacional
+  &lt;/legend&gt;
+ &lt;font color="white"&gt; 
+ pessoa que resolve problemas de interesse da sociedade, pela aplicação eficiente dos princípios científicos. pessoa que resolve problemas de interesse da sociedade, pela aplicação eficiente dos princípios científicos&lt;/font&gt;
+&lt;/fieldset&gt;
+
+---
+
+Os dados, geralmente, são **coletados** por meio de:
+
+&lt;fieldset class="fldsetexample-class"&gt;
+  &lt;legend class="legendexample-class"&gt;
+    Levantamento
+  &lt;/legend&gt;
+
+ utilizada quando o objetivo da coleta de dados é estimar alguma propriedade de uma população finita.
+&lt;/fieldset&gt;
+
+&lt;br&gt;
+
+
+&lt;fieldset class="fldsetexample-class"&gt;
+  &lt;legend class="legendexample-class"&gt;
+    Estudo observacional
+  &lt;/legend&gt;
+
+ são normalmente utilizados para determinar a relação entre duas ou mais quantidades medidas em uma população conceitual. Os dados são observados em seu &lt;b&gt;ambiente natural&lt;/b&gt;.
+&lt;/fieldset&gt;
+
+&lt;br&gt;
+
+--
+
+&lt;fieldset class="fldsetexample-class"&gt;
+  &lt;legend class="legendexample-class"&gt;
+    Experimentos
+  &lt;/legend&gt;
+ &lt;font color="white"&gt; 
+ pessoa que resolve problemas de interesse da sociedade, pela aplicação eficiente dos princípios científicos. pessoa que resolve problemas de interesse da sociedade, pela aplicação eficiente dos princípios científicos&lt;/font&gt;
+&lt;/fieldset&gt;
+
+---
+
+Os dados, geralmente, são &lt;b&gt;coletados&lt;/b&gt; por meio de:
+
+&lt;fieldset class="fldsetexample-class"&gt;
+  &lt;legend class="legendexample-class"&gt;
+    Levantamento
+  &lt;/legend&gt;
+
+ utilizada quando o objetivo da coleta de dados é estimar alguma propriedade de uma população finita.
+&lt;/fieldset&gt;
+
+&lt;br&gt;
+
+&lt;fieldset class="fldsetexample-class"&gt;
+  &lt;legend class="legendexample-class"&gt;
+    Estudo observacional
+  &lt;/legend&gt;
+
+ são normalmente utilizados para determinar a relação entre duas ou mais quantidades medidas em uma população conceitual.  Os dados são observados em seu &lt;b&gt;ambiente natural&lt;/b&gt;.
+&lt;/fieldset&gt;
+
+&lt;br&gt;
+
+
+&lt;fieldset class="fldsetalert-class"&gt;
+  &lt;legend class="legendalert-class"&gt;
+    Experimentos
+  &lt;/legend&gt;
+ pessoa que resolve problemas de interesse da sociedade, pela aplicação eficiente dos princípios científicos. Os dados são observados em um &lt;b&gt;ambiente controlado&lt;/b&gt;. 
+&lt;/fieldset&gt;
+
+---
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": false,
+"countIncrementalSlides": false,
+"slideNumberFormat": "%current%"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

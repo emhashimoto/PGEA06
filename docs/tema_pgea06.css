@@ -36,3 +36,7 @@
 .pull-right ~ * {
   clear: both;
 }
+
+p {
+  font-size: 26px; /* Tamanho do parágrafo */
+}

@@ -3,10 +3,12 @@
   <head>
     <title>PGEA06 - Estatística Aplicada</title>
     <meta charset="utf-8" />
-    <meta name="author" content="Elizabeth Mie Hashimoto   DAMAT-LD" />
+    <meta name="author" content="Elizabeth Mie Hashimoto   DAMAT-K101" />
     <script src="libs/header-attrs/header-attrs.js"></script>
     <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
     <link href="libs/remark-css/metropolis-fonts.css" rel="stylesheet" />
+    <script src="libs/kePrint/kePrint.js"></script>
+    <link href="libs/lightable/lightable.css" rel="stylesheet" />
     <link href="libs/countdown/countdown.css" rel="stylesheet" />
     <script src="libs/countdown/countdown.js"></script>
     <link rel="stylesheet" href="tema_pgea06.css" type="text/css" />
@@ -22,7 +24,7 @@ class: center, middle, inverse, title-slide
 ## Apresentação da disciplina
 ]
 .author[
-### Elizabeth Mie Hashimoto <br> DAMAT-LD
+### Elizabeth Mie Hashimoto <br> DAMAT-K101
 ]
 
 ---
@@ -55,22 +57,43 @@ div {
 &lt;/center&gt;
 --&gt;
 
+# Formação &amp;#127891;
+
+&amp;#10004; Bacharel em Estatística
+
+&lt;img src="figuras/fct.jpg" width="35%" style="display: block; margin: auto;" /&gt;
+
+--
+
+&amp;#10004; Mestrado e Doutorado em Ciências
+
+&lt;img src="figuras/esalq.jpg" width="40%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Apresentar-se &amp;#128104;&amp;#8205;&amp;#127891;
+
+- Nome
+
+- Linha de pesquisa
+
+- Se você tivesse que descrever a disciplina (Estatística Aplicada) em uma palavra, qual seria?
+
+&lt;img src="https://media.giphy.com/media/TKNGghpLhaz9XH1tSj/giphy.gif" width="60%" style="display: block; margin: auto 0 auto auto;" /&gt;
+
+---
+
 # Porque estudar Estatística &amp;#128526;
 
 .pull-left[
-- Utilizadas para resolver problemas.
+- Análise de Dados Ambientais.
+&lt;!-- A estatística é fundamental para a coleta e análise de dados ambientais, permitindo que os alunos interpretem informações sobre qualidade da água, poluição do ar, biodiversidade e outros indicadores ambientais.--&gt;
 
-&lt;br&gt;
+- Modelagem e Previsão.
+&lt;!-- A estatística é crucial para a modelagem de fenômenos ambientais e a previsão de tendências, como mudanças climáticas, impacto de projetos de engenharia e comportamento de ecossistemas.--&gt;
 
-- Aplicadas em diversas áreas
-
-&lt;br&gt;
-
-- Está entre as profissões mais valorizadas ([Reportagem](https://g1.globo.com/jornal-nacional/noticia/2023/09/18/pesquisa-revela-quais-profissoes-passaram-a-pagar-mais-na-ultima-decada.ghtml))
-
-&lt;br&gt;
-
-- Mais informações disponível em: [Why You Need to Study Statistics](https://www.youtube.com/watch?v=wV0Ks7aS7YI)
+- Pesquisa e Publicação.
+&lt;!-- Conhecimentos em estatística são essenciais para a realização de pesquisas rigorosas e a publicação de resultados em revistas acadêmicas, aumentando a credibilidade e a relevância do trabalho dos alunos na comunidade científica.--&gt;
 ]
 .pull-right[
 &lt;img src="https://media.giphy.com/media/1oBwBVLGoLteCP2kyD/giphy.gif" width="65%" style="display: block; margin: auto;" /&gt;
@@ -80,35 +103,39 @@ div {
 
 # Objetivo da disciplina &amp;#127919;
 
-Proporcionar o aluno de pós-graduação o desenvolvimento da capacidade de interpretar os resultados e avaliar criticamente os métodos estatísticos utilizados. 
+Proporcionar o aluno de pós-graduação o desenvolvimento da capacidade de interpretar os resultados e escolher adequadamente os métodos estatísticos. 
 
 &lt;img src="https://media.giphy.com/media/ne0ozzSO13QhNZDSRo/giphy.gif" width="60%" style="display: block; margin: auto;" /&gt;
 
 ---
 
-# Previsão dos conteúdos
+# Previsão dos conteúdos &amp;#128197;
 
-- **06/10**: Apresentação da disciplina e revisão de conceitos básicos
+- **04/10**: Apresentação da disciplina. Aplicação de questionário. Revisão dos conceitos básicos. 
 
-- ~~**20/10**~~ **17/10**: Variáveis aleatórias, distribuição de probabilidade e intervalo de confiança.
+- **11/10**: Intervalo de confiança. Teste de hipótese para uma e duas amostras.
 
-- **27/10**: Teste de hipótese para uma e duas amostras
+- **18/10**: Modelo de regressão linear simples e múltiplo. Modelo de classificação. 
 
-- **10/11**: Modelo de regressão linear simples e múltiplo
+- &lt;span style="color:red"&gt;**25/10**&lt;/span&gt;: Representação gráfica.
 
-- **11/11**: Avaliação teórica e ~~sem~~ com consulta das 8:00~00:59
+- **01/11**: Análise de variância.
 
-- **17/11**: Análise de variância: DIC e DBC
+- **08/11**: Análise de agrupamentos.
 
-- &lt;span style="color:red"&gt;**24/11**&lt;/span&gt;: Análise de variância: esquema fatorial e parcela subdividida
+---
 
-- **01/12**: Análise de agrupamento
+- **~~15/11~~**: Feriado.
 
-- **08/12**: Modelos de classificação `\(^{\ast}\)`
+- **22/11**: Elaboração do resumo expandido.
 
-- **15/12**: Prova de recuperação e entrega do resumo expandido.
+- **29/11**: Elaboração do resumo expandido.
 
-&lt;img src="https://media.giphy.com/media/H8mFOgIyWfFpWmJl9U/giphy.gif" width="10%" style="display: block; margin: auto 0 auto auto;" /&gt;
+- **06/12**: Elaboração do resumo expandido.
+
+- **13/12**: Elaboração do resumo expandido.
+
+&lt;img src="https://media.giphy.com/media/H8mFOgIyWfFpWmJl9U/giphy.gif" width="30%" style="display: block; margin: auto 0 auto auto;" /&gt;
 
 ---
 
@@ -140,23 +167,50 @@ Proporcionar o aluno de pós-graduação o desenvolvimento da capacidade de inte
 
 &amp;#128214; HAIR, Joseph F et al. **Análise Multivariada de Dados**. 6ed. Porto Alegre: Bookman, 2009.
 
-&lt;img src="https://media.giphy.com/media/Y2bM68y94nxSXYkCaI/giphy.gif" width="30%" style="display: block; margin: auto 0 auto auto;" /&gt;
+&lt;img src="https://media.giphy.com/media/Y2bM68y94nxSXYkCaI/giphy.gif" width="20%" style="display: block; margin: auto 0 auto auto;" /&gt;
 
 ---
 
-# Critério de avaliação &amp;#128220;
+# Critério de avaliação &amp;#128221;
 
-&amp;#10004; Será aprovado o aluno que obtiver média final maior ou igual a 6 `\((MF\geq6)\)`, em que
-		`$$MF=0,4NR+0,4NP+0,2NQ,$$`
-em que `\(NR\)` é a nota de um resumo expandido, `\(NP\)` é a nota de uma prova escrita e `\(NQ\)` é a nota média de quizes. 
+&amp;#10004; A média final será calculada da seguinte forma
+		`$$MF=0,60NR+0,15NL+0,25NQ,$$`
+em que `\(NR\)` é a nota do resumo expandido (10 pontos), `\(NL\)` é a soma das atividades em laboratório (cada aula - 2 pontos) e `\(NQ\)` é a nota média de quizes (cada quiz com 10 pontos). 
 
-&lt;br&gt;
+&amp;#10004; Atribuição dos conceitos
+&lt;table class=" lightable-classic table" style='font-family: "Arial Narrow", "Source Sans Pro", sans-serif; width: auto !important; margin-left: auto; margin-right: auto; font-size: 25px; margin-left: auto; margin-right: auto;'&gt;
+&lt;caption style="font-size: initial !important;"&gt;&lt;/caption&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:center;"&gt; MF &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; Conceito &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; [9, 10] &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; A &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; [7, 9[ &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; B &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; [5, 7[ &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; C &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;"&gt; &amp;lt; 5 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; D &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 
---
+---
 
-&amp;#10004; Se `\(MF&lt;6\)`, uma prova de recuperação (com todo o conteúdo) será aplicada no dia 15-12. A `\(MF_r\)` será dada por
+&amp;#10004; Se `\(MF&lt;7\)`, uma prova de recuperação (com todo o conteúdo) será aplicada no dia 18-12. A média final reculada será dada por
 `$$MF_r=\frac{MF+NRec}{2},$$`
-em que `\(NRec\)` é a nota da prova de recuperação. Será aprovado com `\(MF_r\geq6\)`.
+em que `\(NRec\)` é a nota da prova de recuperação.
 
 &lt;br&gt;
 
@@ -166,28 +220,21 @@ em que `\(NRec\)` é a nota da prova de recuperação. Será aprovado com `\(MF_
 
 ---
 
-# Sala de aula &amp;#127979;
+#Laboratório de informática &amp;#128187;
 
-.pull-left[
-&amp;#10004; Três primeiras aulas.]
-
-.pull-right[
-&lt;img src="https://media.giphy.com/media/pqjqN4SOFkTK6xt2cL/giphy.gif" width="65%" style="display: block; margin: auto;" /&gt;
-]
-
---
-
-&amp;#10004; Não usar o celular, a não ser que seja pedido. Em caso de urgência, pode retirar-se da sala para fazer ou atender a chamada 
-
-&lt;br&gt;
-
---
-
-&amp;#10004; Não há necessidade de `\(notebook\)`.
+&amp;#10004; Tolerância de 5 minutos.
 
 &lt;br&gt;
 --
-&amp;#10004; Se precisar faltar por motivo de força maior, estudar o conteúdo até antes da próxima aula.
+&amp;#10004; Não usar o celular. Em caso de urgência, pode retirar-se da sala para fazer a ligação ou atender a uma chamada. 
+
+&lt;br&gt;
+--
+&amp;#10004; Não acessar *sites* que não estejam relacionados a disciplina.
+
+&lt;br&gt;
+--
+&amp;#10004; Se precisar faltar por motivo de força maior, estudar o conteúdo perdido antes da próxima aula.
 
 &lt;br&gt;
 --
@@ -195,25 +242,7 @@ em que `\(NRec\)` é a nota da prova de recuperação. Será aprovado com `\(MF_
 
 ---
 
-#Laboratório de informática &amp;#128187;
-
-&amp;#10004; Duas últimas aulas.
-
-&lt;br&gt;
---
-&amp;#10004; Não usar o celular. Em caso de urgência, pode retirar-se da sala para fazer atender a ligação. 
-
-&lt;br&gt;
---
-&amp;#10004; Não acessar `\(sites\)` que não estejam relacionados a disciplina.
-
-&lt;br&gt;
---
 &amp;#10004; *Software* livre Jamovi.
-
-&lt;br&gt;
---
-&amp;#128680; Em caso de desrespeito, **penalidades** serão aplicadas.
 
 ---
 
@@ -221,17 +250,12 @@ em que `\(NRec\)` é a nota da prova de recuperação. Será aprovado com `\(MF_
 
 &amp;#10004; &lt;https://moodle.utfpr.edu.br/login/index.php&gt;
 
-&lt;br&gt;
+&amp;#10004; Londrina - Pós graduação: mestrado - Mestrado em Engenharia Ambiental
 
-&amp;#10004; Londrina - Pós graduação: especialização - Especialização em Engenharia Ambiental - 2017
 
-&lt;br&gt;
+&amp;#10004; Disciplina: 2024 - Estatística Aplicada
 
-&amp;#10004; Disciplina: 2023 - S2 - Estatística Aplicada
-
-&lt;br&gt;
-
-&amp;#10004; Senha: PPGEA2023
+&amp;#10004; Senha: PGEA06
 
 &lt;img src="https://media.giphy.com/media/IoP0PvbbSWGAM/giphy.gif" width="30%" style="display: block; margin: auto 0 auto auto;" /&gt;
 
@@ -240,7 +264,7 @@ em que `\(NRec\)` é a nota da prova de recuperação. Será aprovado com `\(MF_
 
 - Acessar o moodle e responder um questionário.
 
-<div class="countdown" id="timer_b8be57d3" data-update-every="1" tabindex="0" style="top:0;right:0;font-size:3em;">
+<div class="countdown" id="timer_e83a9334" data-update-every="1" tabindex="0" style="top:0;right:0;font-size:3em;">
 <div class="countdown-controls"><button class="countdown-bump-down">&minus;</button><button class="countdown-bump-up">&plus;</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">15</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>

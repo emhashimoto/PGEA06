@@ -1,0 +1,263 @@
+---
+title: "PGEA06 - Estatística Aplicada"
+subtitle: "Conceitos básicos de Estatística" 
+author: "Elizabeth Mie Hashimoto <br> DAMAT-LD"
+output:
+  xaringan::moon_reader:
+    css: [metropolis, metropolis-fonts, tema_pgea06.css]
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: false
+      countIncrementalSlides: false
+      slideNumberFormat: "%current%"
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(echo = FALSE, 
+                      comment = '',
+                      message = FALSE,
+                      warning = FALSE)
+```
+<style> 
+#caixa {
+  border: 1px solid;
+  padding: 10px;
+  box-shadow: 5px 10px blue;
+}
+div {
+  text-align: justify;
+  text-justify: inter-word;
+}
+</style>
+
+# O papel da Estatística em Engenharia
+
+<fieldset class="fldsetexample-class">
+  <legend class="legendexample-class">
+    Engenheiro
+  </legend>
+ <font color="white"> 
+ pessoa que resolve problemas de interesse da sociedade, pela aplicação eficiente dos princípios científicos.</font>
+</fieldset>
+
+```{r , echo=FALSE, fig.align = 'center', out.width = '60%'}
+knitr::include_graphics('https://media.giphy.com/media/yv1ggi3Cbase05a8iS/giphy.gif')
+```
+
+---
+
+# O papel da Estatística em Engenharia
+
+<fieldset class="fldsetexample-class">
+  <legend class="legendexample-class">
+    Engenheiro
+  </legend>
+  
+ pessoa que resolve problemas de interesse da sociedade, pela aplicação eficiente dos princípios científicos.
+</fieldset>
+
+```{r , echo=FALSE, fig.align = 'center', out.width = '60%'}
+knitr::include_graphics('https://media.giphy.com/media/yv1ggi3Cbase05a8iS/giphy.gif')
+```
+
+---
+
+<fieldset class="fldsetexample-class">
+  <legend class="legendexample-class">
+    Estatística
+  </legend>
+ <font color="white"> 
+ pessoa que resolve problemas de interesse da sociedade, pela aplicação eficiente dos princípios científicos.</font>
+</fieldset>
+
+```{r , echo=FALSE, fig.align = 'center', out.width = '40%'}
+knitr::include_graphics('https://media.giphy.com/media/LaVp0AyqR5bGsC5Cbm/giphy.gif')
+```
+
+---
+
+<fieldset class="fldsetexample-class">
+  <legend class="legendexample-class">
+    Estatística
+  </legend>
+   ciência que se dedica a coleta, análise e interpretação dos dados.
+</fieldset>
+
+```{r , echo=FALSE, fig.align = 'center', out.width = '40%'}
+knitr::include_graphics('https://media.giphy.com/media/LaVp0AyqR5bGsC5Cbm/giphy.gif')
+```
+
+<br>
+--
+
+<fieldset class="fldsetalert-class">
+  <legend class="legendalert-class">
+    Qual o papel da Estatística na Engenharia?
+  </legend>
+  <font color="white"> 
+ pessoa que resolve problemas de interesse da sociedade, pela aplicação eficiente dos princípios científicos. pessoa que resolve problemas de interesse da sociedade, pela aplicação eficiente dos princípios científicos</font>
+</fieldset>
+
+---
+
+<fieldset class="fldsetexample-class">
+  <legend class="legendexample-class">
+    Estatística
+  </legend>
+   ciência que se dedica a coleta, análise e interpretação dos dados.
+</fieldset>
+
+```{r , echo=FALSE, fig.align = 'center', out.width = '40%'}
+knitr::include_graphics('https://media.giphy.com/media/LaVp0AyqR5bGsC5Cbm/giphy.gif')
+```
+
+<br>
+
+
+<fieldset class="fldsetalert-class">
+  <legend class="legendalert-class">
+    Qual o papel da Estatística na Engenharia?
+  </legend>
+
+ Fornecer <b>métodos estatísticos</b> para engenharia tomar decisões e resolver problemas.
+</fieldset>
+
+---
+
+# Pesquisa científica
+
+O **método científico** consiste na aplicação iterativa dos seguintes passos:
+
+--
+
+- Observar o **estado da natureza**;
+
+<br>
+
+--
+
+- **conjecturar** o fenômeno para o que foi observado;
+
+<br>
+
+--
+
+- coletar os **dados**;
+
+<br>
+
+--
+
+- **analisar** os dados para confirmar ou rejeitar a conjectura.
+
+```{r , echo=FALSE, fig.align = 'center', out.width = '30%'}
+knitr::include_graphics('https://media.giphy.com/media/i0GlE1yskKkus/giphy.gif')
+```
+
+---
+
+Os dados, geralmente, são **coletados** por meio de:
+
+--
+
+<fieldset class="fldsetexample-class">
+  <legend class="legendexample-class">
+    Levantamento
+  </legend>
+ <font color="white"> 
+ pessoa que resolve problemas de interesse da sociedade, pela aplicação eficiente dos princípios científicos. pessoa que resolve problemas de interesse da sociedade, pela aplicação eficiente dos princípios científicos</font>
+</fieldset>
+
+---
+Os dados, geralmente, são **coletados** por meio de:
+
+<fieldset class="fldsetexample-class">
+  <legend class="legendexample-class">
+    Levantamento
+  </legend>
+
+ utilizada quando o objetivo da coleta de dados é estimar alguma propriedade de uma população finita.
+</fieldset>
+
+<br>
+
+--
+
+<fieldset class="fldsetexample-class">
+  <legend class="legendexample-class">
+    Estudo observacional
+  </legend>
+ <font color="white"> 
+ pessoa que resolve problemas de interesse da sociedade, pela aplicação eficiente dos princípios científicos. pessoa que resolve problemas de interesse da sociedade, pela aplicação eficiente dos princípios científicos</font>
+</fieldset>
+
+---
+
+Os dados, geralmente, são **coletados** por meio de:
+
+<fieldset class="fldsetexample-class">
+  <legend class="legendexample-class">
+    Levantamento
+  </legend>
+
+ utilizada quando o objetivo da coleta de dados é estimar alguma propriedade de uma população finita.
+</fieldset>
+
+<br>
+
+
+<fieldset class="fldsetexample-class">
+  <legend class="legendexample-class">
+    Estudo observacional
+  </legend>
+
+ são normalmente utilizados para determinar a relação entre duas ou mais quantidades medidas em uma população conceitual. Os dados são observados em seu <b>ambiente natural</b>.
+</fieldset>
+
+<br>
+
+--
+
+<fieldset class="fldsetexample-class">
+  <legend class="legendexample-class">
+    Experimentos
+  </legend>
+ <font color="white"> 
+ pessoa que resolve problemas de interesse da sociedade, pela aplicação eficiente dos princípios científicos. pessoa que resolve problemas de interesse da sociedade, pela aplicação eficiente dos princípios científicos</font>
+</fieldset>
+
+---
+
+Os dados, geralmente, são <b>coletados</b> por meio de:
+
+<fieldset class="fldsetexample-class">
+  <legend class="legendexample-class">
+    Levantamento
+  </legend>
+
+ utilizada quando o objetivo da coleta de dados é estimar alguma propriedade de uma população finita.
+</fieldset>
+
+<br>
+
+<fieldset class="fldsetexample-class">
+  <legend class="legendexample-class">
+    Estudo observacional
+  </legend>
+
+ são normalmente utilizados para determinar a relação entre duas ou mais quantidades medidas em uma população conceitual.  Os dados são observados em seu <b>ambiente natural</b>.
+</fieldset>
+
+<br>
+
+
+<fieldset class="fldsetalert-class">
+  <legend class="legendalert-class">
+    Experimentos
+  </legend>
+ pessoa que resolve problemas de interesse da sociedade, pela aplicação eficiente dos princípios científicos. Os dados são observados em um <b>ambiente controlado</b>. 
+</fieldset>
+
+---
