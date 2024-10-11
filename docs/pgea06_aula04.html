@@ -13,9 +13,15 @@
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
+.title[
 # PGEA06 - Estatística Aplicada
-## Aula 04 - Intervalos de confiança
+]
+.subtitle[
+## Intervalos de confiança e teste de hipótese
+]
+.author[
 ### Elizabeth Mie Hashimoto <br> DAMAT-LD
+]
 
 ---
 
@@ -33,196 +39,291 @@ div {
 }
 &lt;/style&gt;
 
-# Motivação - inferência estatística
+# Intervalo de confiança
 
-**Distribuições de probabilidade**:
+- **Diâmetro à altura do peito (DAP)**
 
---
-
-+ Distribuição binomial
-
---
-
-+ Distribuição Poisson
-
---
-
-+ Distribuição normal (Gaussiana)
-
---
-
-+ Distribuição exponencial
-
---
-
-&lt;div class="warning" style='padding:0.1em; background-color:#E9D8FD; color:#69337A'&gt;
-&lt;span&gt;
-&lt;p style='margin-top:1em; text-align:center'&gt;
-&lt;b&gt;Na prática&lt;/b&gt;&lt;/p&gt;
-&lt;p style='margin-left:1em;'&gt;
-O pesquisador não tem informações sobre o valor exato do
-parâmetro.
-&lt;/p&gt;
-&lt;/span&gt;
-&lt;/div&gt;
-
----
-
-&lt;div class="warning" style='padding:0.1em; background-color:#E9D8FD; color:#69337A'&gt;
-&lt;span&gt;
-&lt;p style='margin-top:1em; text-align:center'&gt;
-&lt;b&gt;Inferência estatística&lt;/b&gt;&lt;/p&gt;
-&lt;p style='margin-left:1em;'&gt;
-Consiste em especificar um ou mais valores para o parâmetro da distribuição de probabilidade, baseado em um
-conjunto de dados.
-&lt;/p&gt;
-&lt;/span&gt;
-&lt;/div&gt;
+&lt;img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExOW00NnhudTBhbTNqcnRxNHljYTg0M3M3emZtYXhpdW5uZThueDBudiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/CXlLGiModdBneYJzYu/giphy.gif" width="40%" style="display: block; margin: auto;" /&gt;
 
 &lt;br&gt;
 
 --
 
-- Estimação de parâmetros
-
---
-
-- Teste de hipóteses
+- Três amostras de quatro árvores foram selecionadas
 
 ---
 
-# Conceitos básicos
+Amostra 1: 31, 32, 29 e 29 cm 
 
-**Amostra aleatória**
-
+&lt;br&gt;
 --
 
-É uma sequência `\(X_1,\ldots, X_n\)` de variáveis aleatórias que são:
+Amostra 2: 30, 32, 31 e 31 cm 
 
+&lt;br&gt;
 --
 
-- independentes
-
---
-
-- identicamente distribuídas com função de probabilidade ou função densidade `\(f(.)\)`
+Amostra 3: 28, 30, 31 e 28 cm 
 
 &lt;br&gt;
 
 --
 
-**Estatística**
-
---
-
-É qualquer função, denotada por `\(T(\mathbf{X})\)`, da amostra aleatória `\(X_1, \ldots, X_n\)` que não depende de parâmetros desconhecidos.
-
-&lt;br&gt;
-
---
-
-**Estimador**
-
---
-
-É qualquer estatística `\(T(\mathbf{X})\)` que assume valores no conjunto numérico do parâmetro.
+Vamos calcular a DAP **média**.
 
 ---
 
-**Distribuição amostral**
+# Aplicações de intervalo de confiança
+
+- **Monitoramento da Qualidade da Água**
+
+Avaliar se os níveis de metais pesados estão dentro dos limites de segurança.
 
 --
 
-É a distribuição de probabilidade de uma estatística `\(T(\mathbf{X})\)`.
+- **Planejamento de Recursos Hídricos**
 
-&lt;br&gt;
-
---
-
-**Erro padrão**
+Gestores podem planejar melhor o uso da água, considerando a variabilidade e a incerteza nas previsões em diferentes estações do ano.
 
 --
 
-É o desvio padrão do estimador.
+- **Avaliação de Risco**
 
-&lt;br&gt;
-
---
-
-**Teorema central do limite**
-
---
-
-Se `\(X_1,\ldots, X_n\)` for uma amostra aleatória de tamanho `\(n\)`, retirada de uma população com média `\(\mu\)` e variância `\(\sigma^2\)` e se `\(\bar{X}\)` for a média da amostra, então
-`$$Z=\frac{\sqrt{n}(\bar{X}-\mu)}{\sigma}$$`
-quando `\(n\rightarrow\infty\)` será uma distribuição normal padrão.
+Avaliar a segurança dos níveis de exposição e orientar práticas agrícolas e de saúde pública.
 
 ---
 
-# Intervalos de confiança para média
+# Amostra - distribuição normal
 
-Seja `\(X_1,\ldots, X_n\)` é uma amostra aleatória de tamanho `\(n\)` de uma variável aleatória `\(X\sim N(\mu,\sigma^2)\)`. Sejam `\(L\)` e `\(U\)` duas estatísticas tal que `\(L&lt;U\)`. Logo, dizemos que o intervalo `\([L, U]\)` é um intervalo de confiança para `\(\mu\)` com coeficiente de confiança `\(\gamma\)` se
-		`$$P(L\leq\mu\leq U)=\gamma,$$`
-em que `\(0&lt;\gamma&lt;1\)` é um valor conhecido.
+`$$f(x)=\frac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac{1}{2\sigma^2}(x-\mu)^2}, \quad x\in \mathbf{R}$$`
 
---
-
-Logo,
-	`$$IC(\mu)=\bar{X}\pm t_{n-1}(1-\gamma)\frac{s}{\sqrt{n}},$$`
-	em que `\(t_{n-1}(1-\gamma)\frac{s}{\sqrt{n}}\)` é conhecida como margem de erro.
+&lt;img src="pgea06_aula04_files/figure-html/unnamed-chunk-2-1.png" width="40%" style="display: block; margin: auto;" /&gt;
 
 ---
 
-# Intervalo de confiança para proporção
+# Intervalo de confiança para média
 
-Seja `\(X_1,\ldots, X_n\)` é uma amostra aleatória de tamanho `\(n\)` de uma variável aleatória `\(X\)` com função de probabilidade
-`$$f(x)=p^x(1-p)^{1-x}, \quad x=0,1$$`
-
-Sejam `\(L\)` e `\(U\)` duas estatísticas tal que `\(L&lt;U\)`. Logo, dizemos que o intervalo `\([L, U]\)` é um intervalo de confiança para `\(p\)` com coeficiente de confiança `\(\gamma\)` se
-		`$$P(L\leq p\leq U)=\gamma,$$`
-em que `\(0&lt;\gamma&lt;1\)` é um valor conhecido.
-
---
-
-Logo, 
-`$$IC(p)=\hat{p}\pm z_{\left(\frac{1+\gamma}{2}\right)}\sqrt{\frac{\hat{p}(1-\hat{p})}{n}},$$`
-	em que `\(z_{\left(\frac{1+\gamma}{2}\right)}\)` é um valor obtido da tabela distribuição normal padrão.
+`$$\bar{x}\pm t_{tab}\frac{s}{\sqrt{n}},$$`
+- `\(\bar{x}\)` é a média,
+- `\(t_{tab}\)` é o peso dado de acordo com o coeficiente de confiança `\(\gamma\)`,
+- `\(\frac{s}{\sqrt{n}}\)` é o erro padrão da média.
 
 ---
 
-# Atividade 4
+# Interpretação coeficiente de confiança
 
-- Utilizar o conjunto de iris.
-
-- Escolher qualquer uma das variáveis quantitativas.
-
-- Determinar os intervalos de confiança para média com coeficiente de confiança `\(\gamma\)`. 
+&lt;img src="figuras/IC_coeficiente.jpg" width="100%" style="display: block; margin: auto;" /&gt;
 
 ---
 
-# Próxima aula
+# Exercício
+
+Suponha que o limite estabelecido pela legislação ambiental para a concentração de nitrato em água potável é de 10 mg/L.
+ 
+Uma equipe de engenheiros ambientais esteja monitorando a concentração de um poluente (como o nitrato) em um rio. Eles realizam amostragens em diferentes pontos do rio ao longo de várias semanas e obtêm as seguintes concentrações de nitrato (em mg/L): 5.2, 7.1, 3.6, 7.6, 8.0, 6.9, 7.3, 4.9, 6.7 e 4.6
+
+Calcule o intervalo de 95% confiança da concentração de nitrato médio.
+
+---
+
+# Teste de hipótess
+
+- **Comparar**
 
 .pull-left[
+&lt;img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExcml5OWt3Z3RrMGlic2d4eGd2Z3I5ZzkzZWExNWIwd2thN2xmdDBjbCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/10aADbYxnJlc9q/giphy.gif" width="60%" style="display: block; margin: auto;" /&gt;
+]
+.pull-right[
+&lt;img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExMjYzZGE3aTFzajN6c2x5ZmFkYXFxYXZsOWxnYjhnZjAyMGphY2k3NyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/UxTZDNv0Zej4s/giphy.gif" width="85%" style="display: block; margin: auto;" /&gt;
+]
 
-&amp;#10004; Leitura Capítulo 9
+--
 
-- Subcapítulos 9.1 até 9.1.4
+- Ferramenta que permite a tomada de decisões informadas com base em dados.
+---
 
-- Subcapítulo 9.1.6
+# Roteiro de teste de hipótese
 
-&amp;#10004; Leitura Capítulo 10
+- Definir as hipóteses:
+  
+  - Hipótese nula: `\(H_0\)`
+  - Hipótese alternativa: `\(H_1\)`
 
-- Subcapítulo 10.2.1
+--
 
-- Subcapítulos 10.3 até 10.3.2
+- Fixar o nível de significância: `\(\alpha\)`
 
-- Subcapítulo 10.4
+--
+
+- Definir o critério de rejeição:
+
+  - rejeitar `\(H_0\)` se `\(p\)`-valor for menor do que `\(\alpha\)`
+
+--
+
+- Calcular a estatística do teste
+
+--
+
+- Conclusão
+
+&lt;img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNGtnMWU3MWZzaXJ0bHk0d2RjcHBkM2ZzN2U2N251eXNwdzU5OHZoMCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/QrpVwPDGmJEIvHwKEc/giphy.gif" width="15%" style="display: block; margin: auto 0 auto auto;" /&gt;
+
+---
+
+# Amostra - distribuição normal
+
+`$$f(x)=\frac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac{1}{2\sigma^2}(x-\mu)^2}, \quad x\in \mathbf{R}$$`
+
+&lt;img src="pgea06_aula04_files/figure-html/unnamed-chunk-7-1.png" width="40%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Teste de normalidade
+
+As hipóteses são
+
+- `\(H_0\)`: os dados seguem distribuição normal
+
+- `\(H_1\)`: os dados seguem outra distribuição
+
+---
+
+# Teste de hipótese - duas amostras
+
+--
+
+&amp;#127919; Fazer **Comparações** entre os grupos
+
+&lt;img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExeG9wa2p5emoxZm1kYW5kajBqNDc2eTQ2Znk3MWozemZ3cmF0ejk0dCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Lk5BzpifzeI3KYm7n0/giphy.gif" width="40%" style="display: block; margin: auto;" /&gt;
+
+--
+
+`\(H_0: \mu_1=\mu_2\)`
+
+`\(H_1: \mu_1\neq \mu_2\)`
+---
+
+# Aplicações
+
+- Comparação de Qualidade da Água em Dois Rios
+
+--
+
+- Efeito de Diferentes Métodos de Conservação
+
+--
+
+- Avaliação de Espécies em Ambientes Distintos
+
+---
+
+# Teste de hipótese - duas amostras
+
+- **Independentes**
+
+--
+
+.pull-left[
+- Grupo `\(A\)`
+
+&lt;img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExd3kyaDV4emNka2d4aHBncjRoODU2aGtpM2JrbjlkMnYzM3hicXBmeCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/IUy76glp8Bnu1MFMZs/giphy.gif" width="80%" style="display: block; margin: auto;" /&gt;
 ]
 
 .pull-right[
-&lt;img src="figuras/mont7.png" width="65%" style="display: block; margin: auto;" /&gt;
+- Grupo `\(B\)`
+
+&lt;img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExd21icjI0dnNkN3Njd2VuaGZ5NmRncXR3bTNpMmJxajN1c2VwbjI2dCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/pwZCIhxJpVyicimiol/giphy.gif" width="90%" style="display: block; margin: auto;" /&gt;
 ]
 
+---
+
+# Teste de hipótese - duas amostras
+
+- **Dependentes**
+
+--
+
+.pull-left[
+- Primeiro momento
+
+&lt;img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExd21icjI0dnNkN3Njd2VuaGZ5NmRncXR3bTNpMmJxajN1c2VwbjI2dCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/pwZCIhxJpVyicimiol/giphy.gif" width="80%" style="display: block; margin: auto;" /&gt;
+]
+
+--
+
+.pull-right[
+
+&lt;img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExb3hhcHltczh6d3AyeTV2aDBtcGY4ZTk5YnFuZWwzNnppcjY2andqciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3ogwFLfszugeOnEXja/giphy.gif" width="90%" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+# Teste de hipótese - duas amostras
+
+- **Dependentes**
+
+
+.pull-left[
+- Primeiro momento
+
+&lt;img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExd21icjI0dnNkN3Njd2VuaGZ5NmRncXR3bTNpMmJxajN1c2VwbjI2dCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/pwZCIhxJpVyicimiol/giphy.gif" width="80%" style="display: block; margin: auto;" /&gt;
+]
+
+.pull-right[
+- Segundo momento
+
+&lt;img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExd21icjI0dnNkN3Njd2VuaGZ5NmRncXR3bTNpMmJxajN1c2VwbjI2dCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/pwZCIhxJpVyicimiol/giphy.gif" width="90%" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+# Exercício
+
+Um grupo de pesquisadores deseja avaliar o impacto de dois tipos de cobertura do solo na retenção de umidade em um ecossistema. Eles usam duas técnicas diferentes: cobertura `\(A\)` e cobertura `\(B\)`. As medições de umidade do solo são realizadas em duas áreas distintas após um período de chuvas.
+
+Cobertura `\(A\)`:
+35, 37, 33, 40, 38, 36, 34, 39, 35, 37
+
+Cobertura `\(B\)`:
+30, 29, 32, 28, 31, 30, 33, 29, 32, 30
+
+---
+
+Ao nível de significância de 5%, avalie se houve uma mudança significativa na umidade do solo entre as duas técnicas de cobertura.
+
+---
+
+# Exercício
+
+Um grupo de pesquisadores está investigando o impacto de um programa de educação ambiental na conscientização sobre a importância da conservação da água em uma comunidade. Eles realizam uma pesquisa com 30 participantes antes e depois do programa, medindo a pontuação de conscientização (em uma escala de 0 a 10).
+
+As pontuações de conscientização antes e depois do programa são as seguintes:
+- Antes do programa: 4, 5, 3, 6, 5, 4, 5, 6, 2, 3, 5, 4, 3, 6, 5, 7, 4, 5, 2, 3,
+6, 5, 4, 7, 5, 4, 3, 6, 5, 4.
+
+- Depois do programa: 7, 8, 6, 8, 7, 6, 7, 8, 5, 6, 8, 7, 6, 9, 7, 8, 6, 7, 5, 6,
+8, 7, 6, 9, 7, 6, 5, 8, 7, 6.
+
+---
+
+Ao nível de significância de 5%, avalie se houve uma mudança significativa na conscientização sobre a conservação da água após o programa de educação ambiental.
+
+---
+
+# Atividade
+
+Um grupo de pesquisadores deseja investigar o efeito da poluição do ar na saúde das plantas em duas áreas diferentes: uma área industrial e uma área rural. Eles medem a altura média de uma planta específica em ambas as áreas após um período de exposição à poluição.
+
+Área Industrial:
+45 cm, 48 cm, 47 cm, 50 cm, 46 cm, 49 cm, 44 cm, 51 cm, 46 cm, 48 cm
+
+Área Rural:
+55 cm, 58 cm, 57 cm, 56 cm, 59 cm, 54 cm, 60 cm, 57 cm, 55 cm, 58 cm
+
+---
+
+Faça uma análise estatística para avaliar a altura média das plantas entre as duas áreas (industrial e rural). Fixe o nível de significância e o coeficiente de confiança.
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
@@ -271,6 +372,19 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     deleted = true;
   });
 })();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
 (function() {
   "use strict"
   // Replace <script> tags in slides area to make them executable
