@@ -27,7 +27,7 @@ class: center, middle, inverse, title-slide
 # PGEA06 - Estatística Aplicada
 ]
 .subtitle[
-## modelo de regressão linear e <br>modelo de classificação
+## Análise de regressão
 ]
 .author[
 ### Elizabeth Mie Hashimoto <br> DAMAT-LD
@@ -84,14 +84,24 @@ div {
 
 ---
 
-# Correlação de Pearson
+# Correlação
 
-- Quantificar o grau de relação entre duas variáveis quantitativas.
+- Quantificar o grau de relação entre duas variáveis.
+
+--
+
+- Correlação de Pearson
+
+Dado um conjunto de dados `\(\{(x_1,y_1),\ldots,(x_n,y_n)\}\)` consistindo de `\(n\)` pares, o coeficiente de correlação de Pearson é dado por
+
+`$$r=\frac{\sum\limits_{i=1}^{n}x_iy_i-n\bar{x}\bar{y}}{\sqrt{\sum\limits_{i=1}^{n}x_i^2-n\bar{x}^2}\sqrt{\sum\limits_{i=1}^{n}y_i^2-n\bar{y}^2}}$$`
+
+---
 
 &lt;table class=" lightable-classic" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;border-bottom: 0;"&gt;
  &lt;thead&gt;
   &lt;tr&gt;
-   &lt;th style="text-align:center;"&gt; Valores &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; r &lt;/th&gt;
    &lt;th style="text-align:center;"&gt; Interpretação &lt;/th&gt;
   &lt;/tr&gt;
  &lt;/thead&gt;
@@ -126,7 +136,7 @@ div {
 
 ---
 
-# Cuidado com a Interpretação
+# Cuidado com a interpretação
 
 &lt;img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExZTYzajA1dzk2bzdmMW55eXZtNXRpbHlzYzl4M2EwcDZpbmJncTE5OCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3ov9k9Ss9N3wO6FQ7C/giphy.gif" width="25%" style="display: block; margin: auto auto auto 0;" /&gt;
 
@@ -161,8 +171,8 @@ div {
 
 - **Duas** variáveis explicativas  
 
-<div class="plotly html-widget html-fill-item" id="htmlwidget-59ccfb3fed0f97c71112" style="width:100%;height:400px;"></div>
-<script type="application/json" data-for="htmlwidget-59ccfb3fed0f97c71112">{"x":{"visdat":{"15902d6f3f4d":["function () ","plotlyVisDat"]},"cur_data":"15902d6f3f4d","attrs":{"15902d6f3f4d":{"x":{},"y":{},"z":{},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter3d","mode":"markers","inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"scene":{"xaxis":{"title":"Valores de x1"},"yaxis":{"title":"Valores de y"},"zaxis":{"title":"Valores de x2"}},"hovermode":"closest","showlegend":false},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"x":[2.6200000000000001,2.875,2.3199999999999998,3.2149999999999999,3.4399999999999999,3.46,3.5699999999999998,3.1899999999999999,3.1499999999999999,3.4399999999999999,3.4399999999999999,4.0700000000000003,3.73,3.7799999999999998,5.25,5.4240000000000004,5.3449999999999998,2.2000000000000002,1.615,1.835,2.4649999999999999,3.52,3.4350000000000001,3.8399999999999999,3.8450000000000002,1.9350000000000001,2.1400000000000001,1.5129999999999999,3.1699999999999999,2.77,3.5699999999999998,2.7799999999999998],"y":[21,21,22.800000000000001,21.399999999999999,18.699999999999999,18.100000000000001,14.300000000000001,24.399999999999999,22.800000000000001,19.199999999999999,17.800000000000001,16.399999999999999,17.300000000000001,15.199999999999999,10.4,10.4,14.699999999999999,32.399999999999999,30.399999999999999,33.899999999999999,21.5,15.5,15.199999999999999,13.300000000000001,19.199999999999999,27.300000000000001,26,30.399999999999999,15.800000000000001,19.699999999999999,15,21.399999999999999],"z":[160,160,108,258,360,225,360,146.69999999999999,140.80000000000001,167.59999999999999,167.59999999999999,275.80000000000001,275.80000000000001,275.80000000000001,472,460,440,78.700000000000003,75.700000000000003,71.099999999999994,120.09999999999999,318,304,350,400,79,120.3,95.099999999999994,351,145,301,121],"type":"scatter3d","mode":"markers","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"line":{"color":"rgba(31,119,180,1)"},"frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<div class="plotly html-widget html-fill-item" id="htmlwidget-74e9aeaeb33e7e71239f" style="width:100%;height:400px;"></div>
+<script type="application/json" data-for="htmlwidget-74e9aeaeb33e7e71239f">{"x":{"visdat":{"238c5fcc6d54":["function () ","plotlyVisDat"]},"cur_data":"238c5fcc6d54","attrs":{"238c5fcc6d54":{"x":{},"y":{},"z":{},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter3d","mode":"markers","inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"scene":{"xaxis":{"title":"Valores de x1"},"yaxis":{"title":"Valores de y"},"zaxis":{"title":"Valores de x2"}},"hovermode":"closest","showlegend":false},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"x":[2.6200000000000001,2.875,2.3199999999999998,3.2149999999999999,3.4399999999999999,3.46,3.5699999999999998,3.1899999999999999,3.1499999999999999,3.4399999999999999,3.4399999999999999,4.0700000000000003,3.73,3.7799999999999998,5.25,5.4240000000000004,5.3449999999999998,2.2000000000000002,1.615,1.835,2.4649999999999999,3.52,3.4350000000000001,3.8399999999999999,3.8450000000000002,1.9350000000000001,2.1400000000000001,1.5129999999999999,3.1699999999999999,2.77,3.5699999999999998,2.7799999999999998],"y":[21,21,22.800000000000001,21.399999999999999,18.699999999999999,18.100000000000001,14.300000000000001,24.399999999999999,22.800000000000001,19.199999999999999,17.800000000000001,16.399999999999999,17.300000000000001,15.199999999999999,10.4,10.4,14.699999999999999,32.399999999999999,30.399999999999999,33.899999999999999,21.5,15.5,15.199999999999999,13.300000000000001,19.199999999999999,27.300000000000001,26,30.399999999999999,15.800000000000001,19.699999999999999,15,21.399999999999999],"z":[160,160,108,258,360,225,360,146.69999999999999,140.80000000000001,167.59999999999999,167.59999999999999,275.80000000000001,275.80000000000001,275.80000000000001,472,460,440,78.700000000000003,75.700000000000003,71.099999999999994,120.09999999999999,318,304,350,400,79,120.3,95.099999999999994,351,145,301,121],"type":"scatter3d","mode":"markers","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"line":{"color":"rgba(31,119,180,1)"},"frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 
 ---
 
@@ -193,6 +203,12 @@ em que o erro aleatório satisfaz as seguintes características:
 
 # Roteiro da análise de regressão
 
+.pull-left[
+]
+.pull-right[
+&lt;img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExMmZvYXZieWxqZnVrMmJucDlvNTF5ZjR4bjN2dHAwcmwyeDN3czI1YiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/HZrx8kjIA7lyeTqXVM/giphy.gif" width="75%" style="display: block; margin: auto;" /&gt;
+]
+
 - Fazer um gráfico de dispersão;
 
 --
@@ -201,31 +217,51 @@ em que o erro aleatório satisfaz as seguintes características:
 
 --
 
-- Estimar o modelo de regressão linear
+- Estimar o modelo de regressão linear;
 
 --
 
 - Análise de resíduo:
   - Teste de normalidade
-  
+
+---
+
+- Análise de resíduo:
+
   - Teste de homogeneidade de variâncias
   
-  As hipóteses a serem testadas são
+  As hipóteses testadas são:
   
   `\(H_0\)`: as variâncias são homogêneas vs   `\(H_1\)`: as variâncias são heterogêneas
+  
+--
+  
+  O critério de rejeição:
+  
+  `\(\rightarrow\)` rejeitar `\(H_0\)` se `\(p\)`-valor &lt; `\(\alpha\)`.
   
 ---
 - Análise de resíduo:
 
   - Teste de Durbin-Watson
   
-  As hipóteses são
+  As hipóteses são:
   
   `\(H_0\)`: os erros são independentes vs   `\(H_1\)`: os erros são dependentes
 
+--
+  
+  O critério de rejeição:
+  
+  `\(\rightarrow\)` rejeitar `\(H_0\)` se `\(p\)`-valor &lt; `\(\alpha\)`.
+  
+--
+
+- Fazer as inferências.
+
 ---
 
-# Exemplo
+# Exemplo 1
 
 Na engenharia de recursos hídricos, a estimativa dos tamanhos dos reservatórios depende de estimativas acuradas do escoamento da água no rio que está sendo confinado. Em alguns rios, registros históricos de longa duração de tais dados de escoamento são difíceis de obter. Já os dados meteorológicos sobre precipitação estão disponíveis para muitos anos do passado. Portanto, é útil determinar a relação entre escoamento e precipitação.
 
@@ -236,7 +272,7 @@ Essa relação pode ser usada para fazer uma estimativa do escoamento nos anos
 - Precipitação:
 
 ```
-[1] 117.4 123.2  94.3  91.7 111.5 112.0  94.1 110.8
+[1] 117.4 123.2  99.3  91.7 111.5 112.0 102.1 106.8
 ```
 
 - Escoamento:
@@ -247,70 +283,11 @@ Essa relação pode ser usada para fazer uma estimativa do escoamento nos anos
 
 ---
 
-# Modelo de classificação
+# Exemplo 2
 
-Em Engenharia Ambiental, muitas vezes precisamos classificar dados em categorias, como:
+A energia elétrica consumida mensalmente por uma indústria química está relacionada à temperatura média ambiente, ao número de dias do mês, à pureza média do produto e às toneladas do produto produzido. Os dados históricos do ano passado estão disponíveis no arquivo `energia_eletrica.xlsx`.
 
---
-
-.pull-left[
-
-- Contaminado
-
-&lt;img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExcHg4djB4Z3R4a2g3cm02MDVpeWUxaXVzOHpwbTE4djM1OWYxYzNpOSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/OLEFkLMQJ5v1btVbRn/giphy.gif" width="50%" style="display: block; margin: auto;" /&gt;
-]
-.pull-right[
-
-- Não contaminado
-
-&lt;img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExNnF5eWl4ZGhmYnQ2cnRsdnJ1OHhlN3ZhMDN4aWoydnJmdzd3b2huMiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l1KVcrdl7rJpFnY2s/giphy.gif" width="65%" style="display: block; margin: auto;" /&gt;
-]
-
---
-
-&lt;center&gt;Modelo de regressão logística&lt;/center&gt;
-
----
-
-- Fazer uma previsão
-
-&lt;img src="figuras/classificar.png" width="85%" style="display: block; margin: auto;" /&gt;
-
----
-
-# Modelo de regressão logística
-
-- Utiliza para modelar a **probabilidade de um evento**.
-
-A função logística é dada por
-
-`$$P(Y=1|\mathbf{X})=\frac{1}{1+e^{-(\beta_0+\beta_1x_1+\ldots,\beta_px_p)}}$$`
-
---
-
-O resultado do modelo é uma probabilidade entre 0 e 1. 
-
---
-
-&lt;!-- Por exemplo, se o modelo retorna 0.7, isso significa que há 70% de chance de a área estar contaminada. --&gt;
-
-- **Decisão de Classificação**: definir um limite (*threshold*). Comumente, utilizamos 0,5.
-&lt;!-- e a probabilidade for maior que 0.5, classificamos como "contaminado"; caso contrário, "não contaminado". --&gt;
-
----
-
-# Ajuste do modelo
-
-- **Treinamento**: Utilizamos um conjunto de dados rotulados (com áreas conhecidas como contaminadas ou não) para treinar o modelo, ajustando os coeficientes betas.
-
---
-
-- **Validação**: Avaliamos o modelo com um conjunto de testes e utilizamos métricas como precisão, sensibilidade e especificidade para medir o desempenho.
-
----
-
-# Exemplo 
-
+Utilizando os dados de energia elétrica, fazer uma análise de regressão.
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

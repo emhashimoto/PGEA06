@@ -118,15 +118,15 @@ knitr::include_graphics('https://media.giphy.com/media/ne0ozzSO13QhNZDSRo/giphy.
 
 - **04/10**: Apresentação da disciplina. Aplicação de questionário. Revisão dos conceitos básicos. 
 
-- **11/10**: Intervalo de confiança. Teste de hipótese para uma e duas amostras.
+- **11/10**: Intervalo de confiança para uma amostra. Teste de hipótese para duas amostras.
 
-- **18/10**: Modelo de regressão linear simples e múltiplo. Modelo de classificação. 
+- **18/10**: Modelo de regressão linear simples e múltiplo.  
 
 - <span style="color:red">**25/10**</span>: Representação gráfica.
 
 - **01/11**: Análise de variância.
 
-- **08/11**: Análise de agrupamentos.
+- **08/11**: Análise de agrupamentos. Modelo de classificação.
 
 ---
 

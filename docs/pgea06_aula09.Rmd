@@ -1,6 +1,6 @@
 ---
 title: "PGEA06 - Estatística Aplicada"
-subtitle: "Análise de regressão"
+subtitle: "modelo de regressão linear e <br>modelo de classificação"
 author: "Elizabeth Mie Hashimoto <br> DAMAT-LD"
 output:
   xaringan::moon_reader:
@@ -84,19 +84,9 @@ df |>
 
 ---
 
-# Correlação
+# Correlação de Pearson
 
-- Quantificar o grau de relação entre duas variáveis.
-
---
-
-- Correlação de Pearson
-
-Dado um conjunto de dados $\{(x_1,y_1),\ldots,(x_n,y_n)\}$ consistindo de $n$ pares, o coeficiente de correlação de Pearson é dado por
-
-$$r=\frac{\sum\limits_{i=1}^{n}x_iy_i-n\bar{x}\bar{y}}{\sqrt{\sum\limits_{i=1}^{n}x_i^2-n\bar{x}^2}\sqrt{\sum\limits_{i=1}^{n}y_i^2-n\bar{y}^2}}$$
-
----
+- Quantificar o grau de relação entre duas variáveis quantitativas.
 
 ```{r}
 rho <- c('0,00 a 0,19', '0,20 a 0,39',
@@ -110,7 +100,7 @@ interp <- c('Correlação bem fraca',
 df <- data.frame(rho,interp)
 
 df |> 
-  kableExtra::kbl(col.names = c('r','Interpretação'),
+  kableExtra::kbl(col.names = c('Valores','Interpretação'),
                   align = c('c')) |> 
   kableExtra::kable_classic(full_width = F, html_font = "Cambria") |> 
   kableExtra::footnote(general = "http://leg.ufpr.br/~silvia/CE003/node74.html ")
@@ -118,7 +108,7 @@ df |>
 
 ---
 
-# Cuidado com a interpretação
+# Cuidado com a Interpretação
 
 ```{r , echo=FALSE, fig.align = 'left', out.width = '25%'}
 knitr::include_graphics('https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExZTYzajA1dzk2bzdmMW55eXZtNXRpbHlzYzl4M2EwcDZpbmJncTE5OCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3ov9k9Ss9N3wO6FQ7C/giphy.gif')
@@ -223,14 +213,6 @@ em que o erro aleatório satisfaz as seguintes características:
 
 # Roteiro da análise de regressão
 
-.pull-left[
-]
-.pull-right[
-```{r , echo=FALSE, fig.align = 'center', out.width = '75%'}
-knitr::include_graphics('https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExMmZvYXZieWxqZnVrMmJucDlvNTF5ZjR4bjN2dHAwcmwyeDN3czI1YiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/HZrx8kjIA7lyeTqXVM/giphy.gif')
-```
-]
-
 - Fazer um gráfico de dispersão;
 
 --
@@ -239,51 +221,31 @@ knitr::include_graphics('https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExMmZvYXZieW
 
 --
 
-- Estimar o modelo de regressão linear;
+- Estimar o modelo de regressão linear
 
 --
 
 - Análise de resíduo:
   - Teste de normalidade
-
----
-
-- Análise de resíduo:
-
+  
   - Teste de homogeneidade de variâncias
   
-  As hipóteses testadas são:
+  As hipóteses a serem testadas são
   
   $H_0$: as variâncias são homogêneas vs   $H_1$: as variâncias são heterogêneas
-  
---
-  
-  O critério de rejeição:
-  
-  $\rightarrow$ rejeitar $H_0$ se $p$-valor < $\alpha$.
   
 ---
 - Análise de resíduo:
 
   - Teste de Durbin-Watson
   
-  As hipóteses são:
+  As hipóteses são
   
   $H_0$: os erros são independentes vs   $H_1$: os erros são dependentes
 
---
-  
-  O critério de rejeição:
-  
-  $\rightarrow$ rejeitar $H_0$ se $p$-valor < $\alpha$.
-  
---
-
-- Fazer as inferências.
-
 ---
 
-# Exemplo 1
+# Exemplo
 
 Na engenharia de recursos hídricos, a estimativa dos tamanhos dos reservatórios depende de estimativas acuradas do escoamento da água no rio que está sendo confinado. Em alguns rios, registros históricos de longa duração de tais dados de escoamento são difíceis de obter. Já os dados meteorológicos sobre precipitação estão disponíveis para muitos anos do passado. Portanto, é útil determinar a relação entre escoamento e precipitação.
 
@@ -293,10 +255,10 @@ Essa relação pode ser usada para fazer uma estimativa do escoamento nos anos
 
 - Precipitação:
 ```{r}
-x <- c(117.4,123.2,99.3,	91.7,	111.5,	
+x <- c(117.4,123.2,94.3,	91.7,	111.5,	
 112.0,	
-102.1,	
-106.8)
+94.1,	
+110.8)
 x
 ```
 
@@ -314,8 +276,73 @@ y
 
 ---
 
-# Exemplo 2
+# Modelo de classificação
 
-A energia elétrica consumida mensalmente por uma indústria química está relacionada à temperatura média ambiente, ao número de dias do mês, à pureza média do produto e às toneladas do produto produzido. Os dados históricos do ano passado estão disponíveis no arquivo `energia_eletrica.xlsx`.
+Em Engenharia Ambiental, muitas vezes precisamos classificar dados em categorias, como:
 
-Utilizando os dados de energia elétrica, fazer uma análise de regressão.
+--
+
+.pull-left[
+
+- Contaminado
+
+```{r , echo=FALSE, fig.align = 'center', out.width = '50%'}
+knitr::include_graphics('https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExcHg4djB4Z3R4a2g3cm02MDVpeWUxaXVzOHpwbTE4djM1OWYxYzNpOSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/OLEFkLMQJ5v1btVbRn/giphy.gif')
+```
+]
+.pull-right[
+
+- Não contaminado
+
+```{r , echo=FALSE, fig.align = 'center', out.width = '65%'}
+knitr::include_graphics('https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExNnF5eWl4ZGhmYnQ2cnRsdnJ1OHhlN3ZhMDN4aWoydnJmdzd3b2huMiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l1KVcrdl7rJpFnY2s/giphy.gif')
+```
+]
+
+--
+
+<center>Modelo de regressão logística</center>
+
+---
+
+- Fazer uma previsão
+
+```{r , echo=FALSE, fig.align = 'center', out.width = '85%'}
+knitr::include_graphics('figuras/classificar.png')
+```
+
+---
+
+# Modelo de regressão logística
+
+- Utiliza para modelar a **probabilidade de um evento**.
+
+A função logística é dada por
+
+$$P(Y=1|\mathbf{X})=\frac{1}{1+e^{-(\beta_0+\beta_1x_1+\ldots,\beta_px_p)}}$$
+
+--
+
+O resultado do modelo é uma probabilidade entre 0 e 1. 
+
+--
+
+<!-- Por exemplo, se o modelo retorna 0.7, isso significa que há 70% de chance de a área estar contaminada. -->
+
+- **Decisão de Classificação**: definir um limite (*threshold*). Comumente, utilizamos 0,5.
+<!-- e a probabilidade for maior que 0.5, classificamos como "contaminado"; caso contrário, "não contaminado". -->
+
+---
+
+# Ajuste do modelo
+
+- **Treinamento**: Utilizamos um conjunto de dados rotulados (com áreas conhecidas como contaminadas ou não) para treinar o modelo, ajustando os coeficientes betas.
+
+--
+
+- **Validação**: Avaliamos o modelo com um conjunto de testes e utilizamos métricas como precisão, sensibilidade e especificidade para medir o desempenho.
+
+---
+
+# Exemplo 
+
