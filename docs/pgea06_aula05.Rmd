@@ -1,6 +1,6 @@
 ---
 title: "PGEA06 - Estatística Aplicada"
-subtitle: "Teste de hipóteses para duas amostras e <br>modelo de regressão linear"
+subtitle: "modelo de regressão linear e <br>modelo de classificação"
 author: "Elizabeth Mie Hashimoto <br> DAMAT-LD"
 output:
   xaringan::moon_reader:
@@ -38,163 +38,9 @@ div {
 }
 </style>
 
-
-# Aula passada
-
-- Definir as hipóteses
-
---
-
-- Fixar o nível de significância
-
---
-
-- Definir o critério de rejeição
-
---
-
-- Calcular a estatística do teste
-
---
-
-- Conclusão
-
-```{r , echo=FALSE, fig.align = 'right', out.width = '15%'}
-knitr::include_graphics('https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNGtnMWU3MWZzaXJ0bHk0d2RjcHBkM2ZzN2U2N251eXNwdzU5OHZoMCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/QrpVwPDGmJEIvHwKEc/giphy.gif')
-```
-
----
-
-# Teste de hipótese - duas amostras
-
---
-
-&#127919; Fazer **Comparações** entre os grupos
-
-```{r , echo=FALSE, fig.align = 'center', out.width = '40%'}
-knitr::include_graphics('https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExeG9wa2p5emoxZm1kYW5kajBqNDc2eTQ2Znk3MWozemZ3cmF0ejk0dCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Lk5BzpifzeI3KYm7n0/giphy.gif')
-```
-
----
-
-# Teste de hipótese - duas amostras
-
-- **Independentes**
-
---
-
-.pull-left[
-- Grupo $A$
-
-```{r , echo=FALSE, fig.align = 'center', out.width = '80%'}
-knitr::include_graphics('https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExd3kyaDV4emNka2d4aHBncjRoODU2aGtpM2JrbjlkMnYzM3hicXBmeCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/IUy76glp8Bnu1MFMZs/giphy.gif')
-```
-]
-
-.pull-right[
-- Grupo $B$
-
-```{r , echo=FALSE, fig.align = 'center', out.width = '90%'}
-knitr::include_graphics('https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExd21icjI0dnNkN3Njd2VuaGZ5NmRncXR3bTNpMmJxajN1c2VwbjI2dCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/pwZCIhxJpVyicimiol/giphy.gif')
-```
-]
-
----
-
-# Teste de hipótese - duas amostras
-
-- **Dependentes**
-
---
-
-.pull-left[
-- Primeiro momento
-
-```{r , echo=FALSE, fig.align = 'center', out.width = '80%'}
-knitr::include_graphics('https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExd21icjI0dnNkN3Njd2VuaGZ5NmRncXR3bTNpMmJxajN1c2VwbjI2dCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/pwZCIhxJpVyicimiol/giphy.gif')
-```
-]
-
---
-
-.pull-right[
-
-```{r , echo=FALSE, fig.align = 'center', out.width = '90%'}
-knitr::include_graphics('https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExb3hhcHltczh6d3AyeTV2aDBtcGY4ZTk5YnFuZWwzNnppcjY2andqciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3ogwFLfszugeOnEXja/giphy.gif')
-```
-]
-
----
-
-# Teste de hipótese - duas amostras
-
-- **Dependentes**
-
-
-.pull-left[
-- Primeiro momento
-
-```{r , echo=FALSE, fig.align = 'center', out.width = '80%'}
-knitr::include_graphics('https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExd21icjI0dnNkN3Njd2VuaGZ5NmRncXR3bTNpMmJxajN1c2VwbjI2dCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/pwZCIhxJpVyicimiol/giphy.gif')
-```
-]
-
-.pull-right[
-- Segundo momento
-
-```{r , echo=FALSE, fig.align = 'center', out.width = '90%'}
-knitr::include_graphics('https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExd21icjI0dnNkN3Njd2VuaGZ5NmRncXR3bTNpMmJxajN1c2VwbjI2dCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/pwZCIhxJpVyicimiol/giphy.gif')
-```
-]
-
----
-
-# Exemplo
-
-Um artigo publicado em *Nature* descreveu um experimento em que indivíduos consumiram diferentes tipos de chocolate para determinar o efeito de comer chocolate sobre uma medida de saúde cardiovascular. Consideraremos os resultados para somente chocolate amargo e chocolate ao leite. No experimento, 12 indivíduos comeram 100 gramas de chocolate amargo e 200 gramas de chocolate ao leite, um tipo de chocolate por dia, e, depois de uma hora, a capacidade antioxidante total de seus plasmas sanguíneos foi medida em um ensaio. 
-
----
-
-Os indivíduos consistiram em sete mulheres e cinco homens, com uma faixa média de idades de $32,2 \pm1$ anos, um peso médio de $65,8 \pm3,1$ kg e índice médio de massa corpórea de $21,9 \pm 0,4$ kg/m2. A seguir, dados similares aos reportados no artigo.
-
-- **Chocolate Amargo**: 118,8; 122,6; 115,6; 113,6;
-119,5; 115,9; 115,8; 115,1;
-116,9; 115,4; 115,6 e 107,9
-
-- **Chocolate ao Leite**: 102,1; 105,8; 99,6; 102,7; 98,8; 100,9; 102,8; 98,7; 94,7; 97,8; 99,7 e 98,6
-
----
-
-Ao nível de significância de 5%, temos os seguintes resultados.
-
-```{r}
-amargo <- c(118.8, 122.6, 115.6, 113.6,
-119.5, 115.9, 115.8, 115.1,
-116.9, 115.4, 115.6, 107.9
-)
-leite <- c(102.1, 105.8, 99.6, 102.7, 98.8, 100.9, 102.8, 98.7, 94.7, 97.8, 99.7, 98.6)
-t.test(amargo,leite)
-```
-
----
-
-# Exemplo
-
-Vamos supor os 12 indivíduos foram avaliados antes de receber o tratamento e depois de receber o chocolate amargo, foram avaliados um período depois.
-
-Ao nível de significância de 5%, temos os seguites resultados
-
----
-
-```{r}
-t.test(amargo, leite, paired = T)
-```
-
----
-
 # Modelo de regressão
 
-```{r , echo=FALSE, fig.align = 'center', out.width = '80%'}
+```{r , echo=FALSE, fig.align = 'center', out.width = '70%'}
 knitr::include_graphics('https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNmlqY3J1bTc0Nnc3ZmRsdWQxNTdoejluMWp1b2Y0dXIwYnUwM2UxYyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/RCtKcMeeIlIFskmH7C/giphy.gif')
 ```
 
@@ -205,6 +51,8 @@ knitr::include_graphics('https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNmlqY3
 --
 
 - Fazer uma **representação matemática**
+
+<center><small>variável resposta = variáveis explicativas + termo aleatório </small></center>
 
 ---
 
@@ -230,28 +78,65 @@ df |>
         axis.text = element_text(size=30))
 ```
 
----
-
-# Modelo de regressão linear
-
-- **Simples** 
-
-$$y=\beta_0+\beta_1x+\varepsilon$$
-
-<br>
-<br>
-
 --
 
-- **Múltipla**
+- Relação **linear** entre as variáveis.
 
-$$y=\beta_0+\beta_1x_1+\ldots\beta_kx_k+\varepsilon$$
+---
+
+# Correlação de Pearson
+
+- Quantificar o grau de relação entre duas variáveis quantitativas.
+
+```{r}
+rho <- c('0,00 a 0,19', '0,20 a 0,39',
+         '0,40 a 0,69', '0,70 a 0,89',
+         '0,90 a 1,00')
+interp <- c('Correlação bem fraca',
+            'Correlação fraca',
+            'Correlação moderada',
+            'Correlação forte',
+            'Correlação muito forte') 
+df <- data.frame(rho,interp)
+
+df |> 
+  kableExtra::kbl(col.names = c('Valores','Interpretação'),
+                  align = c('c')) |> 
+  kableExtra::kable_classic(full_width = F, html_font = "Cambria") |> 
+  kableExtra::footnote(general = "http://leg.ufpr.br/~silvia/CE003/node74.html ")
+```
+
+---
+
+# Cuidado com a Interpretação
+
+```{r , echo=FALSE, fig.align = 'left', out.width = '25%'}
+knitr::include_graphics('https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExZTYzajA1dzk2bzdmMW55eXZtNXRpbHlzYzl4M2EwcDZpbmJncTE5OCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3ov9k9Ss9N3wO6FQ7C/giphy.gif')
+```
+
+.pull-left[
+"A venda de sorte é fortemente correlacionada com o número de afogamentos."
+]
+.pull-right[
+```{r , echo=FALSE, fig.align = 'center', out.width = '90%'}
+knitr::include_graphics('figuras/espuria.jpg')
+```
+]
+
+---
+
+# Explicação
+
+```{r , echo=FALSE, fig.align = 'center', out.width = '100%'}
+knitr::include_graphics('figuras/cor_vs_casual.png')
+```
+<center><small>https://estatisticafacil.org/correlacao-vs-causalidade/</small></center>
 
 ---
 
 # Modelo de regressão linear simples
 
-- **Uma** variável explicativa
+- **Uma** variável explicativa 
 
 ```{r, out.width="50%",fig.align='center', fig.cap='Gráfico de dispersão'}
 df <- mtcars
@@ -274,7 +159,7 @@ df |>
 
 # Modelo de regressão linear múltipa
 
-- **Duas** variáveis explicativas
+- **Duas** variáveis explicativas  
 
 ```{r}
 mm <- lm(mpg~+disp+wt, data=df)
@@ -301,17 +186,62 @@ htmltools::tagList(p)
 
 ---
 
-# Estimar os parâmetros do modelo
+# Adequação do modelo
+
+<center>variável resposta = variáveis explicativas + termo aleatório </center>
 
 --
 
-- Método de **mínimos quadrados**
+Usando **notação matemática**:
+
+$$y=\beta_0+\beta_1x_1+\ldots\beta_px_p+\varepsilon$$
+em que o erro aleatório satisfaz as seguintes características:
 
 --
 
-- Soma de quadrados dos desvios
+- segue distribuição normal com média zero e variância $\sigma^2$.
 
-$$S(\mathbf{\hat{\beta}})=(y-X\hat{\mathbf{\beta}})(y-X\hat{\mathbf{\beta}})^{\top}$$
+--
+
+- a variância deve ser constante.
+
+--
+
+- os erros devem ser independentes.
+
+---
+
+# Roteiro da análise de regressão
+
+- Fazer um gráfico de dispersão;
+
+--
+
+- Determinar a correlação entre as variáveis;
+
+--
+
+- Estimar o modelo de regressão linear
+
+--
+
+- Análise de resíduo:
+  - Teste de normalidade
+  
+  - Teste de homogeneidade de variâncias
+  
+  As hipóteses a serem testadas são
+  
+  $H_0$: as variâncias são homogêneas vs   $H_1$: as variâncias são heterogêneas
+  
+---
+- Análise de resíduo:
+
+  - Teste de Durbin-Watson
+  
+  As hipóteses são
+  
+  $H_0$: os erros são independentes vs   $H_1$: os erros são dependentes
 
 ---
 
@@ -346,18 +276,73 @@ y
 
 ---
 
-O modelo linear simples é dado por
-```{r}
-lm(y~x)
-```
+# Modelo de classificação
 
-
----
-
-# Adequação do modelo
-
-- Contexto: realizar **inferências**
+Em Engenharia Ambiental, muitas vezes precisamos classificar dados em categorias, como:
 
 --
 
-- Avaliar o modelo
+.pull-left[
+
+- Contaminado
+
+```{r , echo=FALSE, fig.align = 'center', out.width = '50%'}
+knitr::include_graphics('https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExcHg4djB4Z3R4a2g3cm02MDVpeWUxaXVzOHpwbTE4djM1OWYxYzNpOSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/OLEFkLMQJ5v1btVbRn/giphy.gif')
+```
+]
+.pull-right[
+
+- Não contaminado
+
+```{r , echo=FALSE, fig.align = 'center', out.width = '65%'}
+knitr::include_graphics('https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExNnF5eWl4ZGhmYnQ2cnRsdnJ1OHhlN3ZhMDN4aWoydnJmdzd3b2huMiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l1KVcrdl7rJpFnY2s/giphy.gif')
+```
+]
+
+--
+
+<center>Modelo de regressão logística</center>
+
+---
+
+- Fazer uma previsão
+
+```{r , echo=FALSE, fig.align = 'center', out.width = '85%'}
+knitr::include_graphics('figuras/classificar.png')
+```
+
+---
+
+# Modelo de regressão logística
+
+- Utiliza para modelar a **probabilidade de um evento**.
+
+A função logística é dada por
+
+$$P(Y=1|\mathbf{X})=\frac{1}{1+e^{-(\beta_0+\beta_1x_1+\ldots,\beta_px_p)}}$$
+
+--
+
+O resultado do modelo é uma probabilidade entre 0 e 1. 
+
+--
+
+<!-- Por exemplo, se o modelo retorna 0.7, isso significa que há 70% de chance de a área estar contaminada. -->
+
+- **Decisão de Classificação**: definir um limite (*threshold*). Comumente, utilizamos 0,5.
+<!-- e a probabilidade for maior que 0.5, classificamos como "contaminado"; caso contrário, "não contaminado". -->
+
+---
+
+# Ajuste do modelo
+
+- **Treinamento**: Utilizamos um conjunto de dados rotulados (com áreas conhecidas como contaminadas ou não) para treinar o modelo, ajustando os coeficientes betas.
+
+--
+
+- **Validação**: Avaliamos o modelo com um conjunto de testes e utilizamos métricas como precisão, sensibilidade e especificidade para medir o desempenho.
+
+---
+
+# Exemplo 
+
