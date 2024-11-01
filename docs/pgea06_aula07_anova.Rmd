@@ -1,0 +1,310 @@
+---
+title: "PGEA06 - Estatística Aplicada"
+subtitle: "Análise de variância"
+author: "Elizabeth Mie Hashimoto <br> DAMAT-LD"
+output:
+  xaringan::moon_reader:
+    css: [metropolis, metropolis-fonts, tema_pgea06.css, box.css]
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: false
+      countIncrementalSlides: false
+      slideNumberFormat: "%current%"
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(echo = FALSE, 
+                      comment = '',
+                      message = FALSE,
+                      warning = FALSE)
+```
+<style> 
+#caixa {
+  border: 1px solid;
+  padding: 10px;
+  box-shadow: 5px 10px blue;
+}
+div {
+  text-align: justify;
+  text-justify: inter-word;
+}
+</style>
+
+<style type="text/css">
+.remark-slide-content {
+    font-size: 30px;
+}
+</style>
+
+# Motivação
+
+<br>
+<br>
+
+<fieldset class="fldsetblock-class">
+  <legend class="legendblock-class">
+    Dados experimentais
+  </legend>
+ Vamos pensar em uma área de aplicação
+</fieldset>
+
+---
+
+# Conceitos básicos
+
+<fieldset class="fldsetalert-class">
+  <legend class="legendalert-class">
+    Erro experimental
+  </legend>
+  é a variação ao acaso entre observações.
+</fieldset>
+
+<br>
+
+--
+
+<fieldset class="fldsetalert-class">
+  <legend class="legendalert-class">
+    Fator
+  </legend>
+  é a variável independente controlada.
+</fieldset>
+
+<br>
+
+---
+
+<fieldset class="fldsetalert-class">
+  <legend class="legendalert-class">
+    Níveis
+  </legend>
+  são as categorias ou valores no domínio de um fator.
+</fieldset>
+
+<br>
+
+--
+
+<fieldset class="fldsetalert-class">
+  <legend class="legendalert-class">
+    Unidade experimental
+  </legend>
+  é o objeto que recebe os níveis.
+</fieldset>
+
+<br>
+
+---
+
+<fieldset class="fldsetalert-class">
+  <legend class="legendalert-class">
+    Variável resposta
+  </legend>
+  é a variável de dependente.
+</fieldset>
+
+<br>
+
+---
+
+<fieldset class="fldsetexample-class">
+  <legend class="legendexample-class">
+    Exercício 1
+  </legend>
+  Um fabricante de papel está interessado em melhorar a resistência do produto à tração.
+
+	A engenharia de produto presume que a resistência à tração seja uma função da concentração da madeira de lei na polpa.<br/> 
+	
+	Um grupo de engenheiros responsáveis pelo estudo decide investigar quatro níveis de concentração de madeira de lei: 5%, 10%, 15% e 20%. <br/> 
+</fieldset>
+
+---
+
+<fieldset class="fldsetexample-class">
+  <legend class="legendexample-class">
+    Exercício 1 - continuação
+  </legend>
+	Eles decidem fabricar seis corpos de prova, para cada nível de concentração, usando uma planta piloto. Todos os 24 corpos de prova são testados, em uma ordem aleatória, em um equipamento de teste de laboratório.
+</fieldset>
+
+---
+	De acordo com o enunciado, identifique os seguintes itens:
+	
+.pull-left[
+- Fator;
+
+- Nível;
+
+- Unidade experimental;
+]
+
+.pull-right[
+- Variável resposta.
+]
+	
+---
+
+# Princípios básicos da experimentação
+
+<fieldset class="fldsetalert-class">
+  <legend class="legendalert-class">
+    Repetição
+  </legend>
+  é o número de vezes que os níveis aparecem no experimento
+</fieldset>
+
+<br>
+
+--
+
+<fieldset class="fldsetalert-class">
+  <legend class="legendalert-class">
+    Aleatorização
+  </legend>
+  é o princípio de distribuir aleatoriamente os níveis nas unidades experimentais.
+</fieldset>
+
+<br>
+
+---
+
+<fieldset class="fldsetalert-class">
+  <legend class="legendalert-class">
+    Controle local
+  </legend>
+  é uma forma de controlar o fator de ruído.
+</fieldset>
+
+---
+
+# Delineamento experimental
+
+Forma como os níveis são designados a unidade experimental.
+
+--
+
+Os delineamentos mais simples:
+
+- Delineamento inteiramente aleatorizado
+
+--
+
+- Delineamento em blocos
+
+--
+
+- Delineamento em quadrado latino
+
+---
+
+# Análise de variância (ANOVA)
+
+- é uma análise baseado na decomposição da variabilidade total do experimento.
+
+<br>
+
+```{r,echo=FALSE, fig.align='center', out.width='75%'}
+knitr::include_graphics('figuras/comparacao1.jpg')
+```
+
+---
+
+# Análise de variância (ANOVA)
+
+- é uma análise baseado na decomposição da variabilidade total do experimento.
+
+```{r,echo=FALSE, fig.align='center', out.width='75%'}
+knitr::include_graphics('figuras/comparacao5.jpg')
+```
+
+---
+
+# Experimentos fatoriais
+
+- **Há** mais de um fator no experimento.
+
+--
+
+- Considerar experimentos com **dois** fatores. 
+
+<br>
+
+--
+
+- O modelo é dado por
+
+$$y_{ijk}=\mu+\tau_i+\alpha_j+(\tau\alpha)_{ij}+e_{ijk}$$
+com $i=1,\ldots,a$, $j=1,\ldots,b$ e $k=1,\ldots,r$.
+
+---
+
+- As hipóteses estatísticas são:
+
+$H_0$:
+
+$H_1$:
+
+---
+
+- Se **há** efeito de interação entre os fatores:
+
+  - desdobramento dos níveis $\rightarrow$ teste de Tukey
+
+--
+  
+- Se **não há** efeito de interação entre os fatores:
+
+  - os efeitos principais são **estudados separadamente**.
+  
+  - Teste de Tukey para cada efeito significativo.
+  
+---
+
+A estatística do teste é dada por
+
+```{r}
+library(kableExtra)
+causa <- c('FatorA','FatorB','Interação','Resíduo','Total')
+gl <- c('b-1','a-1','(a-1)(b-1)','ab(r-1)','abr-1')
+sq <- c('SQA','SQB','SQInt','SQRes','SQTotal')
+qm <- c('QMA','QMB','QMInt','QMRes','---')
+f0 <- c('QMA/QMRes','QMB/QMRes','QMInt/QMRes','---','---')
+dat <- data.frame(causa,gl,sq,qm,f0)
+
+dat |> 
+  kbl(caption = 'Esquema da tabela da ANOVA',
+      col.names = c('Causa de variação','Grau de liberdade','Soma de quadrados','Quadrado médio','Estatística do teste')) |> 
+  kable_classic(c("striped", "hover"))
+```
+
+---
+
+# Exemplo 2
+
+Um pesquisador está conduzindo um experimento para investigar como diferentes tipos de fertilizantes e tipos de solo afetam a produção de biomassa de uma planta específica, com o intuito de otimizar o manejo agrícola e aumentar a produtividade. O estudo se concentra em três tipos de fertilizantes (A, B e C) e três tipos de solo (Areia, Argila e Silte). Para garantir a validade dos resultados e minimizar a influência de variáveis externas, o pesquisador utiliza um delineamento completamente aleatorizado. Nesse delineamento, cada combinação de fertilizante e tipo de solo é atribuída aleatoriamente a parcelas experimentais.
+
+---
+
+O procedimento experimental começa com a seleção das parcelas, onde o pesquisador identifica uma área homogênea de cultivo e divide-a em parcelas que são consideradas semelhantes em características como drenagem, exposição ao sol e nutrientes iniciais do solo. Em seguida, ele realiza a aleatorização, designando cada parcela aleatoriamente a um dos nove tratamentos. Para aumentar a robustez dos dados, o pesquisador faz quatro repetições de cada combinação de níveis.
+
+---
+
+Após um período de crescimento definido, o pesquisador mede a biomassa das plantas em gramas para cada combinação de níveis. Os dados coletados (biomassa.xlsx) incluem medidas de biomassa de todas as parcelas onde os tratamentos foram aplicados. O objetivo é determinar se há interações significativas entre os tipos de fertilizantes e os tipos de solo na produção de biomassa, além de avaliar os efeitos principais de cada fator. Assim, ele busca responder à pergunta: "Quais são os efeitos dos diferentes fertilizantes e solos na produção de biomassa, e existe uma interação significativa entre esses fatores?"
+
+---
+
+# Atividade
+
+No contexto da Engenharia Ambiental, a remoção de poluentes de corpos d'água é uma preocupação crescente, especialmente em áreas urbanas e industriais. Para investigar a eficiência de diferentes métodos de tratamento de água, foi realizado um experimento que avaliou como métodos de tratamento e temperaturas distintas afetam a remoção de poluentes em amostras de água contaminada.
+
+Os fatores considerados foram o método de tratamento: o Método Físico, que utiliza técnicas como filtração e sedimentação, e o Método Químico, que envolve o uso de reagentes para precipitar ou neutralizar poluentes. Além disso, foram testadas três temperaturas da água: baixa (15 oC), média (25 oC) e alta (35oC).
+
+---
+
+O experimento foi realizado com um delineamento completamente aleatorizado, onde cada combinação de método de tratamento e temperatura foi repetida cinco vezes.
+
+Os dados coletados refletem a quantidade de poluentes removidos em mg/L para cada combinação de níveis. Os resultados estão disponíveis no arquivo remocao_poluentes.xlsx.
+
+Com base nos dados coletados, o objetivo é realizar uma ANOVA de dois fatores para avaliar os efeitos do método de tratamento e da temperatura na remoção de poluentes.
