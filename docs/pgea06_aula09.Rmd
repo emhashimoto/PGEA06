@@ -1,6 +1,6 @@
 ---
 title: "PGEA06 - Estatística Aplicada"
-subtitle: "modelo de regressão linear e <br>modelo de classificação"
+subtitle: "Análise de agrupamento e <br>modelo de classificação"
 author: "Elizabeth Mie Hashimoto <br> DAMAT-LD"
 output:
   xaringan::moon_reader:
@@ -37,244 +37,6 @@ div {
     font-size: 30px;
 }
 </style>
-
-# Modelo de regressão
-
-```{r , echo=FALSE, fig.align = 'center', out.width = '70%'}
-knitr::include_graphics('https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNmlqY3J1bTc0Nnc3ZmRsdWQxNTdoejluMWp1b2Y0dXIwYnUwM2UxYyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/RCtKcMeeIlIFskmH7C/giphy.gif')
-```
-
---
-
-- **Variáveis** associada à um fenômeno
-
---
-
-- Fazer uma **representação matemática**
-
-<center><small>variável resposta = variáveis explicativas + termo aleatório </small></center>
-
----
-
-# Modelo de regressão
-
-&#127919; Estudar a **associação** entre duas ou mais variáveis.
-
-
-```{r, out.width="50%",fig.align='center'}
-df <- mtcars
-m <- lm(mpg~wt, data=df)
-yhat <- m$coefficients[[1]]+(m$coefficients[[2]]*df$wt)
-
-library(ggplot2)
-df |> 
-  dplyr::mutate(yhat) |> 
-  ggplot() +
-  aes(x = wt, y = mpg) +
-  geom_point(size = 8) +
-  labs(x = 'Valores de x', 
-       y = 'Valores y') +
-  theme(axis.title = element_text(size=30),
-        axis.text = element_text(size=30))
-```
-
---
-
-- Relação **linear** entre as variáveis.
-
----
-
-# Correlação de Pearson
-
-- Quantificar o grau de relação entre duas variáveis quantitativas.
-
-```{r}
-rho <- c('0,00 a 0,19', '0,20 a 0,39',
-         '0,40 a 0,69', '0,70 a 0,89',
-         '0,90 a 1,00')
-interp <- c('Correlação bem fraca',
-            'Correlação fraca',
-            'Correlação moderada',
-            'Correlação forte',
-            'Correlação muito forte') 
-df <- data.frame(rho,interp)
-
-df |> 
-  kableExtra::kbl(col.names = c('Valores','Interpretação'),
-                  align = c('c')) |> 
-  kableExtra::kable_classic(full_width = F, html_font = "Cambria") |> 
-  kableExtra::footnote(general = "http://leg.ufpr.br/~silvia/CE003/node74.html ")
-```
-
----
-
-# Cuidado com a Interpretação
-
-```{r , echo=FALSE, fig.align = 'left', out.width = '25%'}
-knitr::include_graphics('https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExZTYzajA1dzk2bzdmMW55eXZtNXRpbHlzYzl4M2EwcDZpbmJncTE5OCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3ov9k9Ss9N3wO6FQ7C/giphy.gif')
-```
-
-.pull-left[
-"A venda de sorte é fortemente correlacionada com o número de afogamentos."
-]
-.pull-right[
-```{r , echo=FALSE, fig.align = 'center', out.width = '90%'}
-knitr::include_graphics('figuras/espuria.jpg')
-```
-]
-
----
-
-# Explicação
-
-```{r , echo=FALSE, fig.align = 'center', out.width = '100%'}
-knitr::include_graphics('figuras/cor_vs_casual.png')
-```
-<center><small>https://estatisticafacil.org/correlacao-vs-causalidade/</small></center>
-
----
-
-# Modelo de regressão linear simples
-
-- **Uma** variável explicativa 
-
-```{r, out.width="50%",fig.align='center', fig.cap='Gráfico de dispersão'}
-df <- mtcars
-m <- lm(mpg~wt, data=df)
-yhat <- m$coefficients[[1]]+(m$coefficients[[2]]*df$wt)
-
-library(ggplot2)
-df |> 
-  dplyr::mutate(yhat) |> 
-  ggplot() +
-  aes(x = wt, y = mpg) +
-  geom_point(size = 8) +
-  labs(x = 'Valores de x', 
-       y = 'Valores y') +
-  theme(axis.title = element_text(size=30),
-        axis.text = element_text(size=30))
-```
-
----
-
-# Modelo de regressão linear múltipa
-
-- **Duas** variáveis explicativas  
-
-```{r}
-mm <- lm(mpg~+disp+wt, data=df)
-ymhat <- mm$coefficients[[1]]+
-  (mm$coefficients[[2]]*df$disp)+
-  (mm$coefficients[[3]]*df$wt)
-
-library(plotly)
-df_novo <- df |> 
-  dplyr::mutate(ymhat)
-
-p <- plot_ly(
-  df_novo, 
-  x = ~wt, y = ~mpg, z = ~disp) |> 
-  add_markers() |> 
-  layout(
-    scene = list(xaxis = list(title = 'Valores de x1'),
-        yaxis = list(title = 'Valores de y'),
-        zaxis = list(title = 'Valores de x2'))
-        )
-
-htmltools::tagList(p)
-```
-
----
-
-# Adequação do modelo
-
-<center>variável resposta = variáveis explicativas + termo aleatório </center>
-
---
-
-Usando **notação matemática**:
-
-$$y=\beta_0+\beta_1x_1+\ldots\beta_px_p+\varepsilon$$
-em que o erro aleatório satisfaz as seguintes características:
-
---
-
-- segue distribuição normal com média zero e variância $\sigma^2$.
-
---
-
-- a variância deve ser constante.
-
---
-
-- os erros devem ser independentes.
-
----
-
-# Roteiro da análise de regressão
-
-- Fazer um gráfico de dispersão;
-
---
-
-- Determinar a correlação entre as variáveis;
-
---
-
-- Estimar o modelo de regressão linear
-
---
-
-- Análise de resíduo:
-  - Teste de normalidade
-  
-  - Teste de homogeneidade de variâncias
-  
-  As hipóteses a serem testadas são
-  
-  $H_0$: as variâncias são homogêneas vs   $H_1$: as variâncias são heterogêneas
-  
----
-- Análise de resíduo:
-
-  - Teste de Durbin-Watson
-  
-  As hipóteses são
-  
-  $H_0$: os erros são independentes vs   $H_1$: os erros são dependentes
-
----
-
-# Exemplo
-
-Na engenharia de recursos hídricos, a estimativa dos tamanhos dos reservatórios depende de estimativas acuradas do escoamento da água no rio que está sendo confinado. Em alguns rios, registros históricos de longa duração de tais dados de escoamento são difíceis de obter. Já os dados meteorológicos sobre precipitação estão disponíveis para muitos anos do passado. Portanto, é útil determinar a relação entre escoamento e precipitação.
-
----
-
-Essa relação pode ser usada para fazer uma estimativa do escoamento nos anos nos quais apenas medidas de precipitação foram feitas. Os seguintes dados estão disponíveis para um rio que deve ser estancado:
-
-- Precipitação:
-```{r}
-x <- c(117.4,123.2,94.3,	91.7,	111.5,	
-112.0,	
-94.1,	
-110.8)
-x
-```
-
-- Escoamento:
-```{r}
-y <- c(19.6,18.5,
-17.1,
-12.9,
-18.4,
-18.1,
-15.5,
-18.1)
-y
-```
-
----
 
 # Modelo de classificação
 
@@ -332,17 +94,156 @@ O resultado do modelo é uma probabilidade entre 0 e 1.
 - **Decisão de Classificação**: definir um limite (*threshold*). Comumente, utilizamos 0,5.
 <!-- e a probabilidade for maior que 0.5, classificamos como "contaminado"; caso contrário, "não contaminado". -->
 
----
-
-# Ajuste do modelo
-
-- **Treinamento**: Utilizamos um conjunto de dados rotulados (com áreas conhecidas como contaminadas ou não) para treinar o modelo, ajustando os coeficientes betas.
-
 --
 
-- **Validação**: Avaliamos o modelo com um conjunto de testes e utilizamos métricas como precisão, sensibilidade e especificidade para medir o desempenho.
+- **Curva ROC e acurácia**: métricas.
+
+---
+
+# Roteiro para o modelo de regressão logística
+
+- Determine as medidas resumo (média, mediana, desvio padrão, máximo e mínimo)
+
+- Estimar os parâmetros do modelo
+
+- Obter a tabela de classificação
+
+- Calcular as métrica
+
+- Apresentar o modelo estimado
+
+.pull-left[
+]
+.pull-right[
+```{r , echo=FALSE, fig.align = 'center', out.width = '40%'}
+knitr::include_graphics('https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExMmZvYXZieWxqZnVrMmJucDlvNTF5ZjR4bjN2dHAwcmwyeDN3czI1YiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/HZrx8kjIA7lyeTqXVM/giphy.gif')
+```
+]
 
 ---
 
 # Exemplo 
 
+Neste exercício, você deverá desenvolver um modelo de regressão logística com o objetivo de prever o risco de deslizamento de terra em diferentes áreas com base em variáveis ambientais. A partir de um conjunto de dados que contém informações sobre precipitação, vegetação, declive do terreno, cobertura do solo e distância de áreas urbanizadas, o modelo deve ser capaz de classificar as áreas como "alto risco" ou "baixo risco" para deslizamentos.
+
+**Variável resposta**:
+
+- Deslizamento: Risco de deslizamento
+
+---
+
+**Variáveis** explicativas:
+
+- Precipitação: Quantidade de chuva diária (mm/dia).
+
+- NDVI (Índice de Vegetação): Indica a quantidade de vegetação na área.
+
+- Declive (%): Inclinação do terreno.
+
+- Cobertura (%): Percentual de cobertura de vegetação na área.
+
+- Distância(km): Distância até a cidade mais próxima.
+
+- dados: dados_deslizamento.xlsx
+
+---
+
+# Análise de agrupamentos
+
+- Amostra de dados
+
+```{r , echo=FALSE, fig.align = 'center', out.width = '50%'}
+knitr::include_graphics('https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExdzByeXR1emZyMW12MDhodnViZjd1eWlpeXJ5MmZuYmtrdXU0ajJtdCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l6Sn8PdGcJmhhGtg5A/giphy.gif')
+```
+
+---
+
+- Separação dos dados
+
+```{r , echo=FALSE, fig.align = 'center', out.width = '50%'}
+knitr::include_graphics('https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExOGt3NW4waGJuMzYyYzgzbTllODh6MHh5ZXR5ZTYwZDJ6N2xuanBkdCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/AhAPELQvciG498lt0w/giphy.gif')
+```
+
+---
+
+# Razões para fazer agrupamentos
+
+- Identificar regiões com características ambientais semelhantes
+
+--
+
+- Agrupar períodos de ano com comportamento climáticos ou poluição semelhantes
+
+--
+
+- Identificar grupos de espécies que compartilham preferências de habitat semelhantes
+
+--
+
+- Identificar áreas prioritárias para a conservação de biodiversidade ou para o controle de poluição.
+
+---
+
+# Algoritmos de agrupamentos
+
+- **Método hierárquico**
+
+  + não precisa especificar o número de grupos
+  
+  + vários métodos de agrupamento
+  
+  + dendograma
+  
+  + menos eficientes para tamanho de amostras grandes
+
+---
+
+- **Método particionado: k-means**
+
+  + precisa especificar o número de grupos
+  
+  + distância euclidiana
+  
+  + mais eficientes para tamanho de amostras grandes
+
+---
+
+# Exemplo
+
+O objetivo deste exercício é realizar uma análise de agrupamento entre diferentes cidades, agrupando-as de acordo com cinco variáveis ambientais e urbanísticas: a quantidade de partículas finas de PM 2,5, a área verde disponível, a temperatura média anual, a área desmatada e o consumo médio de água.
+
+- dados: dados_cidades
+
+---
+
+# Atividade 1
+
+O objetivo deste estudo é prever o risco de poluição do ar em áreas urbanas com base em variáveis ambientais e urbanísticas. Ao analisar variáveis como a concentração de dióxido de nitrogênio $(NO_2)$, índice de tráfego, índice de vegetação (NDVI), temperatura média e proximidade de áreas industriais, podemos prever a probabilidade de uma área ser classificada como alto risco de poluição do ar. (dados_poluicao_ar.xlsx)
+
+**Variável resposta**:
+
+- Poluição: Risco de Poluição do Ar. A classificação é baseada na concentração de poluentes e outros fatores que contribuem para a deterioração da qualidade do ar.
+
+---
+
+**Variáveis explicativas**:
+
+- NO2 $(\mu g/m^3)$: A concentração de dióxido de nitrogênio no ar. 
+
+- Tráfego (veículos/dia): O número médio de veículos que passam por uma área em um dia. 
+
+- NDVI: Um índice que mede a densidade e saúde da vegetação na área. 
+
+- Temperatura: A temperatura média (graus Celsius) da área pode afetar a dispersão dos poluentes no ar. 
+
+- Distância (km): A proximidade de áreas industriais.
+
+---
+
+# Atividade 2
+
+Você é um pesquisador em Ciências Ambientais, envolvido em um estudo para classificar diferentes tipos de florestas em uma região com base em atributos ecológicos. Para isso, você possui um conjunto de dados simulados que descrevem várias características ambientais de 37 áreas florestais.
+
+As variáveis incluem características como densidade de árvores, taxa de crescimento, espécies dominantes, umidade do solo, temperatura média e acidez do solo. A partir desses dados, seu objetivo é aplicar um algoritmo de agrupamento para identificar as florestas que são semelhantes.
+
+- dados: dados_florestas

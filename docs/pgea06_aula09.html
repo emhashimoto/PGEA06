@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>PGEA06 - Estatística Aplicada</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Elizabeth Mie Hashimoto   DAMAT-LD" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
+    <link href="libs/remark-css/metropolis-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="tema_pgea06.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# PGEA06 - Estatística Aplicada
+]
+.subtitle[
+## Análise de agrupamento e <br>modelo de classificação
+]
+.author[
+### Elizabeth Mie Hashimoto <br> DAMAT-LD
+]
+
+---
+
+
+
+&lt;style&gt; 
+#caixa {
+  border: 1px solid;
+  padding: 10px;
+  box-shadow: 5px 10px blue;
+}
+div {
+  text-align: justify;
+  text-justify: inter-word;
+}
+&lt;/style&gt;
+
+&lt;style type="text/css"&gt;
+.remark-slide-content {
+    font-size: 30px;
+}
+&lt;/style&gt;
+
+# Modelo de classificação
+
+Em Engenharia Ambiental, muitas vezes precisamos classificar dados em categorias, como:
+
+--
+
+.pull-left[
+
+- Contaminado
+
+&lt;img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExcHg4djB4Z3R4a2g3cm02MDVpeWUxaXVzOHpwbTE4djM1OWYxYzNpOSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/OLEFkLMQJ5v1btVbRn/giphy.gif" width="50%" style="display: block; margin: auto;" /&gt;
+]
+.pull-right[
+
+- Não contaminado
+
+&lt;img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExNnF5eWl4ZGhmYnQ2cnRsdnJ1OHhlN3ZhMDN4aWoydnJmdzd3b2huMiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l1KVcrdl7rJpFnY2s/giphy.gif" width="65%" style="display: block; margin: auto;" /&gt;
+]
+
+--
+
+&lt;center&gt;Modelo de regressão logística&lt;/center&gt;
+
+---
+
+- Fazer uma previsão
+
+&lt;img src="figuras/classificar.png" width="85%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Modelo de regressão logística
+
+- Utiliza para modelar a **probabilidade de um evento**.
+
+A função logística é dada por
+
+`$$P(Y=1|\mathbf{X})=\frac{1}{1+e^{-(\beta_0+\beta_1x_1+\ldots,\beta_px_p)}}$$`
+
+--
+
+O resultado do modelo é uma probabilidade entre 0 e 1. 
+
+--
+
+&lt;!-- Por exemplo, se o modelo retorna 0.7, isso significa que há 70% de chance de a área estar contaminada. --&gt;
+
+- **Decisão de Classificação**: definir um limite (*threshold*). Comumente, utilizamos 0,5.
+&lt;!-- e a probabilidade for maior que 0.5, classificamos como "contaminado"; caso contrário, "não contaminado". --&gt;
+
+--
+
+- **Curva ROC e acurácia**: métricas.
+
+---
+
+# Roteiro para o modelo de regressão logística
+
+- Determine as medidas resumo (média, mediana, desvio padrão, máximo e mínimo)
+
+- Estimar os parâmetros do modelo
+
+- Obter a tabela de classificação
+
+- Calcular as métrica
+
+- Apresentar o modelo estimado
+
+.pull-left[
+]
+.pull-right[
+&lt;img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExMmZvYXZieWxqZnVrMmJucDlvNTF5ZjR4bjN2dHAwcmwyeDN3czI1YiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/HZrx8kjIA7lyeTqXVM/giphy.gif" width="40%" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+# Exemplo 
+
+Neste exercício, você deverá desenvolver um modelo de regressão logística com o objetivo de prever o risco de deslizamento de terra em diferentes áreas com base em variáveis ambientais. A partir de um conjunto de dados que contém informações sobre precipitação, vegetação, declive do terreno, cobertura do solo e distância de áreas urbanizadas, o modelo deve ser capaz de classificar as áreas como "alto risco" ou "baixo risco" para deslizamentos.
+
+**Variável resposta**:
+
+- Deslizamento: Risco de deslizamento
+
+---
+
+**Variáveis** explicativas:
+
+- Precipitação: Quantidade de chuva diária (mm/dia).
+
+- NDVI (Índice de Vegetação): Indica a quantidade de vegetação na área.
+
+- Declive (%): Inclinação do terreno.
+
+- Cobertura (%): Percentual de cobertura de vegetação na área.
+
+- Distância(km): Distância até a cidade mais próxima.
+
+- dados: dados_deslizamento.xlsx
+
+---
+
+# Análise de agrupamentos
+
+- Amostra de dados
+
+&lt;img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExdzByeXR1emZyMW12MDhodnViZjd1eWlpeXJ5MmZuYmtrdXU0ajJtdCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l6Sn8PdGcJmhhGtg5A/giphy.gif" width="50%" style="display: block; margin: auto;" /&gt;
+
+---
+
+- Separação dos dados
+
+&lt;img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExOGt3NW4waGJuMzYyYzgzbTllODh6MHh5ZXR5ZTYwZDJ6N2xuanBkdCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/AhAPELQvciG498lt0w/giphy.gif" width="50%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Razões para fazer agrupamentos
+
+- Identificar regiões com características ambientais semelhantes
+
+--
+
+- Agrupar períodos de ano com comportamento climáticos ou poluição semelhantes
+
+--
+
+- Identificar grupos de espécies que compartilham preferências de habitat semelhantes
+
+--
+
+- Identificar áreas prioritárias para a conservação de biodiversidade ou para o controle de poluição.
+
+---
+
+# Algoritmos de agrupamentos
+
+- **Método hierárquico**
+
+  + não precisa especificar o número de grupos
+  
+  + vários métodos de agrupamento
+  
+  + dendograma
+  
+  + menos eficientes para tamanho de amostras grandes
+
+---
+
+- **Método particionado: k-means**
+
+  + precisa especificar o número de grupos
+  
+  + distância euclidiana
+  
+  + mais eficientes para tamanho de amostras grandes
+
+---
+
+# Exemplo
+
+O objetivo deste exercício é realizar uma análise de agrupamento entre diferentes cidades, agrupando-as de acordo com cinco variáveis ambientais e urbanísticas: a quantidade de partículas finas de PM 2,5, a área verde disponível, a temperatura média anual, a área desmatada e o consumo médio de água.
+
+- dados: dados_cidades
+
+---
+
+# Atividade 1
+
+O objetivo deste estudo é prever o risco de poluição do ar em áreas urbanas com base em variáveis ambientais e urbanísticas. Ao analisar variáveis como a concentração de dióxido de nitrogênio `\((NO_2)\)`, índice de tráfego, índice de vegetação (NDVI), temperatura média e proximidade de áreas industriais, podemos prever a probabilidade de uma área ser classificada como alto risco de poluição do ar. (dados_poluicao_ar.xlsx)
+
+**Variável resposta**:
+
+- Poluição: Risco de Poluição do Ar. A classificação é baseada na concentração de poluentes e outros fatores que contribuem para a deterioração da qualidade do ar.
+
+---
+
+**Variáveis explicativas**:
+
+- NO2 `\((\mu g/m^3)\)`: A concentração de dióxido de nitrogênio no ar. 
+
+- Tráfego (veículos/dia): O número médio de veículos que passam por uma área em um dia. 
+
+- NDVI: Um índice que mede a densidade e saúde da vegetação na área. 
+
+- Temperatura: A temperatura média (graus Celsius) da área pode afetar a dispersão dos poluentes no ar. 
+
+- Distância (km): A proximidade de áreas industriais.
+
+---
+
+# Atividade 2
+
+Você é um pesquisador em Ciências Ambientais, envolvido em um estudo para classificar diferentes tipos de florestas em uma região com base em atributos ecológicos. Para isso, você possui um conjunto de dados simulados que descrevem várias características ambientais de 37 áreas florestais.
+
+As variáveis incluem características como densidade de árvores, taxa de crescimento, espécies dominantes, umidade do solo, temperatura média e acidez do solo. A partir desses dados, seu objetivo é aplicar um algoritmo de agrupamento para identificar as florestas que são semelhantes.
+
+- dados: dados_florestas
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": false,
+"countIncrementalSlides": false,
+"slideNumberFormat": "%current%"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
