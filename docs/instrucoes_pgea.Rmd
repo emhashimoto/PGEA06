@@ -93,7 +93,7 @@ A avaliação será de acordo com os seguintes itens:
 - Trabalho que  seja uma **cópia de análise** da *internet* será avaliado como zero. 
 - **Trabalho mal feito** será avaliado como zero. 
 - Trabalho no qual o turnitin identificar **mais de 25%** de similaridade será avaliado como zero.
-- Textos gerados total ou parcialmente por ferramentas de inteligência artificial (IA) **serão penalizados**, podendo resultar em **desconto de até 2,0 pontos na nota final**, conforme a gravidade e o grau de dependência da ferramenta.
+- Textos gerados total ou parcialmente por ferramentas de inteligência artificial (IA) **serão penalizados**, podendo resultar em **desconto de até 5,0 pontos na nota final**, conforme a gravidade e o grau de dependência da ferramenta.
 
 <br>
 

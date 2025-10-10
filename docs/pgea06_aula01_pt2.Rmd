@@ -395,3 +395,113 @@ As ferramentas são:
 --
 
 - Medidas de dispersão
+
+---
+
+# Exemplo
+
+Você integra uma equipe de engenheiros ambientais responsável pelo monitoramento da qualidade da água de um rio que atravessa uma área industrial. Foram coletadas amostras em diferentes pontos ao longo do rio, para avaliar a concentração de um composto orgânico potencialmente tóxico (em mg/L). Os resultados foram:
+
+```{r}
+set.seed(3)
+n <- 30
+y <- c(0.45,
+0.60,
+0.30,
+0.85,
+0.50,
+0.55,
+0.40,
+0.70,
+0.60,
+0.80)
+dat <- round(rnorm(n,mean(y),sd(y)),2)
+cat(strwrap(paste(dat, collapse = " "), width = 60), 
+    sep = "\n")
+```
+
+Suponha que a legislação que dispõe sobre a classificação dos corpos de água e diretrizes ambientais, a concentração máxima permitida de substâncias orgânicas específicas para rios de classe 2 é de 0,5 mg/L para este poluente.
+
+---
+
+# Estatítsica descritiva
+
+✅ 1. Algum ponto apresenta uma concentração de poluente muito diferente dos demais?
+
+✅ 2. Os valores estão simetricamente distribuídos ou há assimetria?
+
+✅ 3. Quais são os pontos com concentrações acima da média?
+
+✅ 4. Qual é a variação dos valores entre os pontos de coleta?
+
+✅ 5. A variabilidade nos dados é considerada alta?
+
+✅ 6. Algum ponto apresenta uma concentração de poluente muito diferente dos demais, visualmente?
+
+✅ 7. Os pontos estão acima do valor da legislação?
+
+---
+
+# Leitura recomendada
+
+.pull-left[
+
+&#10004; Leitura Capítulo 6
+
+- Subcapítulos 6.1 até 6.3
+
+]
+
+.pull-right[
+```{r,echo=FALSE, fig.align='center', out.width='65%'}
+knitr::include_graphics('figuras/mont7.png')
+```
+]
+
+---
+
+# Próxima aula
+
+.pull-left[
+
+&#10004; Leitura Capítulo 7
+
+- Subcapítulos 7.1 até 7.2
+
+- Subcapítulo 7.3.1 até 7.3.3
+
+&#10004; Leitura Capítulo 8
+
+- Subcapítulo 8.2
+
+&#10004; Leitura Capítulo 10
+
+- Subcapítulo 10.2.1
+
+- Subcapítulo 10.3.1
+]
+
+.pull-right[
+```{r,echo=FALSE, fig.align='center', out.width='65%'}
+knitr::include_graphics('figuras/mont7.png')
+```
+]
+
+
+---
+
+# Atividade - Aula1
+
+Você é responsável pelo monitoramento da qualidade do ar em uma avenida movimentada de uma cidade. Foi instalado um sensor que mede a concentração diária média de $NO_2$ (em $\mu g/m^{3}$) durante 30 dias consecutivos. Os resultados foram:
+```{r}
+set.seed(123) # Para reprodução
+no2 <- round(rnorm(30, mean = 55, sd = 10), 1)
+no2[no2 < 30] <- 30  # Limite mínimo para evitar valores irrealisticamente baixos
+no2[no2 > 80] <- 80  # Limite máximo para evitar valores irrealisticamente altos
+cat(strwrap(paste(no2, collapse = " "), width = 60), 
+    sep = "\n")
+```
+
+Suponha que a legislação recomenda que a média diária não ultrapasse 200 $\mu g/m^{3}$ para proteger a saúde da população.
+
+Seu objetivo é descrever esses dados para avaliar o comportamento do poluente ao longo dos dias de observação. (Utilize as mesmas questões)
