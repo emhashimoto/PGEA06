@@ -22,7 +22,11 @@ h1.title {
 
 # Objetivo do trabalho
 
+Os alunos deverão elaborar um resumo expandido conforme o template disponibilizado no moodle, cujo o objetivo é fazer uma análise estatística de um conjunto de dados, de preferência da sua área de pesquisa. 
+
+<!--
 - Fazer uma análise estatística de um conjunto de dados, de preferência da sua área de pesquisa.
+-->
 
 <!--
 utilizando o *software* R ou outro recurso computacional. Outros pacotes também podem ser utilizados.
@@ -32,13 +36,13 @@ utilizando o *software* R ou outro recurso computacional. Outros pacotes também
 
 # Entrega do resumo expandido
 
-- Durante as primeiras semanas: escolher o tema. Elaborar as hipóteses. Planejar a coleta de dados.
+- Na sétima e oitava semana: escolher o tema. Elaborar as hipóteses. Planejar a coleta de dados.
 
-- Quatro semanas finais: desenvolvimento do trabalho.
+- Na nona e décima semana: desenvolvimento e finalização do trabalho.
 
 - Utilizar o template do trabalho disponível no moodle.
 
-- Prazo final de entrega: às 23:59 do dia 14/12.
+- Prazo final de entrega: às 23:59 do dia 12/12.
 
 <br>
 
@@ -65,28 +69,31 @@ Para selecionar um conjunto de dados:
 
 A nota do trabalho corresponde a **10 pontos**.
 
+O trabalho deverá ser escrito em linguagem científica, objetiva e impessoal, com referências formatadas segundo as normas da ABNT.
+
 A avaliação será de acordo com os seguintes itens:
 
-- (0,5) Obedecer a estrutura do trabalho apresentada no template.
+- (0,5) **Estrutura do trabalho (template)**: o trabalho deve obedecer rigorosamente à estrutura e formatação do template fornecido.
 
-- (1,0) Apresentação do resumo expandido (organizado, bem escrito, figuras e tabelas ajustadas de acordo com o texto).
+- (1,5) **Apresentação geral e escrita científica**: texto bem escrito, coeso, com linguagem científica e objetiva. Figuras e tabelas devidamente ajustadas e referenciadas no texto.
 
-- (1,0) Introdução. 
+- (0,5) **Introdução**: apresentar o tema e sua relevância, objetivos claros e fundamentação teórica com referências adequadas.
 
-- (0,5) Descrição da obtenção dos dados, bem como as variáveis utilizadas.
+- (1,5) **Descrição dos dados e variáveis**: descrever de forma clara a origem dos dados e as variáveis envolvidas. Indicar se o estudo é experimental ou observacional.
 
-- (4,0) Descrição e aplicação correta do método estatístico.
+- (4,0) **Método estatístico**: descrição e aplicação correta do método estatístico escolhido, incluindo as ferramentas computacionais utilizadas. Este é o item de maior peso.
 
-- (2,0) Intepretação dos resultados obtidos da análise.
+- (1,5) **Intepretação dos resultados**: interpretação coerente e crítica dos resultados obtidos, relacionando-os à literatura ou à prática da engenharia ambiental.
 
-- (1,0) Conclusão.
+- (0,5) **Conclusão**: síntese dos principais achados e contribuições do estudo, indicando possíveis limitações ou perspectivas futuras..
 
 <br>
 **Observações**: 
 
 - Trabalho que  seja uma **cópia de análise** da *internet* será avaliado como zero. 
 - **Trabalho mal feito** será avaliado como zero. 
-- Trabalho que **não seja do esforço** do próprio aluno será avaliado como zero.
+- Trabalho no qual o turnitin identificar **mais de 25%** de similaridade será avaliado como zero.
+- Textos gerados total ou parcialmente por ferramentas de inteligência artificial (IA) **serão penalizados**, podendo resultar em **desconto de até 2,0 pontos na nota final**, conforme a gravidade e o grau de dependência da ferramenta.
 
 <br>
 
