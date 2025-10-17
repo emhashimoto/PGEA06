@@ -1,6 +1,6 @@
 ---
 title: "PGEA06 - Estatística Aplicada"
-subtitle: "Aula 02 - Variáveis aleatórias e conceitos básicos de inferência" 
+subtitle: "Intervalos de confiança e teste de hipótese" 
 author: "Elizabeth Mie Hashimoto <br> DAMAT-LD"
 output:
   xaringan::moon_reader:
@@ -32,170 +32,300 @@ div {
 }
 </style>
 
-# Variáveis aleatórias
+# Intervalo de confiança
 
-**Distribuições de probabilidade**:
+- **Diâmetro à altura do peito (DAP)**
 
---
-
-+ Distribuição binomial
-
---
-
-+ Distribuição Poisson
-
---
-
-+ Distribuição normal (Gaussiana)
-
---
-
-+ Distribuição exponencial
-
---
-
-<div class="warning" style='padding:0.1em; background-color:#E9D8FD; color:#69337A'>
-<span>
-<p style='margin-top:1em; text-align:center'>
-<b>Na prática</b></p>
-<p style='margin-left:1em;'>
-O pesquisador não tem informações sobre o valor exato do
-parâmetro.
-</p>
-</span>
-</div>
-
----
-
-<div class="warning" style='padding:0.1em; background-color:#E9D8FD; color:#69337A'>
-<span>
-<p style='margin-top:1em; text-align:center'>
-<b>Inferência estatística</b></p>
-<p style='margin-left:1em;'>
-Consiste em especificar um ou mais valores para o parâmetro da distribuição de probabilidade, baseado em um
-conjunto de dados.
-</p>
-</span>
-</div>
+```{r , echo=FALSE, fig.align = 'center', out.width = '40%'}
+knitr::include_graphics('https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExOW00NnhudTBhbTNqcnRxNHljYTg0M3M3emZtYXhpdW5uZThueDBudiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/CXlLGiModdBneYJzYu/giphy.gif')
+```
 
 <br>
 
 --
 
-- Estimação de parâmetros
-
---
-
-- Teste de hipóteses
+- Três amostras de quatro árvores foram selecionadas
 
 ---
 
-# Conceitos básicos
+Amostra 1: 31, 32, 29 e 29 cm 
 
-**Amostra aleatória**
-
+<br>
 --
 
-É uma sequência $X_1,\ldots, X_n$ de variáveis aleatórias que são:
+Amostra 2: 30, 32, 31 e 31 cm 
 
+<br>
 --
 
-- independentes
-
---
-
-- identicamente distribuídas com função de probabilidade ou função densidade $f(.)$
+Amostra 3: 28, 30, 31 e 28 cm 
 
 <br>
 
 --
 
-**Estatística**
-
---
-
-É qualquer função, denotada por $T(\mathbf{X})$, da amostra aleatória $X_1, \ldots, X_n$ que não depende de parâmetros desconhecidos.
-
-<br>
-
---
-
-**Estimador**
-
---
-
-É qualquer estatística $T(\mathbf{X})$ que assume valores no conjunto numérico do parâmetro.
+Vamos calcular a DAP **média**.
 
 ---
 
-**Distribuição amostral**
+# Aplicações de intervalo de confiança
 
---
-
-É a distribuição de probabilidade de uma estatística $T(\mathbf{X})$.
-
-<br>
-
---
-
-**Erro padrão**
-
---
-
-É o desvio padrão do estimador.
-
-<br>
-
---
-
-**Teorema central do limite**
-
---
-
-Se $X_1,\ldots, X_n$ for uma amostra aleatória de tamanho $n$, retirada de uma população com média $\mu$ e variância $\sigma^2$ e se $\bar{X}$ for a média da amostra, então
-$$Z=\frac{\sqrt{n}(\bar{X}-\mu)}{\sigma}$$
-quando $n\rightarrow\infty$ será uma distribuição normal padrão.
+```{r , echo=FALSE, fig.align = 'right', out.width = '60%'}
+knitr::include_graphics('https://media.giphy.com/media/TKNGghpLhaz9XH1tSj/giphy.gif')
+```
 
 ---
 
-# Intervalos de confiança para média
+# Suposição dos dados
 
-Seja $X_1,\ldots, X_n$ é uma amostra aleatória de tamanho $n$ de uma variável aleatória $X\sim N(\mu,\sigma^2)$. Sejam $L$ e $U$ duas estatísticas tal que $L<U$. Logo, dizemos que o intervalo $[L, U]$ é um intervalo de confiança para $\mu$ com coeficiente de confiança $\gamma$ se
-		$$P(L\leq\mu\leq U)=\gamma,$$
-em que $0<\gamma<1$ é um valor conhecido.
+$$f(x)=\frac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac{1}{2\sigma^2}(x-\mu)^2}, \quad x\in \mathbf{R}$$
 
---
-
-Logo,
-	$$IC(\mu)=\bar{X}\pm t_{n-1}(1-\gamma)\frac{s}{\sqrt{n}},$$
-	em que $t_{n-1}(1-\gamma)\frac{s}{\sqrt{n}}$ é conhecida como margem de erro.
-
----
-
-# Intervalo de confiança para proporção
-
-Seja $X_1,\ldots, X_n$ é uma amostra aleatória de tamanho $n$ de uma variável aleatória $X$ com função de probabilidade
-$$f(x)=p^x(1-p)^{1-x}, \quad x=0,1$$
-
-Sejam $L$ e $U$ duas estatísticas tal que $L<U$. Logo, dizemos que o intervalo $[L, U]$ é um intervalo de confiança para $p$ com coeficiente de confiança $\gamma$ se
-		$$P(L\leq p\leq U)=\gamma,$$
-em que $0<\gamma<1$ é um valor conhecido.
-
---
-
-Logo, 
-$$IC(p)=\hat{p}\pm z_{\left(\frac{1+\gamma}{2}\right)}\sqrt{\frac{\hat{p}(1-\hat{p})}{n}},$$
-	em que $z_{\left(\frac{1+\gamma}{2}\right)}$ é um valor obtido da tabela distribuição normal padrão.
+```{r, fig.align='center', out.width = '50%'}
+set.seed(4102024)
+x <- rnorm(300,10,2)
+#hist(x, main='',probability = TRUE)
+x0 <- sort(x)
+plot(x0,dnorm(x0,10,2),lwd=2,col='red',
+     type='l')
+```
 
 ---
 
-# Atividade 4
+# Intervalo de confiança para média
 
-- Utilizar o conjunto de iris.
+$$\bar{x}\pm t_{tab}\frac{s}{\sqrt{n}},$$
+- $\bar{x}$ é a média,
+- $t_{tab}$ é o peso dado de acordo com o coeficiente de confiança $\gamma$,
+- $\frac{s}{\sqrt{n}}$ é o erro padrão da média.
 
-- Escolher qualquer uma das variáveis quantitativas.
+---
 
-- Determinar os intervalos de confiança para média com coeficiente de confiança $\gamma$. 
+# Interpretação coeficiente de confiança
+
+```{r , echo=FALSE, fig.align = 'center', out.width = '100%'}
+knitr::include_graphics('figuras/IC_coeficiente.jpg')
+```
+
+---
+
+# Teste de hipótess
+
+- **Comparar**
+
+.pull-left[
+```{r , echo=FALSE, fig.align = 'center', out.width = '60%'}
+knitr::include_graphics('https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExcml5OWt3Z3RrMGlic2d4eGd2Z3I5ZzkzZWExNWIwd2thN2xmdDBjbCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/10aADbYxnJlc9q/giphy.gif')
+```
+]
+.pull-right[
+```{r , echo=FALSE, fig.align = 'center', out.width = '85%'}
+knitr::include_graphics('https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExMjYzZGE3aTFzajN6c2x5ZmFkYXFxYXZsOWxnYjhnZjAyMGphY2k3NyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/UxTZDNv0Zej4s/giphy.gif')
+```
+]
+
+--
+
+- Ferramenta que permite a tomada de decisões informadas com base em dados.
+---
+
+# Roteiro de teste de hipótese
+
+- Definir as hipóteses:
+  
+  - Hipótese nula: $H_0$
+  - Hipótese alternativa: $H_1$
+
+--
+
+- Fixar o nível de significância: $\alpha$
+
+--
+
+- Definir o critério de rejeição:
+
+  - rejeitar $H_0$ se $p$-valor for menor do que $\alpha$
+
+--
+
+- Calcular a estatística do teste
+
+--
+
+- Conclusão
+
+```{r , echo=FALSE, fig.align = 'right', out.width = '15%'}
+knitr::include_graphics('https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNGtnMWU3MWZzaXJ0bHk0d2RjcHBkM2ZzN2U2N251eXNwdzU5OHZoMCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/QrpVwPDGmJEIvHwKEc/giphy.gif')
+```
+
+---
+
+# Suposição das amostras
+
+$$f(x)=\frac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac{1}{2\sigma^2}(x-\mu)^2}, \quad x\in \mathbf{R}$$
+
+```{r, fig.align='center', out.width = '50%'}
+set.seed(4102024)
+x <- rnorm(300,10,2)
+#hist(x, main='',probability = TRUE)
+x0 <- sort(x)
+plot(x0,dnorm(x0,10,2),lwd=2,col='red',
+     type='l')
+```
+
+---
+
+# Teste de normalidade
+
+As hipóteses são
+
+- $H_0$: os dados seguem distribuição normal
+
+- $H_1$: os dados seguem outra distribuição
+
+---
+
+# Teste de hipótese - duas amostras
+
+--
+
+&#127919; Fazer **Comparações** entre os grupos
+
+```{r , echo=FALSE, fig.align = 'center', out.width = '40%'}
+knitr::include_graphics('https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExeG9wa2p5emoxZm1kYW5kajBqNDc2eTQ2Znk3MWozemZ3cmF0ejk0dCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Lk5BzpifzeI3KYm7n0/giphy.gif')
+```
+
+--
+
+$H_0$: não há diferença significativa 
+
+$H_1$: há diferença significativa
+---
+
+# Aplicações
+
+```{r , echo=FALSE, fig.align = 'right', out.width = '60%'}
+knitr::include_graphics('https://media.giphy.com/media/TKNGghpLhaz9XH1tSj/giphy.gif')
+```
+
+---
+
+# Teste de hipótese - duas amostras
+
+- **Independentes**
+
+--
+
+.pull-left[
+- Grupo $A$
+
+```{r , echo=FALSE, fig.align = 'center', out.width = '80%'}
+knitr::include_graphics('https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExd3kyaDV4emNka2d4aHBncjRoODU2aGtpM2JrbjlkMnYzM3hicXBmeCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/IUy76glp8Bnu1MFMZs/giphy.gif')
+```
+]
+
+.pull-right[
+- Grupo $B$
+
+```{r , echo=FALSE, fig.align = 'center', out.width = '90%'}
+knitr::include_graphics('https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExd21icjI0dnNkN3Njd2VuaGZ5NmRncXR3bTNpMmJxajN1c2VwbjI2dCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/pwZCIhxJpVyicimiol/giphy.gif')
+```
+]
+
+---
+
+# Teste de hipótese - duas amostras
+
+- **Dependentes**
+
+--
+
+.pull-left[
+- Primeiro momento
+
+```{r , echo=FALSE, fig.align = 'center', out.width = '80%'}
+knitr::include_graphics('https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExd21icjI0dnNkN3Njd2VuaGZ5NmRncXR3bTNpMmJxajN1c2VwbjI2dCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/pwZCIhxJpVyicimiol/giphy.gif')
+```
+]
+
+--
+
+.pull-right[
+
+```{r , echo=FALSE, fig.align = 'center', out.width = '90%'}
+knitr::include_graphics('https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExb3hhcHltczh6d3AyeTV2aDBtcGY4ZTk5YnFuZWwzNnppcjY2andqciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3ogwFLfszugeOnEXja/giphy.gif')
+```
+]
+
+---
+
+# Teste de hipótese - duas amostras
+
+- **Dependentes**
+
+
+.pull-left[
+- Primeiro momento
+
+```{r , echo=FALSE, fig.align = 'center', out.width = '80%'}
+knitr::include_graphics('https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExd21icjI0dnNkN3Njd2VuaGZ5NmRncXR3bTNpMmJxajN1c2VwbjI2dCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/pwZCIhxJpVyicimiol/giphy.gif')
+```
+]
+
+.pull-right[
+- Segundo momento
+
+```{r , echo=FALSE, fig.align = 'center', out.width = '90%'}
+knitr::include_graphics('https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExd21icjI0dnNkN3Njd2VuaGZ5NmRncXR3bTNpMmJxajN1c2VwbjI2dCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/pwZCIhxJpVyicimiol/giphy.gif')
+```
+]
+
+---
+
+# Exemplo 1
+
+Um grupo de pesquisadores deseja avaliar o impacto de dois tipos de cobertura do solo na retenção de umidade em um ecossistema. Eles usam duas técnicas diferentes: cobertura $A$ e cobertura $B$. As medições de umidade do solo são realizadas em duas áreas distintas após um período de chuvas.
+
+Cobertura $A$:
+35, 37, 33, 40, 38, 36, 34, 39, 35, 37
+
+Cobertura $B$:
+30, 29, 32, 28, 31, 30, 33, 29, 32, 30
+
+
+Ao nível de significância de 5%, avalie se houve uma mudança significativa na umidade do solo entre as duas técnicas de cobertura.
+
+---
+
+# Inferência estatística
+
+✅ 1. As amostras são independentes ou dependentes?
+
+✅ 2. O tamanho de cada amostra é suficientemente grande?
+
+✅ 3. Cada uma das amostras segue distribuição normal?
+
+✅ 4. Em caso afirmativo do item 2 ou 3, qual faixa de valores plausíveis para cada amostra?
+
+✅ 5. Qual teste de hipótese é utilizado: teste paramétrico ou teste não paramétrico?
+
+✅ 6. Existe diferença significativa entre as amostras?
+
+---
+
+# Exemplo 2
+
+Um grupo de pesquisadores está investigando o impacto de um programa de educação ambiental na conscientização sobre a importância da conservação da água em uma comunidade. Eles realizam uma pesquisa com 30 participantes antes e depois do programa, medindo a pontuação de conscientização (em uma escala de 0 a 10).
+
+As pontuações de conscientização antes e depois do programa são as seguintes:
+- Antes do programa: 4, 5, 3, 6, 5, 4, 5, 6, 2, 3, 5, 4, 3, 6, 5, 7, 4, 5, 2, 3,
+6, 5, 4, 7, 5, 4, 3, 6, 5, 4.
+
+- Depois do programa: 7, 8, 6, 8, 7, 6, 7, 8, 5, 6, 8, 7, 6, 9, 7, 8, 6, 7, 5, 6,
+8, 7, 6, 9, 7, 6, 5, 8, 7, 6.
+
+---
+
+Ao nível de significância de 5%, avalie se houve uma mudança significativa na conscientização sobre a conservação da água após o programa de educação ambiental.
 
 ---
 
@@ -203,19 +333,13 @@ $$IC(p)=\hat{p}\pm z_{\left(\frac{1+\gamma}{2}\right)}\sqrt{\frac{\hat{p}(1-\hat
 
 .pull-left[
 
-&#10004; Leitura Capítulo 9
+&#10004; Leitura Capítulo 11
 
-- Subcapítulos 9.1 até 9.1.4
+- Subcapítulos 11.1 até 11.2
 
-- Subcapítulo 9.1.6
+- Subcapítulo 11.4.1
 
-&#10004; Leitura Capítulo 10
-
-- Subcapítulo 10.2.1
-
-- Subcapítulos 10.3 até 10.3.2
-
-- Subcapítulo 10.4
+- Subcapítulo 11.7 até 11.8
 ]
 
 .pull-right[
@@ -223,3 +347,19 @@ $$IC(p)=\hat{p}\pm z_{\left(\frac{1+\gamma}{2}\right)}\sqrt{\frac{\hat{p}(1-\hat
 knitr::include_graphics('figuras/mont7.png')
 ```
 ]
+
+---
+
+# Atividade - Aula2
+
+Um grupo de pesquisadores deseja investigar o efeito da poluição do ar na saúde das plantas em duas áreas diferentes: uma área industrial e uma área rural. Eles medem a altura média de uma planta específica em ambas as áreas após um período de exposição à poluição.
+
+Área Industrial:
+45 cm, 48 cm, 47 cm, 50 cm, 46 cm, 49 cm, 44 cm, 51 cm, 46 cm, 48 cm
+
+Área Rural:
+55 cm, 58 cm, 57 cm, 56 cm, 59 cm, 54 cm, 60 cm, 57 cm, 55 cm, 58 cm
+
+---
+
+Faça uma análise estatística para avaliar a altura média das plantas entre as duas áreas (industrial e rural). Fixe o nível de significância e o coeficiente de confiança.Utilize as questões dos exemplos anteriores.

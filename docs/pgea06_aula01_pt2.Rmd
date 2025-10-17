@@ -436,9 +436,7 @@ Suponha que a legislação que dispõe sobre a classificação dos corpos de ág
 
 ✅ 5. A variabilidade nos dados é considerada alta?
 
-✅ 6. Algum ponto apresenta uma concentração de poluente muito diferente dos demais, visualmente?
-
-✅ 7. Os pontos estão acima do valor da legislação?
+✅ 6. Os pontos estão acima do valor da legislação?
 
 ---
 
