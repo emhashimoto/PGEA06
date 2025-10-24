@@ -322,7 +322,24 @@ Utilizando os dados de energia elétrica, fazer uma análise de regressão.
 
 ---
 
-# Atividade
+# Próxima aula
+
+.pull-left[
+
+&#10004; Leitura Capítulo 6
+
+- Subcapítulos 6.3 e 6.4
+]
+
+.pull-right[
+```{r,echo=FALSE, fig.align='center', out.width='65%'}
+knitr::include_graphics('figuras/mont7.png')
+```
+]
+
+---
+
+# Atividade - Aula3
 
 A atividade consiste na análise de um conjunto de dados referente a preços de imóveis, que foi coletado com o intuito de investigar os fatores que influenciam o valor das propriedades em uma determinada região. As variáveis disponíveis para análise incluem: data da compra, idade da casa, localização, distância até a estação MRT mais próxima, preço da casa por área unitária e número de lojas de conveniência nas proximidades.
 
@@ -330,7 +347,7 @@ O objetivo desta atividade é realizar uma análise de regressão que permita mo
 
 ---
 
-- Calcular as medidas resumo (média, mediana, desvio padrão, quartis). Apresentar a matrix de correlação.
+- Apresentar a matrix de correlação.
 
 - Estimação do modelo de regressão.
 
