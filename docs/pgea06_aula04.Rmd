@@ -1,6 +1,6 @@
 ---
 title: "PGEA06 - Estatística Aplicada"
-subtitle: "Aula 03 - Visualização de dados" 
+subtitle: "Representação gráfica" 
 author: "Elizabeth Mie Hashimoto <br> DAMAT-LD"
 output:
   xaringan::moon_reader:
@@ -34,196 +34,17 @@ div {
 
 # Fundamentos básicos
 
-.left-column[
-```{r,echo=FALSE, fig.align='center', out.width='95%'}
-knitr::include_graphics('figuras/vis.png')
-```
-]
-.right-column[
-
-+ Visualização de dados é uma parte arte e uma parte ciência.
-{{content}}
-
-]
-
---
-
-+ Uma visulização de dados precisa transmitir os dados com precisão e deve ser esteticamente agradável.
-
----
-
-- Valores de dados convertidos de forma sistemática e lógica nos elementos visuais.
-
-```{r,echo=FALSE, fig.align='center', out.height='30%'}
-plot(mtcars$mpg, mtcars$disp)
-```
----
-
-- Para visualização 2D de dados, precisamos de duas escalas de posição.
-
-```{r,echo=FALSE, fig.align='center', out.width='50%'}
-library(tidyverse)
-
-mtcars |> 
-  ggplot() +
-  labs(x='Eixo x', y='Eixo y') +
-  theme(axis.title=element_text(size=14))
-```
-
----
-
-Existem três casos de uso fundamentais para cores:
-
---
-
-- distinguir grupos de dados.
-
---
-
-- representar valores de dados.
-
---
-
-- destacar informações.
-
----
-
-# Tipos de gráficos
-
-- Valores para algum conjunto de categorias
-
-  + gráficos de barras
-  
---
-
-- Distribuições
-
-  + Histograma, box-plot
-  
---
-
-- Pares ordenados
-
-  + Gráfico de dispersão, correlograma, gráfico de linhas
-
---
-
-- Dados geoespaciais
-  + mapas
-
---
-
-- Incertezas
-
-  + Gráficos de barras com barras de erros
-  
----
-
-# Pacote ggplot2
-
-.left-column[
-```{r,echo=FALSE, fig.align='center', out.width='75%'}
-knitr::include_graphics('figuras/ggplot.png')
-```
-]
-.right-column[
-
-+ Creado por **Hadley Wickham**, em 2005
-{{content}}
-
-]
-
---
-
-+ Baseado no livro [The Grammar of Graphics ](https://link.springer.com/book/10.1007/0-387-28695-0) de **Leland Wilkinson**
-{{content}}
-
---
-
-+ O gráfico representa o mapeamento dos dados em:
-
-  - atributos estéticos (posição, cor, forma, tamanho) 
-  
-  - de formas geométricas (pontos, linhas, barras, caixas)
-{{content}}
-
----
-
-.pull-left[
-```{r,echo=FALSE, fig.align='center', out.width='60%'}
-knitr::include_graphics('https://media.giphy.com/media/heIX5HfWgEYlW/giphy.gif')
-```
-]
-
-.pull-right[
-```{r, eval=FALSE, echo=TRUE}
-library(ggplot2)
-```
-
-]
-
-- Gráfico de dispersão (de pontos)
-
-- Gráfico de barras
-
-- Histograma
-
-- Boxplot
-
-- Gráfico de linhas
-
----
-
-# Atividade 3
-
-.pull-left[
-```{r,echo=FALSE, fig.align='center', out.extra='5%'}
-library(tidyverse)
-library(dados)
-library(ggthemes)
-
-pinguins |>
-  drop_na(comprimento_bico) |>
-  ggplot() +
-  aes(x = massa_corporal,
-    y = comprimento_bico,
-    color = especie
-  ) +
-  geom_point() +
-  theme_minimal() +
-  labs(title = 'Gráfico de dispersão por espécie de pinguins',
-       colour = 'Espécie',
-       shape = 'Espécie',
-       x= 'Massa corporal',
-       y='Comprimento do bico') +
-  theme(plot.title=element_text(hjust = 0.5))
-```
-]
-
-.pull-right[
-- adicione o tema `theme_minimal` 
-- adicione um título informativo com a função labs().
-]
-
 ---
 
 # Próxima aula
 
 .pull-left[
 
-&#10004; Leitura Capítulo 7
+&#10004; Leitura Capítulo 13
 
-- Estimativa pontual
+- Subcapítulos 6.3 e 6.4
 
-- Distribuições amostrais e Teorema central do limite
 
-- Erro padrão: reportando uma estimativa pontual
-
-&#10004; Leitura Capítulo 8
-
-- Introdução
-
-- Intervalo de confiança para a média de uma distribuição normal, variância desconhecida
 ]
 
 .pull-right[

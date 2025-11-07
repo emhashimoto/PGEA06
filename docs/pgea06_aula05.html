@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>PGEA06 - Estatística Aplicada</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Elizabeth Mie Hashimoto   DAMAT-LD" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
+    <link href="libs/remark-css/metropolis-fonts.css" rel="stylesheet" />
+    <script src="libs/kePrint/kePrint.js"></script>
+    <link href="libs/lightable/lightable.css" rel="stylesheet" />
+    <link rel="stylesheet" href="tema_pgea06.css" type="text/css" />
+    <link rel="stylesheet" href="box.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# PGEA06 - Estatística Aplicada
+]
+.subtitle[
+## Análise de variância
+]
+.author[
+### Elizabeth Mie Hashimoto <br> DAMAT-LD
+]
+
+---
+
+
+
+&lt;style&gt; 
+#caixa {
+  border: 1px solid;
+  padding: 10px;
+  box-shadow: 5px 10px blue;
+}
+div {
+  text-align: justify;
+  text-justify: inter-word;
+}
+&lt;/style&gt;
+
+&lt;style type="text/css"&gt;
+.remark-slide-content {
+    font-size: 30px;
+}
+&lt;/style&gt;
+
+# Motivação
+
+&lt;fieldset class="fldsetblock-class"&gt;
+  &lt;legend class="legendblock-class"&gt;
+    Dados experimentais
+  &lt;/legend&gt;
+ dados são coletados em um ambiente controlado.
+&lt;/fieldset&gt;
+
+&lt;br&gt;
+
+&lt;img src="figuras/experimento2.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Conceitos básicos
+
+&lt;fieldset class="fldsetalert-class"&gt;
+  &lt;legend class="legendalert-class"&gt;
+    Erro experimental
+  &lt;/legend&gt;
+  é a variação ao acaso entre observações.
+&lt;/fieldset&gt;
+
+&lt;br&gt;
+
+&lt;img src="figuras/variacao_acaso.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+---
+
+&lt;fieldset class="fldsetalert-class"&gt;
+  &lt;legend class="legendalert-class"&gt;
+    Fator
+  &lt;/legend&gt;
+  é a variável independente (ou controlada).
+&lt;/fieldset&gt;
+
+&lt;br&gt;
+
+&lt;img src="figuras/experimento2.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+---
+
+&lt;fieldset class="fldsetalert-class"&gt;
+  &lt;legend class="legendalert-class"&gt;
+    Níveis
+  &lt;/legend&gt;
+  são as categorias ou valores no domínio de um fator.
+&lt;/fieldset&gt;
+
+&lt;br&gt;
+
+&lt;img src="figuras/experimento2.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+---
+
+&lt;fieldset class="fldsetalert-class"&gt;
+  &lt;legend class="legendalert-class"&gt;
+    Unidade experimental
+  &lt;/legend&gt;
+  é o objeto que recebe os níveis.
+&lt;/fieldset&gt;
+
+&lt;br&gt;
+
+&lt;img src="figuras/experimento2.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+---
+
+&lt;fieldset class="fldsetalert-class"&gt;
+  &lt;legend class="legendalert-class"&gt;
+    Variável resposta
+  &lt;/legend&gt;
+  é a variável de dependente.
+&lt;/fieldset&gt;
+
+&lt;br&gt;
+
+&lt;img src="figuras/experimento2.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+---
+
+&lt;fieldset class="fldsetexample-class"&gt;
+  &lt;legend class="legendexample-class"&gt;
+    Exercício 1
+  &lt;/legend&gt;
+  Pesquisadores testam três meios filtrantes em mini-zonas húmidas (mesocosmos) para remoção de nitrato: cascalho, areia grossa e carvão ativado. Para cada meio eles montam 4 mesocosmos idênticos, alimentam com água com concentração conhecida de nitrato e medem a redução percentual de nitrato após 7 dias.&lt;br/&gt; 
+&lt;/fieldset&gt;
+
+Identifique o **fator**, os **níveis**, a **variável resposta** e a **unidade experimental**. 
+	
+---
+
+# Princípios básicos da experimentação
+
+&lt;fieldset class="fldsetalert-class"&gt;
+  &lt;legend class="legendalert-class"&gt;
+    Repetição
+  &lt;/legend&gt;
+  é o número de vezes que os níveis aparecem no experimento
+&lt;/fieldset&gt;
+
+&lt;br&gt;
+
+&lt;img src="figuras/repeticao.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+---
+
+&lt;fieldset class="fldsetalert-class"&gt;
+  &lt;legend class="legendalert-class"&gt;
+    Aleatorização
+  &lt;/legend&gt;
+  é o princípio de distribuir aleatoriamente os níveis nas unidades experimentais.
+&lt;/fieldset&gt;
+
+&lt;br&gt;
+
+&lt;img src="figuras/sorteio.png" width="95%" style="display: block; margin: auto;" /&gt;
+
+---
+
+&lt;fieldset class="fldsetalert-class"&gt;
+  &lt;legend class="legendalert-class"&gt;
+    Controle local
+  &lt;/legend&gt;
+  é uma forma de controlar o fator de ruído.
+&lt;/fieldset&gt;
+
+&lt;br&gt;
+
+&lt;img src="figuras/bloco.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Delineamento simples
+
+&lt;fieldset class="fldsetalert-class"&gt;
+  &lt;legend class="legendalert-class"&gt;
+    Delineamento experimental
+  &lt;/legend&gt;
+  Forma como os níveis são designados a unidade experimental.
+&lt;/fieldset&gt;
+
+---
+
+# Análise de variância (ANOVA)
+
+- é uma análise baseado na decomposição da variabilidade total do experimento.
+
+&lt;br&gt;
+
+&lt;img src="figuras/comparacao1.jpg" width="75%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Análise de variância (ANOVA)
+
+- é uma análise baseado na decomposição da variabilidade total do experimento.
+
+&lt;img src="figuras/comparacao5.jpg" width="75%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Experimentos fatoriais
+
+- **Há** mais de um fator no experimento.
+
+--
+
+- Considerar experimentos com **dois** fatores. 
+
+&lt;br&gt;
+
+--
+
+- O modelo é dado por
+
+`$$y_{ijk}=\mu+\tau_i+\alpha_j+(\tau\alpha)_{ij}+e_{ijk}$$`
+com `\(i=1,\ldots,a\)`, `\(j=1,\ldots,b\)` e `\(k=1,\ldots,r\)`.
+
+---
+
+A estatística do teste é dada por
+
+&lt;table class=" lightable-classic lightable-striped lightable-hover" style='font-family: "Arial Narrow", "Source Sans Pro", sans-serif; margin-left: auto; margin-right: auto;'&gt;
+&lt;caption&gt;Esquema da tabela da ANOVA&lt;/caption&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Causa de variação &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Grau de liberdade &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Soma de quadrados &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Quadrado médio &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Estatística do teste &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; FatorA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; b-1 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; SQA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; QMA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; QMA/QMRes &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; FatorB &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; a-1 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; SQB &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; QMB &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; QMB/QMRes &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Interação &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; (a-1)(b-1) &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; SQInt &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; QMInt &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; QMInt/QMRes &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Resíduo &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; ab(r-1) &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; SQRes &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; QMRes &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; --- &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Total &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; abr-1 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; SQTotal &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; --- &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; --- &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+---
+
+# Roteiro da análise de variância
+
+.pull-left[
+]
+.pull-right[
+&lt;img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExMmZvYXZieWxqZnVrMmJucDlvNTF5ZjR4bjN2dHAwcmwyeDN3czI1YiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/HZrx8kjIA7lyeTqXVM/giphy.gif" width="75%" style="display: block; margin: auto;" /&gt;
+]
+
+- Declarar as hipóteses;
+
+--
+
+- Tabela da ANOVA;
+
+--
+
+- Verificação dos pressupostos;
+
+--
+
+- Teste de Tukey;
+
+--
+
+- Fazer as inferências.
+
+---
+
+# Exemplo
+
+Um pesquisador está conduzindo um experimento para investigar como diferentes tipos de fertilizantes e tipos de solo afetam a produção de biomassa de uma planta específica, com o intuito de otimizar o manejo agrícola e aumentar a produtividade. O estudo se concentra em três tipos de fertilizantes (A, B e C) e três tipos de solo (Areia, Argila e Silte). Para garantir a validade dos resultados e minimizar a influência de variáveis externas, o pesquisador utiliza um delineamento completamente aleatorizado. Nesse delineamento, cada combinação de fertilizante e tipo de solo é atribuída aleatoriamente a parcelas experimentais.
+
+---
+
+O procedimento experimental começa com a seleção das parcelas, onde o pesquisador identifica uma área homogênea de cultivo e divide-a em parcelas que são consideradas semelhantes em características como drenagem, exposição ao sol e nutrientes iniciais do solo. Em seguida, ele realiza a aleatorização, designando cada parcela aleatoriamente a um dos nove tratamentos. Para aumentar a robustez dos dados, o pesquisador faz quatro repetições de cada combinação de níveis.
+
+---
+
+Após um período de crescimento definido, o pesquisador mede a biomassa das plantas em gramas para cada combinação de níveis. Os dados coletados (biomassa.xlsx) incluem medidas de biomassa de todas as parcelas onde os tratamentos foram aplicados.
+
+---
+
+# Análise de variância
+
+✅ 1. Quais as hipóteses do experimento?
+
+✅ 2. Os pressupostos da ANOVA estão satisfeitos?
+
+✅ 3. Se os pressupostos estão satisfeitos, houve interação significativa?
+
+✅ 4. Se houve, há diferença significativa entre o tipo de solo em cada um dos níveis de fertilizante? E vice-versa? 
+
+✅ 5. Se não houve, há diferença significativa entre o tipo de solo? Há diferença significativa entre tipo de fertilizante?
+
+✅ 6. Qual fertilizante e solo são mais adequados para a biomassa da planta?
+
+---
+
+# Atividade
+
+No contexto da Engenharia Ambiental, a remoção de poluentes de corpos d'água é uma preocupação crescente, especialmente em áreas urbanas e industriais. Para investigar a eficiência de diferentes métodos de tratamento de água, foi realizado um experimento que avaliou como métodos de tratamento e temperaturas distintas afetam a remoção de poluentes em amostras de água contaminada.
+
+Os fatores considerados foram o método de tratamento: o Método Físico, que utiliza técnicas como filtração e sedimentação, e o Método Químico, que envolve o uso de reagentes para precipitar ou neutralizar poluentes. Além disso, foram testadas três temperaturas da água: baixa (15 oC), média (25 oC) e alta (35oC).
+
+---
+
+O experimento foi realizado com um delineamento completamente aleatorizado, onde cada combinação de método de tratamento e temperatura foi repetida cinco vezes.
+
+Os dados coletados refletem a quantidade de poluentes removidos em mg/L para cada combinação de níveis. Os resultados estão disponíveis no arquivo remocao_poluentes.xlsx.
+
+Com base nos dados coletados, o objetivo é realizar uma ANOVA de dois fatores para avaliar os efeitos do método de tratamento e da temperatura na remoção de poluentes.
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+  "highlightStyle": "github",
+  "highlightLines": false,
+  "countIncrementalSlides": false,
+  "slideNumberFormat": "%current%"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
