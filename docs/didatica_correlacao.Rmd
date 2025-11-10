@@ -72,25 +72,23 @@ knitr::include_graphics('https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExdHM4d
 
 # Introdução
 
+<br>
 
 &#128240; Tornado que atingiu o município de Rio Bonito do Iguaçu (PR)
 
-```{r , echo=FALSE, fig.align = 'center', out.width = '80%'}
-knitr::include_graphics('figuras/rio_bonito_nov2025.png')
+```{r , echo=FALSE, fig.align = 'center', out.width = '100%'}
+knitr::include_graphics('figuras/rio_bonito.png')
 ```
+
+
 Fonte: https://g1.globo.com/sp/campinas-regiao
 
 ---
-
 # Introdução
 
-- **Variáveis** associada à um fenômeno
-
---
-
-- Fazer uma **representação matemática**
-
-<center><small>variável resposta = variáveis explicativas + termo aleatório </small></center>
+```{r , echo=FALSE, fig.align = 'center', out.width = '100%'}
+knitr::include_graphics('figuras/variaveis.png')
+```
 
 ---
 
@@ -254,10 +252,10 @@ p3
 <fieldset class="fldsetblock-class">
   <legend class="legendblock-class">
   </legend>
-  Recentemente, um tornado com ventos de até 250 km/h atingiu a região de Rio Bonito. Pesquisadores registraram a velocidade do vento em diferentes pontos da cidade e estimaram o percentual de residências danificadas em cada local. 
+  Recentemente, um tornado com ventos de até 250 km/h atingiu a região de Rio Bonito. Suponha que pesquisadores registraram a velocidade do vento em diferentes pontos da cidade e estimaram o percentual de residências danificadas em cada local. 
 </fieldset>
 
-Utilizando os dados da Tabela 1
+Utilizando os dados simulados da Tabela 1
 
 &#9744; Construa um gráfico de dispersão, colocando a velocidade do vento no eixo $x$ e os danos em residências no eixo $y$.
 
@@ -282,12 +280,31 @@ Utilizando os dados da Tabela 1
 
 # Exercício 🌪️ - Resolução
 
+```{r, out.width="60%",fig.align='center',fig.cap='Diagrama de dispersão'}
+
+velocidade <- c(180,200,220,230,240,250)
+danos <- c(10,25,40,50,70,85)
+
+df_vento <- data.frame(velocidade, danos)
+
+df_vento |> 
+  ggplot() +
+  aes(x = velocidade, y = danos) +
+  geom_point(size = 8) +
+  labs(x = 'Velocidade do vento (km/h)', 
+       y = 'Danos em residências (%)') +
+  theme(axis.title = element_text(size=30),
+        axis.text = element_text(size=30))
+```
+
 ---
 
 # Correlação
 
-```{r, out.width="60%",fig.align='center'}
-p1
+<br>
+
+```{r,echo=FALSE, fig.align='center', out.width='100%'}
+knitr::include_graphics('figuras/cor1.png')
 ```
 
 ---
@@ -342,18 +359,27 @@ knitr::include_graphics('figuras/cor_vs_casual.png')
 
 # Correlação - exercício 🌪
 
-Com base nos dados de velocidade do vento e percentual de residências danificadas nos diferentes pontos da cidade de Rio Bonito, calcule o coeficiente de correlação de Pearson e interprete.
+Com base nos dados simulados de velocidade do vento e percentual de residências danificadas nos diferentes pontos da cidade de Rio Bonito, calcule o coeficiente de correlação de Pearson e interprete.
+
+---
+
+# Exercício 🌪️ - Resolução
+
+```{r , echo=FALSE, fig.align = 'center', out.width = '100%'}
+knitr::include_graphics('figuras/tab_auxiliar.png')
+```
 
 ---
 
 #Fechamento
 
-Sequencia cronologica das atividades
+```{r , echo=FALSE, fig.align = 'center', out.width = '80%'}
+knitr::include_graphics('figuras/tempo.png')
+```
 
 ---
 
 #Fechamento
-
 
 "O olhar estatístico é o primeiro passo para compreender fenômenos ambientais. O diagrama de dispersão e o coeficiente de correlação nos ajudam a enxergar padrões escondidos nos dados."
 
