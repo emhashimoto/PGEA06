@@ -13,9 +13,15 @@
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
+.title[
 # PGEA06 - Estatística Aplicada
-## Aula 06 - Modelo de regressão linear
+]
+.subtitle[
+## Análise de agrupamento
+]
+.author[
 ### Elizabeth Mie Hashimoto <br> DAMAT-LD
+]
 
 ---
 
@@ -33,151 +39,123 @@ div {
 }
 &lt;/style&gt;
 
-# Análise de regressão
+&lt;style type="text/css"&gt;
+.remark-slide-content {
+    font-size: 30px;
+}
+&lt;/style&gt;
 
---
+# Análise de agrupamentos
 
-* coleção de ferramentas estatísticas para modelar e explorar a relação entre duas ou mais variáveis.
+- Técnica estatística multivariada
 
---
-
-  - Relação de **causa e efeito**: planejamento de experimentos
-
-&lt;br&gt;
---
-
-&lt;div class="warning" style='padding:0.1em; background-color:#E9D8FD; color:#69337A'&gt;
-&lt;span&gt;
-&lt;p style='margin-top:1em; text-align:center'&gt;
-&lt;b&gt;Exemplo&lt;/b&gt;&lt;/p&gt;
-&lt;p style='margin-left:1em;'&gt;
-&lt;/p&gt;
-&lt;/span&gt;
-&lt;/div&gt;
-Um artigo no *Journal of Environmental Engineering Division* tomou uma amostra do rio Holson abaixo de Kingport, Tennessee, durante o mês de agosto de 1977. O  teste de demanda bioquímica de oxigênio (DBO) é conduzido durante um período de tempo dado em dias. Os dados resultantes são mostrados a seguir:
-
-- **Tempo (dias):** 1, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20
-
-- **DBO (mg/litro):** 0,6; 0,7; 1,5; 1,9; 2,1; 2,6; 2,9; 3,7; 3,5; 3,7; 3,8
+&lt;img src="figuras/objetos.png" width="80%" style="display: block; margin: auto;" /&gt;
 
 ---
 
-&lt;img src="pgea06_aula06_files/figure-html/unnamed-chunk-1-1.png" style="display: block; margin: auto;" /&gt;
+# Análise de agrupamentos
 
+- Técnica estatística multivariada
 
----
-
-# Coeficiente de correlação
-
-* medida de associação **linear** entre duas variáveis.
-
---
-
-* os valores pertencem ao intervalo `\([-1,1]\)`.
+&lt;img src="figuras/grupos.png" width="90%" style="display: block; margin: auto;" /&gt;
 
 ---
 
-# Modelo de regressão linear
+# Razões para fazer agrupamentos
 
-&lt;img src="pgea06_aula06_files/figure-html/unnamed-chunk-2-1.png" style="display: block; margin: auto;" /&gt;
+- Identificar regiões com características ambientais semelhantes
+
+&lt;img src="figuras/areas.png" width="90%" style="display: block; margin: auto;" /&gt;
 
 ---
 
-* **Simples**: apenas uma variável explicativa.
+- Identificar grupos de espécies que compartilham preferências de habitat semelhantes
 
-`$$y_i=\beta_0+\beta_1x_i+e_i$$`
+&lt;img src="figuras/animais.png" width="90%" style="display: block; margin: auto;" /&gt;
 
-&lt;br&gt;
+---
 
---
+- Identificar áreas prioritárias para a conservação de biodiversidade ou para o controle de poluição.
 
-* **Múltipla**: mais de uma variável explicativa.
+&lt;img src="figuras/areas.png" width="90%" style="display: block; margin: auto;" /&gt;
 
-`$$y_i=\beta_0+\beta_1x_{1i}+\ldots+\beta_px_{pi}+e_i$$`
+---
 
-&lt;br&gt;
+# Algoritmos de agrupamentos
 
---
+- **Método hierárquico**
 
-  - **Observação**: método de *stepwise* para seleção de variáveis
+  + não precisa especificar o número de grupos
+  
+&lt;img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExdzByeXR1emZyMW12MDhodnViZjd1eWlpeXJ5MmZuYmtrdXU0ajJtdCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l6Sn8PdGcJmhhGtg5A/giphy.gif" width="50%" style="display: block; margin: auto;" /&gt;
   
 ---
 
-# Adequação do modelo
+# Algoritmos de agrupamentos
 
-* Um modelo de regressão linear faz várias suposições sobre os dados, como:
+- **Método hierárquico**
+  
+  + calcular uma distância
+  
+&lt;img src="figuras/distancia.png" width="45%" style="display: block; margin: auto;" /&gt;
+  
+---
 
---
+# Algoritmos de agrupamentos
 
-  - **Linearidade dos dados**. 
+- **Método hierárquico**
   
---
+  + vários métodos de ligação
   
-  - **Normalidade dos resíduos**. 
+&lt;img src="figuras/pontos_juntos.png" width="45%" style="display: block; margin: auto;" /&gt;
   
---
-  
-  - **Homogeneidade da variância dos resíduos**. 
-  
---
-  
-  - **Independência** dos termos de erro dos resíduos.
-  
---
+---
 
-&lt;br&gt;
+# Algoritmos de agrupamentos
 
-**Checar** todas as essas suposições garantem a adequação do modelo a um conjunto de dados.
+- **Método hierárquico**
+  
+  + dendograma
+  
+&lt;img src="figuras/dendograma.png" width="60%" style="display: block; margin: auto;" /&gt;
+  
+---
+
+# Exemplo
+
+O objetivo deste exercício é realizar uma análise de agrupamento entre diferentes cidades, agrupando-as de acordo com cinco variáveis ambientais e urbanísticas: a quantidade de partículas finas de PM 2,5, a área verde disponível, a temperatura média anual, a área desmatada e o consumo médio de água.
+
+- dados: dados_cidades
 
 ---
 
-# Atividade 6
+# Análise de agrupamentos
 
-A energia elétrica consumida mensalmente por uma indústria química está relacionada com a temperatura média ambiente, o número de dia no mês, a pureza média do produto e as toneladas do produto produzido. Os dados históricos do ano passado estão disponíveis na planilha eletrônica energia_eletrica.xlsx.
+✅ 1. Quais cidades são parecidas e formam grupos?
 
+✅ 2. Quais variáveis mais influenciam a formação dos clusters? (Utilize os valores médios observados em cada cluster)
 
-```r
-library(readxl)
-dados &lt;- read_excel('energia_eletrica.xlsx')
-plot(dados)
-```
+✅ 3. Comparação entre grupos (melhor, pior e intermediário).
 
----
-
-&lt;img src="pgea06_aula06_files/figure-html/unnamed-chunk-4-1.png" style="display: block; margin: auto;" /&gt;
-
+✅ 4. Padrões ambientais regionais que podem orientar políticas públicas, ou seja, os clusters indicam quais tipos de cidades?
 
 ---
 
-# Exercício
+# Atividade
 
-Faça uma análise de regressão considerando os dados de adesão de fio que são referentes resistência à tração (variável resposta) de um fio colado, em um processo de fabricação de semicondutores. As variáveis explicativas são: comprimento do fio e altura da garra. 
+Você é um pesquisador em Ciências Ambientais, envolvido em um estudo para classificar diferentes tipos de florestas em uma região com base em atributos ecológicos. Para isso, você possui um conjunto de dados simulados que descrevem várias características ambientais de 37 áreas florestais.
 
-Os dados estão disponíveis na planilha eletrônica adesao_fio.xlsx
+As variáveis incluem características como densidade de árvores, taxa de crescimento, espécies dominantes, umidade do solo, temperatura média e acidez do solo. A partir desses dados, seu objetivo é aplicar um algoritmo de agrupamento para identificar as florestas que são semelhantes.
 
-
----
-
-# Próxima aula
-
-.pull-left[
-
-&amp;#10004; Leitura Capítulo 13
-
-]
-
-.pull-right[
-&lt;img src="figuras/mont7.png" width="65%" style="display: block; margin: auto;" /&gt;
-]
-
+- dados: dados_florestas
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script>var slideshow = remark.create({
-"highlightStyle": "github",
-"highlightLines": false,
-"countIncrementalSlides": false,
-"slideNumberFormat": "%current%"
+  "highlightStyle": "github",
+  "highlightLines": false,
+  "countIncrementalSlides": false,
+  "slideNumberFormat": "%current%"
 });
 if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   window.dispatchEvent(new Event('resize'));
@@ -218,6 +196,19 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     deleted = true;
   });
 })();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
 (function() {
   "use strict"
   // Replace <script> tags in slides area to make them executable

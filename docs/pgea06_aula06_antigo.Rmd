@@ -1,0 +1,204 @@
+---
+title: "PGEA06 - Estatística Aplicada"
+subtitle: "Aula 06 - Modelo de regressão linear" 
+author: "Elizabeth Mie Hashimoto <br> DAMAT-LD"
+output:
+  xaringan::moon_reader:
+    css: [metropolis, metropolis-fonts, tema_pgea06.css]
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: false
+      countIncrementalSlides: false
+      slideNumberFormat: "%current%"
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(echo = FALSE, 
+                      comment = '',
+                      message = FALSE,
+                      warning = FALSE)
+```
+<style> 
+#caixa {
+  border: 1px solid;
+  padding: 10px;
+  box-shadow: 5px 10px blue;
+}
+div {
+  text-align: justify;
+  text-justify: inter-word;
+}
+</style>
+
+# Análise de regressão
+
+--
+
+* coleção de ferramentas estatísticas para modelar e explorar a relação entre duas ou mais variáveis.
+
+--
+
+  - Relação de **causa e efeito**: planejamento de experimentos
+
+<br>
+--
+
+<div class="warning" style='padding:0.1em; background-color:#E9D8FD; color:#69337A'>
+<span>
+<p style='margin-top:1em; text-align:center'>
+<b>Exemplo</b></p>
+<p style='margin-left:1em;'>
+</p>
+</span>
+</div>
+Um artigo no *Journal of Environmental Engineering Division* tomou uma amostra do rio Holson abaixo de Kingport, Tennessee, durante o mês de agosto de 1977. O  teste de demanda bioquímica de oxigênio (DBO) é conduzido durante um período de tempo dado em dias. Os dados resultantes são mostrados a seguir:
+
+- **Tempo (dias):** 1, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20
+
+- **DBO (mg/litro):** 0,6; 0,7; 1,5; 1,9; 2,1; 2,6; 2,9; 3,7; 3,5; 3,7; 3,8
+
+---
+
+```{r, fig.align='center'}
+x<-c(1,seq(2,20,2))
+dbo <- c(0.6,0.7,1.5,1.9,2.1,2.6,2.9,3.7,3.5,3.7,3.8)
+
+dados <- data.frame(tempo=x,dbo)
+library(tidyverse)
+
+dados |> 
+  ggplot() +
+  aes(x=tempo, y=dbo) +
+  geom_point(size=3.5) +
+  labs(x='Tempo (dias)', y='Demanda bioquímia de oxigêngio (mg/litro)')
+```
+
+
+---
+
+# Coeficiente de correlação
+
+* medida de associação **linear** entre duas variáveis.
+
+--
+
+* os valores pertencem ao intervalo $[-1,1]$.
+
+---
+
+# Modelo de regressão linear
+
+```{r, fig.align='center'}
+x<-c(1,seq(2,20,2))
+dbo <- c(0.6,0.7,1.5,1.9,2.1,2.6,2.9,3.7,3.5,3.7,3.8)
+
+dados <- data.frame(tempo=x,dbo)
+library(tidyverse)
+
+model <- lm(dbo~tempo, data = dados)
+
+dados |> 
+  ggplot() +
+  aes(x=tempo, y=dbo) +
+  geom_point(size=3.5) +
+  labs(x='Tempo (dias)', y='Demanda bioquímia de oxigêngio (mg/litro)') +
+  stat_smooth(method = lm, se = FALSE) +
+  geom_segment(aes(xend = tempo, yend = fitted(model)), color = "red", size = 0.3)
+```
+
+---
+
+* **Simples**: apenas uma variável explicativa.
+
+$$y_i=\beta_0+\beta_1x_i+e_i$$
+
+<br>
+
+--
+
+* **Múltipla**: mais de uma variável explicativa.
+
+$$y_i=\beta_0+\beta_1x_{1i}+\ldots+\beta_px_{pi}+e_i$$
+
+<br>
+
+--
+
+  - **Observação**: método de *stepwise* para seleção de variáveis
+  
+---
+
+# Adequação do modelo
+
+* Um modelo de regressão linear faz várias suposições sobre os dados, como:
+
+--
+
+  - **Linearidade dos dados**. 
+  
+--
+  
+  - **Normalidade dos resíduos**. 
+  
+--
+  
+  - **Homogeneidade da variância dos resíduos**. 
+  
+--
+  
+  - **Independência** dos termos de erro dos resíduos.
+  
+--
+
+<br>
+
+**Checar** todas as essas suposições garantem a adequação do modelo a um conjunto de dados.
+
+---
+
+# Atividade 6
+
+A energia elétrica consumida mensalmente por uma indústria química está relacionada com a temperatura média ambiente, o número de dia no mês, a pureza média do produto e as toneladas do produto produzido. Os dados históricos do ano passado estão disponíveis na planilha eletrônica energia_eletrica.xlsx.
+
+```{r, echo=TRUE, eval=FALSE}
+library(readxl)
+dados <- read_excel('energia_eletrica.xlsx')
+plot(dados)
+```
+
+---
+
+```{r, fig.align='center'}
+library(readxl)
+dados <- read_excel('energia_eletrica.xlsx')
+plot(dados)
+```
+
+
+---
+
+# Exercício
+
+Faça uma análise de regressão considerando os dados de adesão de fio que são referentes resistência à tração (variável resposta) de um fio colado, em um processo de fabricação de semicondutores. As variáveis explicativas são: comprimento do fio e altura da garra. 
+
+Os dados estão disponíveis na planilha eletrônica adesao_fio.xlsx
+
+
+---
+
+# Próxima aula
+
+.pull-left[
+
+&#10004; Leitura Capítulo 13
+
+]
+
+.pull-right[
+```{r,echo=FALSE, fig.align='center', out.width='65%'}
+knitr::include_graphics('figuras/mont7.png')
+```
+]
+
