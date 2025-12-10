@@ -1,0 +1,46 @@
+.reveal .slide-logo {
+  display: block;
+  position: fixed;
+  bottom: 5px;
+  right: unset !important;
+  top: unset !important;
+  left: 12px;
+  height: 30px !important;
+  width: 30x !important;
+  max-width: unset !important;
+  max-height: unset !important;
+}
+
+#title-slide .title {
+  font-size: 60pt;
+  font: bold;
+}
+
+.meubox {
+  background: #e8f2ff;
+  border: 1px solid #bcd8ff;
+  border-radius: 6px;
+  margin: 16px 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+  overflow: hidden;
+}
+
+.meubox-title {
+  background: #0056b3;
+  color: white;
+  padding: 6px 12px;
+  font-weight: bold;
+  font-size: 1.05em;
+}
+
+.meubox-content {
+  padding: 12px;
+}
+
+.meubox-lilas {
+  background: #faf3ff;
+  border-left: 5px solid #9b4de0;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
