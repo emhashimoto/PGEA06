@@ -116,29 +116,31 @@ knitr::include_graphics('https://media.giphy.com/media/ne0ozzSO13QhNZDSRo/giphy.
 
 # Previsão dos conteúdos &#128197;
 
-- **10/10**: Apresentação da disciplina. Aplicação de questionário. Revisão dos conceitos básicos. 
+- **13/03**: Apresentação da disciplina. Aplicação de questionário. Revisão dos conceitos básicos. 
 
-- **17/10**: Intervalo de confiança para uma amostra. Teste de hipótese para duas amostras.
+- **20/03**: Intervalo de confiança para uma amostra. Teste de hipótese para duas amostras.
 
-- **24/10**: Modelo de regressão linear simples e múltiplo.  
+- **27/03**: Modelo de regressão linear simples e múltiplo.  
 
-- <span style="color:red">**31/10**</span>: Representação gráfica.
+- **~~03/04~~**: Recesso.
 
-- **07/11**: Análise de variância.
+- **10/04**: Análise de variância.
 
-- **14/11**: Análise de agrupamentos. Modelo de classificação.
+- **17/04**: Análise de agrupamentos.
+
+- **24/04**: Elaboração do resumo expandido. 
 
 ---
 
-- **~~21/11~~**: Recesso
+- **~~01/05~~**: Recesso.
 
-- **28/11**: Elaboração do resumo expandido.
+- **08/05**: Elaboração do resumo expandido.
 
-- **05/12**: Elaboração do resumo expandido.
+- **15/05**: Elaboração do resumo expandido.
 
-- **12/12**: Elaboração do resumo expandido.
+- **22/05**: Entrega do resumo expandido.
 
-- **19/12**: Avaliação de recuperação.
+- **29/05**: Avaliação de recuperação.
 
 ```{r , echo=FALSE, fig.align = 'right', out.width = '30%'}
 knitr::include_graphics('https://media.giphy.com/media/H8mFOgIyWfFpWmJl9U/giphy.gif')
@@ -236,51 +238,24 @@ em que $NRec$ é a nota da prova de recuperação.
 
 ---
 
-#Laboratório de informática &#128187;
+#Sala virtual &#128187;
 
 &#10004; Tolerância de 5 minutos.
 
 <br>
 --
-&#10004; Não usar o celular. Em caso de urgência, pode retirar-se da sala para fazer a ligação ou atender a uma chamada. 
+&#10004; Quando for tirar alguma dúvida ou conversar, ligar a câmera. 
 
 <br>
 --
-&#10004; Não acessar *sites* que não estejam relacionados a disciplina.
+&#10004; Usar a mão levanta, quando quiser tirar alguma dúvida.
 
 <br>
 --
 &#10004; Se precisar faltar por motivo de força maior, estudar o conteúdo perdido antes da próxima aula.
 
----
+<br>
+--
 
-&#10004; *Software* livre Jamovi.
+&#10004; Dexiar o *Software* livre Jamovi aberto.
 
----
-
-# Moodle &#127891;
-
-&#10004; <https://moodle.utfpr.edu.br/login/index.php>
-
-&#10004; Londrina - Pós graduação: mestrado - Mestrado em Engenharia Ambiental
-
-
-&#10004; Disciplina: 2025 - Estatística Aplicada
-
-&#10004; Senha: PGEA06
-
-```{r , echo=FALSE, fig.align = 'right', out.width = '30%'}
-knitr::include_graphics('https://media.giphy.com/media/IoP0PvbbSWGAM/giphy.gif')
-```
-
-<!--
-# Questionário &#128221;
-
-- Acessar o moodle e responder um questionário.
-
-```{r, eval=TRUE}
-countdown::countdown(minutes = 15, seconds = 0, 
-          top = 0, right = 0,
-          font_size = "3em")
-```
--->

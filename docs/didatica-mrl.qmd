@@ -30,10 +30,9 @@ from: markdown+emoji
 ## Objetivo da Aula
 
 ::: {.callout-tip appearance="simple"}
-- Apresentar os conceitos de regressão linear simples.
+-   Apresentar os conceitos de regressão linear simples.
 
-- Demonstrar a obtenção dos estimadores
-dos parâmetros por meio do método de mínimos quadrados.
+-   Demonstrar a obtenção dos estimadores dos parâmetros por meio do método de mínimos quadrados.
 :::
 
 ## Motivação
@@ -44,20 +43,19 @@ dos parâmetros por meio do método de mínimos quadrados.
 knitr::include_graphics('figuras/noticia.png')
 ```
 
----
+------------------------------------------------------------------------
 
-- **Mês passado**
+-   **Mês passado**
 
-&#128240; Tornado que atingiu o município de Rio Bonito do Iguaçu (PR)
+:newspaper: Tornado que atingiu o município de Rio Bonito do Iguaçu (PR)
 
 ```{r , echo=FALSE, fig.align = 'center', out.width = '100%'}
 knitr::include_graphics('figuras/rio_bonito.png')
 ```
 
-
 Fonte: https://g1.globo.com/sp/campinas-regiao
 
----
+------------------------------------------------------------------------
 
 ```{r , echo=FALSE, fig.align = 'center', out.width = '100%'}
 knitr::include_graphics('figuras/variaveis.png')
@@ -65,17 +63,20 @@ knitr::include_graphics('figuras/variaveis.png')
 
 <br>
 
-::: {.incremental}
-- Fenômenos aleatório $\longrightarrow$ expressão matemática
+::: incremental
+-   Fenômenos aleatório $\longrightarrow$ expressão matemática
 :::
 
----
+------------------------------------------------------------------------
 
-::: {.meubox}
-<div class="meubox-title">Análise de regressão</div>
-<div class="meubox-content">
+::: meubox
+::: meubox-title
+Análise de regressão
+:::
+
+::: meubox-content
 Conjunto de técnicas estatísticas aplicadas na investigação e modelagem da relação entre variáveis.
-</div>
+:::
 :::
 
 <br>
@@ -84,17 +85,17 @@ Conjunto de técnicas estatísticas aplicadas na investigação e modelagem da r
 
 Os dois principais objetivos da análise são:
 
-::: {.incremental}
-- avaliar o efeito (ou relação) entre as variáveis;
+::: incremental
+-   avaliar o efeito (ou relação) entre as variáveis;
 
-- predizer valores não observados.
+-   predizer valores não observados.
 :::
 
 # Definição
 
 ## Ajustar um modelo
 
-... *descrever* a relação entre as variáveis $X$ e $Y$ 
+... *descrever* a relação entre as variáveis $X$ e $Y$
 
 ```{r}
 #| echo: false
@@ -103,6 +104,7 @@ Os dois principais objetivos da análise são:
 #| 
 library(ggplot2)
 library(fivethirtyeight)
+library(gganimate)
 
 movie_scores <- fandango |> 
   dplyr::rename(
@@ -127,7 +129,7 @@ p <- movie_scores |>
 p
 ```
 
-::: {.panel-tabset}
+::: panel-tabset
 ## Figura
 
 ```{r}
@@ -139,7 +141,7 @@ p
 
 ## R
 
-``` {.r}
+``` r
 movie_scores |> 
   ggplot() +
   aes(x = critics, y = audience) +
@@ -150,7 +152,6 @@ movie_scores |>
     y = "Variável y"
     )
 ```
-
 :::
 
 ## Notação
@@ -159,7 +160,7 @@ movie_scores |>
 ::: {.column width="40%"}
 -   **Y**: variável resposta
 
--   **x**: variável explicativa 
+-   **x**: variável explicativa
 :::
 
 ::: {.column width="60%"}
@@ -285,10 +286,10 @@ ggplot(data = movie_scores,
   )
 ```
 
----
+------------------------------------------------------------------------
 
-::: {.meubox-lilas}
-***Resíduo** *
+::: meubox-lilas
+***Resíduo***
 :::
 
 <br>
@@ -314,15 +315,13 @@ ggplot(data = movie_scores, mapping = aes(x = critics, y = audience)) +
   theme(legend.position = "none")
 ```
 
-$$\text{resíduo} = \text{valor observado} - \text{valor predito} = y - \hat{y}$$
----
+## $$\text{resíduo} = \text{valor observado} - \text{valor predito} = y - \hat{y}$$
 
-::: {.meubox-lilas}
-***Método de mínimos quadrados** *
+::: meubox-lilas
+***Método de mínimos quadrados***
 :::
 
-
-- O resíduo da $i$-ésima observação é dado por
+-   O resíduo da $i$-ésima observação é dado por
 
 $$e_i = \text{valor observado} - \text{varlo predito} = y_i - \hat{y}_i$$
 
@@ -330,10 +329,9 @@ $$e_i = \text{valor observado} - \text{varlo predito} = y_i - \hat{y}_i$$
 
 $$e^2_1 + e^2_2 + \dots + e^2_n$$
 
--   O método de mínimos quadrados baseia-se na determinação de $\beta_0$ e $\beta_1$
-tal que a soma de quadrados dos resíduos seja mínima.
+-   O método de mínimos quadrados baseia-se na determinação de $\beta_0$ e $\beta_1$ tal que a soma de quadrados dos resíduos seja mínima.
 
----
+------------------------------------------------------------------------
 
 $$\frac{\partial S}{\partial\beta_0}=-2\sum_{i=1}^{n}(y_i-\hat{\beta}_0-\hat{\beta}_1x_i)=0$$
 
@@ -350,22 +348,22 @@ xbar <- round(mean(movie_scores$critics), 4)
 ybar <- round(mean(movie_scores$audience), 4)
 ```
 
-## Exercício 🌪️
+## Exercício :tornado:
 
 Recentemente, um tornado com ventos de até 250 km/h atingiu a região de Rio Bonito. Suponha que pesquisadores registraram a velocidade do vento em diferentes pontos da cidade e estimaram o percentual de residências danificadas em cada local. Os dados simulados são apresentados na Tabela 1.
 
----
+------------------------------------------------------------------------
 
 **Tabela 1** - Velocidade do vento e percentual de residências danificadas em diferentes pontos da cidade de Rio Bonito.
 
 | Local | Velocidade do vento (km/h) | Danos em residências (%) |
-| :---- | :------------------------: | :----------------------: |
-| A     |             180            |            10            |
-| B     |             200            |            25            |
-| C     |             220            |            40            |
-| D     |             230            |            50            |
-| E     |             240            |            70            |
-| F     |             250            |            85            |
+|:------|:--------------------------:|:------------------------:|
+| A     |            180             |            10            |
+| B     |            200             |            25            |
+| C     |            220             |            40            |
+| D     |            230             |            50            |
+| E     |            240             |            70            |
+| F     |            250             |            85            |
 
 Estimar o modelo de regressão linear simples.
 
@@ -418,7 +416,7 @@ df_vento |>
 :::
 :::
 
----
+------------------------------------------------------------------------
 
 ```{r}
 #| echo: true
@@ -431,8 +429,7 @@ fit
 
 <br>
 
-:::: {.columns}
-
+::: columns
 ::: {.column width="50%"}
 ```{r,echo=FALSE, fig.align='center', out.width='65%'}
 knitr::include_graphics('figuras/reg1.jpg')
@@ -444,15 +441,13 @@ knitr::include_graphics('figuras/reg1.jpg')
 knitr::include_graphics('figuras/reg2.jpg')
 ```
 :::
-
-::::
+:::
 
 ## Atividade prática
 
 <br>
 
-- Abram a plataforma
-
+-   Abram a plataforma
 
 ```{r,echo=FALSE, fig.align='center', out.width='48%'}
 knitr::include_graphics('figuras/moodle.png')
