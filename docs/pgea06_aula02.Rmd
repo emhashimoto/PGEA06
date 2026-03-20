@@ -68,25 +68,21 @@ Vamos calcular a DAP **média**.
 
 ---
 
-# Aplicações de intervalo de confiança
-
-```{r , echo=FALSE, fig.align = 'right', out.width = '60%'}
-knitr::include_graphics('https://media.giphy.com/media/TKNGghpLhaz9XH1tSj/giphy.gif')
-```
-
----
-
 # Suposição dos dados
 
 $$f(x)=\frac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac{1}{2\sigma^2}(x-\mu)^2}, \quad x\in \mathbf{R}$$
 
-```{r, fig.align='center', out.width = '50%'}
+```{r, fig.align='center', out.width = '50%', eval=FALSE}
 set.seed(4102024)
 x <- rnorm(300,10,2)
 #hist(x, main='',probability = TRUE)
 x0 <- sort(x)
 plot(x0,dnorm(x0,10,2),lwd=2,col='red',
      type='l')
+```
+
+```{r , echo=FALSE, fig.align = 'center', out.width = '50%'}
+knitr::include_graphics('https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExdDA1dnFwbGRuajUyZGlld2V5dm5ucjA4djRicWdiNDFqN2o3ODZhZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/MpInizA3qTMYPEDwHx/giphy.gif')
 ```
 
 ---
@@ -108,9 +104,11 @@ knitr::include_graphics('figuras/IC_coeficiente.jpg')
 
 ---
 
-# Teste de hipótess
+# Motivação
 
-- **Comparar**
+- **Comparar dois grupos**
+
+--
 
 .pull-left[
 ```{r , echo=FALSE, fig.align = 'center', out.width = '60%'}
@@ -118,26 +116,50 @@ knitr::include_graphics('https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExcml5OWt3Z3
 ```
 ]
 .pull-right[
-```{r , echo=FALSE, fig.align = 'center', out.width = '85%'}
+```{r , echo=FALSE, fig.align = 'center', out.width = '75%'}
 knitr::include_graphics('https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExMjYzZGE3aTFzajN6c2x5ZmFkYXFxYXZsOWxnYjhnZjAyMGphY2k3NyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/UxTZDNv0Zej4s/giphy.gif')
 ```
 ]
 
 --
 
-- Ferramenta que permite a tomada de decisões informadas com base em dados.
+- Em qual dos locais há maior concentração de poluentes?
+
+```{r , echo=FALSE, fig.align = 'center', out.width = '30%'}
+knitr::include_graphics('https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExeG9wa2p5emoxZm1kYW5kajBqNDc2eTQ2Znk3MWozemZ3cmF0ejk0dCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Lk5BzpifzeI3KYm7n0/giphy.gif')
+```
+
+---
+
+# Teste de hipótese
+
+🧰 Fixando uma probabilidade, permite a tomada de decisões com base **científica**.
+
+
+```{r , echo=FALSE, fig.align = 'center', out.width = '40%'}
+knitr::include_graphics('https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExbnl5am40aG5meHhmenJ3NzJhNW16Z3JhZnI3Y2NwZmllbGE3cXdmYyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/dBVjLe3lwfczBgY1M7/giphy.gif')
+```
+
+---
+
+# Aplicações
+
+```{r , echo=FALSE, fig.align = 'right', out.width = '60%'}
+knitr::include_graphics('https://media.giphy.com/media/TKNGghpLhaz9XH1tSj/giphy.gif')
+```
+
 ---
 
 # Roteiro de teste de hipótese
 
 - Definir as hipóteses:
   
-  - Hipótese nula: $H_0$
-  - Hipótese alternativa: $H_1$
+  - Hipótese nula
+  - Hipótese alternativa
 
 --
 
-- Fixar o nível de significância: $\alpha$
+- Fixar o nível de significância: 
 
 --
 
@@ -145,9 +167,7 @@ knitr::include_graphics('https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExMjYzZGE3aT
 
   - rejeitar $H_0$ se $p$-valor for menor do que $\alpha$
 
---
-
-- Calcular a estatística do teste
+<br>
 
 --
 
@@ -159,57 +179,7 @@ knitr::include_graphics('https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNGtnMW
 
 ---
 
-# Suposição das amostras
-
-$$f(x)=\frac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac{1}{2\sigma^2}(x-\mu)^2}, \quad x\in \mathbf{R}$$
-
-```{r, fig.align='center', out.width = '50%'}
-set.seed(4102024)
-x <- rnorm(300,10,2)
-#hist(x, main='',probability = TRUE)
-x0 <- sort(x)
-plot(x0,dnorm(x0,10,2),lwd=2,col='red',
-     type='l')
-```
-
----
-
-# Teste de normalidade
-
-As hipóteses são
-
-- $H_0$: os dados seguem distribuição normal
-
-- $H_1$: os dados seguem outra distribuição
-
----
-
-# Teste de hipótese - duas amostras
-
---
-
-&#127919; Fazer **Comparações** entre os grupos
-
-```{r , echo=FALSE, fig.align = 'center', out.width = '40%'}
-knitr::include_graphics('https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExeG9wa2p5emoxZm1kYW5kajBqNDc2eTQ2Znk3MWozemZ3cmF0ejk0dCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Lk5BzpifzeI3KYm7n0/giphy.gif')
-```
-
---
-
-$H_0$: não há diferença significativa 
-
-$H_1$: há diferença significativa
----
-
-# Aplicações
-
-```{r , echo=FALSE, fig.align = 'right', out.width = '60%'}
-knitr::include_graphics('https://media.giphy.com/media/TKNGghpLhaz9XH1tSj/giphy.gif')
-```
-
----
-
-# Teste de hipótese - duas amostras
+# Características das amostras
 
 - **Independentes**
 
@@ -232,8 +202,6 @@ knitr::include_graphics('https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExd21icj
 ]
 
 ---
-
-# Teste de hipótese - duas amostras
 
 - **Dependentes**
 
@@ -258,8 +226,6 @@ knitr::include_graphics('https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExb3hhcH
 
 ---
 
-# Teste de hipótese - duas amostras
-
 - **Dependentes**
 
 
@@ -278,6 +244,50 @@ knitr::include_graphics('https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExd21icj
 knitr::include_graphics('https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExd21icjI0dnNkN3Njd2VuaGZ5NmRncXR3bTNpMmJxajN1c2VwbjI2dCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/pwZCIhxJpVyicimiol/giphy.gif')
 ```
 ]
+
+
+---
+
+# Suposição das amostras
+
+$$f(x)=\frac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac{1}{2\sigma^2}(x-\mu)^2}, \quad x\in \mathbf{R}$$
+
+```{r, fig.align='center', out.width = '50%', eval=FALSE}
+set.seed(4102024)
+x <- rnorm(300,10,2)
+#hist(x, main='',probability = TRUE)
+x0 <- sort(x)
+plot(x0,dnorm(x0,10,2),lwd=2,col='red',
+     type='l')
+```
+
+```{r , echo=FALSE, fig.align = 'center', out.width = '50%'}
+knitr::include_graphics('https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExdDA1dnFwbGRuajUyZGlld2V5dm5ucjA4djRicWdiNDFqN2o3ODZhZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/MpInizA3qTMYPEDwHx/giphy.gif')
+```
+
+---
+
+# Teste de normalidade
+
+- As hipóteses são
+
+$H_0$: os dados seguem distribuição normal
+
+$H_1$: os dados seguem outra distribuição
+
+--
+
+- Fixar o nível de significância: 
+
+--
+
+- Definir o critério de rejeição:
+
+  - rejeitar $H_0$ se $p$-valor for menor do que $\alpha$
+
+--
+
+- Conclusão
 
 ---
 
