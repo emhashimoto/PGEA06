@@ -52,7 +52,7 @@ knitr::include_graphics('https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNmlqY3
 
 - Fazer uma **representação matemática**
 
-<center><small>variável resposta = variáveis explicativas + termo aleatório </small></center>
+<br>
 
 ---
 
@@ -268,8 +268,6 @@ O objetivo é ajustar um modelo de regressão linear múltipla para investigar d
 ✅ 4. De que forma as variáveis explicativas influenciam a taxa de decomposição da matéria orgânica?
 
 ✅ 5. Quais condições favorecem uma maior taxa de decomposição?
-
-✅ 6. Como esse resultado pode auxiliar na compreensão da dinâmica do solo e no manejo sustentável?
 
 ---
 
